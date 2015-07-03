@@ -1,3 +1,6 @@
+#ifndef LOGGER_H
+#define LOGGER_H
+
 /**
  * GNU GENERAL PUBLIC LICENSE
  * Version 3, 29 June 2007
@@ -134,3 +137,5 @@ namespace SSR
   };
 
 }
+
+#endif
