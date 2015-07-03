@@ -1,0 +1,26 @@
+## Object Files
+*.o
+*.so
+*.asd
+
+# Debug Files
+*.d
+
+## IDE ignores
+.idea
+.cproject
+.project
+.settings
+.settings/*
+
+## Documentation ignores
+/ssr_scene_automation_vst_plugin/doc/*
+
+## Other File ignores
+*.~lock.*
+
+## Config Files
+ssremote_config.xml
+
+## Log Files
+log.txt
