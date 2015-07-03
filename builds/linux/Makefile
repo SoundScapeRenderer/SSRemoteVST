@@ -96,18 +96,18 @@ OBJECTS := \
 .PHONY: clean
 
 $(OUTDIR)/$(TARGET): $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking SSRSceneAutomation
+	@echo Linking SSRemoteVST
 	-@mkdir -p $(BINDIR)
 	-@mkdir -p $(LIBDIR)
 	-@mkdir -p $(OUTDIR)
 	@$(BLDCMD)
 
 clean:
-	@echo Cleaning SSRSceneAutomation
+	@echo Cleaning SSRemoteVST
 	@$(CLEANCMD)
 
 strip:
-	@echo Stripping SSRSceneAutomation
+	@echo Stripping SSRemoteVST
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
 $(OBJDIR)/clock.o: $(SSR_SCENE_AUTOMATION_VST_PLUGIN)/src/utils/clock.cpp
