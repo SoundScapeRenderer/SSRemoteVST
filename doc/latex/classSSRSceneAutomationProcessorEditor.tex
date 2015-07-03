@@ -1,0 +1,390 @@
+\hypertarget{classSSRSceneAutomationProcessorEditor}{\section{S\-S\-R\-Scene\-Automation\-Processor\-Editor Class Reference}
+\label{classSSRSceneAutomationProcessorEditor}\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+}
+
+
+{\ttfamily \#include $<$Plugin\-Editor.\-h$>$}
+
+
+
+Inheritance diagram for S\-S\-R\-Scene\-Automation\-Processor\-Editor\-:
+
+
+Collaboration diagram for S\-S\-R\-Scene\-Automation\-Processor\-Editor\-:
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSSRSceneAutomationProcessorEditor_a2e16ce434b03220226e85995e59108a7}{S\-S\-R\-Scene\-Automation\-Processor\-Editor} (\hyperlink{classSsrSceneAutomationAudioProcessor}{Ssr\-Scene\-Automation\-Audio\-Processor} $\ast$owner\-Filter)
+\item 
+\hyperlink{classSSRSceneAutomationProcessorEditor_a2354b99e8f07e09e482e285af34a8e8f}{$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor} ()
+\item 
+virtual void \hyperlink{classSSRSceneAutomationProcessorEditor_a33986fcc98b7c16762b3b44e65747c7b}{timer\-Callback} () override
+\item 
+\hyperlink{classSsrSceneAutomationAudioProcessor}{Ssr\-Scene\-Automation\-Audio\-Processor} $\ast$ \hyperlink{classSSRSceneAutomationProcessorEditor_a05df0d6d92eccab2ecf4348d398322d8}{get\-Processor} () const 
+\item 
+virtual void \hyperlink{classSSRSceneAutomationProcessorEditor_ac63e209656a690feb7cd665d879e5cb7}{text\-Editor\-Return\-Key\-Pressed} (Text\-Editor \&text\-Editor\-That\-Was\-Changed) override
+\item 
+virtual void \hyperlink{classSSRSceneAutomationProcessorEditor_a7363a103f08f6086ea9df34b0b213400}{text\-Editor\-Text\-Changed} (Text\-Editor \&text\-\_\-editor\-\_\-thats\-\_\-changing) override
+\item 
+virtual void \hyperlink{classSSRSceneAutomationProcessorEditor_a3993f81b3245699374690cb283923de8}{text\-Editor\-Focus\-Lost} (Text\-Editor \&text\-\_\-editor\-\_\-focus\-\_\-lost) override
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_a568b893d27495651c28b289ea6b11627}{paint} (Graphics \&g)
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_a252129267d3712d64721528ae43f1bbb}{resized} ()
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_adcf4a91e6b61a505bca632d5a8abc26b}{button\-Clicked} (Button $\ast$button\-That\-Was\-Clicked) override
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_af43fa2e2f4e687eaba1e61262a5f3eaf}{slider\-Value\-Changed} (Slider $\ast$slider\-That\-Was\-Moved) override
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_a4a5ba88f65a9c5e0f24540f76899b81b}{combo\-Box\-Changed} (Combo\-Box $\ast$combo\-Box\-That\-Has\-Changed) override
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \hyperlink{classSSRSceneAutomationProcessorEditor_ab6a8a9ff45ef50aa206d4702ad25f53c}{tub\-\_\-logo\-\_\-png} = (const char$\ast$) resource\-\_\-\-S\-S\-R\-Scene\-Automation\-Processor\-Editor\-\_\-tub\-\_\-logo\-\_\-png
+\item 
+static const int \hyperlink{classSSRSceneAutomationProcessorEditor_ac5570c4666280cb9a09ffa8464f6a1e3}{tub\-\_\-logo\-\_\-png\-Size} = 28396
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSSRSceneAutomationProcessorEditor_ae1a2d27acb0671fbc738d855a77de9dd}{fill\-\_\-jackport\-\_\-dropdown} (\hyperlink{classSsrSceneAutomationAudioProcessor}{Ssr\-Scene\-Automation\-Audio\-Processor} $\ast$processor)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Scoped\-Pointer$<$ Text\-Button $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a04620ea403036ee702bac71bf3966120}{bypass\-Button}
+\item 
+Scoped\-Pointer$<$ Toggle\-Button $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_adf8e333a8cbfccfc7c6b3a23403eb09f}{connected\-\_\-toggle\-\_\-button}
+\item 
+Scoped\-Pointer$<$ Text\-Button $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a8b2ad23c061cd82dd87ca2758dc590c5}{source\-\_\-fixed\-\_\-position\-\_\-button}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a70c13c66837e826b67097211d2b0da6c}{source\-\_\-id\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Text\-Editor $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a67b94d27b5e48c55b8e64092fdbfcd92}{source\-\_\-id\-\_\-text\-\_\-editor}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a37c3865b4714e3bd2165afea5131368c}{source\-\_\-name\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Text\-Editor $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_aec0f1060346ef2a70a6c08d4cd970ee0}{source\-\_\-name\-\_\-text\-\_\-editor}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a31349521dc9c13bb9a91085c53415377}{source\-\_\-x\-\_\-position\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Slider $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_ab7c71c06346473482f60a13d64a77ff3}{source\-\_\-x\-\_\-position\-\_\-slider}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a421ad7fa49ee85d7466be0a318ae3409}{source\-\_\-y\-\_\-position\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Slider $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a4dfea9893ab555673dc67b81a7721932}{source\-\_\-y\-\_\-position\-\_\-slider}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_ac329e29cdd3a7386ad6122c77781709a}{source\-\_\-orientation\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Text\-Editor $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a572b560f0fa280dbd86796784ea93f6d}{source\-\_\-orientation\-\_\-text\-\_\-editor}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a32193336b4501ff1a705d51efbb1ba3b}{jackport\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Combo\-Box $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_ae47da15ca901f131c7225e57d8f7e9d3}{jackport\-\_\-dropdown\-\_\-menu}
+\item 
+Scoped\-Pointer$<$ Slider $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a8b6b6c062c81ad52a26fac4576cfb5a3}{source\-\_\-gain\-\_\-slider}
+\item 
+Scoped\-Pointer$<$ Text\-Button $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a422e70882a85cf2bb1f0318198956dbe}{source\-\_\-mute\-\_\-button}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_ab5ae83420f2f2920091a28276d53451d}{source\-\_\-model\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Combo\-Box $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_a4dbdd07cfff3b73d474e04c5ad63c17f}{source\-\_\-model\-\_\-dropdown}
+\item 
+Scoped\-Pointer$<$ Label $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_adc6f53764eebe7e985d7e7538b657766}{source\-\_\-properties\-\_\-file\-\_\-label}
+\item 
+Scoped\-Pointer$<$ Text\-Editor $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_accfe386cb8e7ea25adae552e90897e45}{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor}
+\item 
+Image \hyperlink{classSSRSceneAutomationProcessorEditor_a41cd6db52b2b7bfce4c888ab81bc527b}{cached\-Image\-\_\-tub\-\_\-logo\-\_\-png}
+\item 
+bool \hyperlink{classSSRSceneAutomationProcessorEditor_a9b038b3d9f1465f812e83a1ec6c619ea}{source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}
+\item 
+bool \hyperlink{classSSRSceneAutomationProcessorEditor_ae007a69167bba11989cab71c4eefabfa}{source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}
+\item 
+bool \hyperlink{classSSRSceneAutomationProcessorEditor_acc73360f4769e235353906726183903d}{source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}
+\item 
+bool \hyperlink{classSSRSceneAutomationProcessorEditor_ac9ea7632491a932069641de078345b68}{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}
+\item 
+std\-::map$<$ int, std\-::string $>$ \hyperlink{classSSRSceneAutomationProcessorEditor_aed17d392514ab283992f6a43d12f23d9}{jackport\-\_\-dropdown\-\_\-menu\-\_\-entries}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents the graphical user interface (G\-U\-I) of the V\-S\-T-\/\-Plugin.
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-5 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a2e16ce434b03220226e85995e59108a7}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{S\-S\-R\-Scene\-Automation\-Processor\-Editor}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::\-S\-S\-R\-Scene\-Automation\-Processor\-Editor (
+\begin{DoxyParamCaption}
+\item[{{\bf Ssr\-Scene\-Automation\-Audio\-Processor} $\ast$}]{owner\-Filter}
+\end{DoxyParamCaption}
+)}}\label{classSSRSceneAutomationProcessorEditor_a2e16ce434b03220226e85995e59108a7}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_a2354b99e8f07e09e482e285af34a8e8f}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor@{$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\index{$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor@{$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::$\sim$\-S\-S\-R\-Scene\-Automation\-Processor\-Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSRSceneAutomationProcessorEditor_a2354b99e8f07e09e482e285af34a8e8f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSSRSceneAutomationProcessorEditor_adcf4a91e6b61a505bca632d5a8abc26b}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!button\-Clicked@{button\-Clicked}}
+\index{button\-Clicked@{button\-Clicked}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{button\-Clicked}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::button\-Clicked (
+\begin{DoxyParamCaption}
+\item[{Button $\ast$}]{button\-That\-Was\-Clicked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}}\label{classSSRSceneAutomationProcessorEditor_adcf4a91e6b61a505bca632d5a8abc26b}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_a4a5ba88f65a9c5e0f24540f76899b81b}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!combo\-Box\-Changed@{combo\-Box\-Changed}}
+\index{combo\-Box\-Changed@{combo\-Box\-Changed}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{combo\-Box\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::combo\-Box\-Changed (
+\begin{DoxyParamCaption}
+\item[{Combo\-Box $\ast$}]{combo\-Box\-That\-Has\-Changed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}}\label{classSSRSceneAutomationProcessorEditor_a4a5ba88f65a9c5e0f24540f76899b81b}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_ae1a2d27acb0671fbc738d855a77de9dd}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!fill\-\_\-jackport\-\_\-dropdown@{fill\-\_\-jackport\-\_\-dropdown}}
+\index{fill\-\_\-jackport\-\_\-dropdown@{fill\-\_\-jackport\-\_\-dropdown}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{fill\-\_\-jackport\-\_\-dropdown}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::fill\-\_\-jackport\-\_\-dropdown (
+\begin{DoxyParamCaption}
+\item[{{\bf Ssr\-Scene\-Automation\-Audio\-Processor} $\ast$}]{processor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ae1a2d27acb0671fbc738d855a77de9dd}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_a05df0d6d92eccab2ecf4348d398322d8}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!get\-Processor@{get\-Processor}}
+\index{get\-Processor@{get\-Processor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{get\-Processor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ssr\-Scene\-Automation\-Audio\-Processor}$\ast$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::get\-Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSSRSceneAutomationProcessorEditor_a05df0d6d92eccab2ecf4348d398322d8}
+This method returns the processor to do stuff with it.
+
+\begin{DoxyReturn}{Returns}
+the processor which is the controller of this software. 
+\end{DoxyReturn}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a568b893d27495651c28b289ea6b11627}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!paint@{paint}}
+\index{paint@{paint}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::paint (
+\begin{DoxyParamCaption}
+\item[{Graphics \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{classSSRSceneAutomationProcessorEditor_a568b893d27495651c28b289ea6b11627}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a252129267d3712d64721528ae43f1bbb}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!resized@{resized}}
+\index{resized@{resized}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{resized}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::resized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSRSceneAutomationProcessorEditor_a252129267d3712d64721528ae43f1bbb}
+\hypertarget{classSSRSceneAutomationProcessorEditor_af43fa2e2f4e687eaba1e61262a5f3eaf}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!slider\-Value\-Changed@{slider\-Value\-Changed}}
+\index{slider\-Value\-Changed@{slider\-Value\-Changed}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{slider\-Value\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::slider\-Value\-Changed (
+\begin{DoxyParamCaption}
+\item[{Slider $\ast$}]{slider\-That\-Was\-Moved}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}}\label{classSSRSceneAutomationProcessorEditor_af43fa2e2f4e687eaba1e61262a5f3eaf}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_a3993f81b3245699374690cb283923de8}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!text\-Editor\-Focus\-Lost@{text\-Editor\-Focus\-Lost}}
+\index{text\-Editor\-Focus\-Lost@{text\-Editor\-Focus\-Lost}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{text\-Editor\-Focus\-Lost}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::text\-Editor\-Focus\-Lost (
+\begin{DoxyParamCaption}
+\item[{Text\-Editor \&}]{text\-\_\-editor\-\_\-focus\-\_\-lost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classSSRSceneAutomationProcessorEditor_a3993f81b3245699374690cb283923de8}
+Inherited from J\-U\-C\-E Text\-Editor\-Listener Class.
+
+This method is called when the focus of a Text\-Editor element is lost. The J\-U\-C\-E documentation says the folloging\-: \char`\"{}\-Called when the text editor loses focus.\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\-\_\-editor\-\_\-focus\-\_\-lost} & The text editor which focus is lost. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ac63e209656a690feb7cd665d879e5cb7}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!text\-Editor\-Return\-Key\-Pressed@{text\-Editor\-Return\-Key\-Pressed}}
+\index{text\-Editor\-Return\-Key\-Pressed@{text\-Editor\-Return\-Key\-Pressed}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{text\-Editor\-Return\-Key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::text\-Editor\-Return\-Key\-Pressed (
+\begin{DoxyParamCaption}
+\item[{Text\-Editor \&}]{text\-Editor\-That\-Was\-Changed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classSSRSceneAutomationProcessorEditor_ac63e209656a690feb7cd665d879e5cb7}
+Inherited from J\-U\-C\-E Text\-Editor\-Listener Class.
+
+This method is called when a Text\-Editor U\-I element was changed and the return key was pressed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\-Editor\-That\-Was\-Changed} & The text Editor that was changed. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSSRSceneAutomationProcessorEditor_a7363a103f08f6086ea9df34b0b213400}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!text\-Editor\-Text\-Changed@{text\-Editor\-Text\-Changed}}
+\index{text\-Editor\-Text\-Changed@{text\-Editor\-Text\-Changed}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{text\-Editor\-Text\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::text\-Editor\-Text\-Changed (
+\begin{DoxyParamCaption}
+\item[{Text\-Editor \&}]{text\-\_\-editor\-\_\-thats\-\_\-changing}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classSSRSceneAutomationProcessorEditor_a7363a103f08f6086ea9df34b0b213400}
+Inherited from J\-U\-C\-E Text\-Editor\-Listener Class.
+
+This method is called when a Text\-Editor U\-I element is changing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\-\_\-editor\-\_\-thats\-\_\-changing} & The text Editor that is currently changing. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a33986fcc98b7c16762b3b44e65747c7b}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!timer\-Callback@{timer\-Callback}}
+\index{timer\-Callback@{timer\-Callback}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{timer\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::timer\-Callback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classSSRSceneAutomationProcessorEditor_a33986fcc98b7c16762b3b44e65747c7b}
+Inherited from the J\-U\-C\-E Timer Class.
+
+Like the J\-U\-C\-E documentation say\-: \char`\"{}\-The user-\/defined callback routine that
+actually gets called periodically.\char`\"{}
+
+Currently, this method calls the processors method to read the incoming messages and then sets all the U\-I elements to the new values held by the processor if there have been any changes.
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a04620ea403036ee702bac71bf3966120}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!bypass\-Button@{bypass\-Button}}
+\index{bypass\-Button@{bypass\-Button}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{bypass\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Button$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::bypass\-Button\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a04620ea403036ee702bac71bf3966120}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a41cd6db52b2b7bfce4c888ab81bc527b}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!cached\-Image\-\_\-tub\-\_\-logo\-\_\-png@{cached\-Image\-\_\-tub\-\_\-logo\-\_\-png}}
+\index{cached\-Image\-\_\-tub\-\_\-logo\-\_\-png@{cached\-Image\-\_\-tub\-\_\-logo\-\_\-png}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{cached\-Image\-\_\-tub\-\_\-logo\-\_\-png}]{\setlength{\rightskip}{0pt plus 5cm}Image S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::cached\-Image\-\_\-tub\-\_\-logo\-\_\-png\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a41cd6db52b2b7bfce4c888ab81bc527b}
+\hypertarget{classSSRSceneAutomationProcessorEditor_adf8e333a8cbfccfc7c6b3a23403eb09f}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!connected\-\_\-toggle\-\_\-button@{connected\-\_\-toggle\-\_\-button}}
+\index{connected\-\_\-toggle\-\_\-button@{connected\-\_\-toggle\-\_\-button}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{connected\-\_\-toggle\-\_\-button}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Toggle\-Button$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::connected\-\_\-toggle\-\_\-button\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_adf8e333a8cbfccfc7c6b3a23403eb09f}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ae47da15ca901f131c7225e57d8f7e9d3}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!jackport\-\_\-dropdown\-\_\-menu@{jackport\-\_\-dropdown\-\_\-menu}}
+\index{jackport\-\_\-dropdown\-\_\-menu@{jackport\-\_\-dropdown\-\_\-menu}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{jackport\-\_\-dropdown\-\_\-menu}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Combo\-Box$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::jackport\-\_\-dropdown\-\_\-menu\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ae47da15ca901f131c7225e57d8f7e9d3}
+\hypertarget{classSSRSceneAutomationProcessorEditor_aed17d392514ab283992f6a43d12f23d9}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!jackport\-\_\-dropdown\-\_\-menu\-\_\-entries@{jackport\-\_\-dropdown\-\_\-menu\-\_\-entries}}
+\index{jackport\-\_\-dropdown\-\_\-menu\-\_\-entries@{jackport\-\_\-dropdown\-\_\-menu\-\_\-entries}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{jackport\-\_\-dropdown\-\_\-menu\-\_\-entries}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int, std\-::string$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::jackport\-\_\-dropdown\-\_\-menu\-\_\-entries\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_aed17d392514ab283992f6a43d12f23d9}
+This vector is needed to store all ids that have been put in \hypertarget{classSSRSceneAutomationProcessorEditor_a32193336b4501ff1a705d51efbb1ba3b}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!jackport\-\_\-label@{jackport\-\_\-label}}
+\index{jackport\-\_\-label@{jackport\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{jackport\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::jackport\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a32193336b4501ff1a705d51efbb1ba3b}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a8b2ad23c061cd82dd87ca2758dc590c5}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-fixed\-\_\-position\-\_\-button@{source\-\_\-fixed\-\_\-position\-\_\-button}}
+\index{source\-\_\-fixed\-\_\-position\-\_\-button@{source\-\_\-fixed\-\_\-position\-\_\-button}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-fixed\-\_\-position\-\_\-button}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Button$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-fixed\-\_\-position\-\_\-button\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a8b2ad23c061cd82dd87ca2758dc590c5}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a8b6b6c062c81ad52a26fac4576cfb5a3}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-gain\-\_\-slider@{source\-\_\-gain\-\_\-slider}}
+\index{source\-\_\-gain\-\_\-slider@{source\-\_\-gain\-\_\-slider}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-gain\-\_\-slider}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Slider$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-gain\-\_\-slider\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a8b6b6c062c81ad52a26fac4576cfb5a3}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a70c13c66837e826b67097211d2b0da6c}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-id\-\_\-label@{source\-\_\-id\-\_\-label}}
+\index{source\-\_\-id\-\_\-label@{source\-\_\-id\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-id\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-id\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a70c13c66837e826b67097211d2b0da6c}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a67b94d27b5e48c55b8e64092fdbfcd92}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-id\-\_\-text\-\_\-editor@{source\-\_\-id\-\_\-text\-\_\-editor}}
+\index{source\-\_\-id\-\_\-text\-\_\-editor@{source\-\_\-id\-\_\-text\-\_\-editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-id\-\_\-text\-\_\-editor}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Editor$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-id\-\_\-text\-\_\-editor\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a67b94d27b5e48c55b8e64092fdbfcd92}
+\hypertarget{classSSRSceneAutomationProcessorEditor_acc73360f4769e235353906726183903d}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}}
+\index{source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-id\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_acc73360f4769e235353906726183903d}
+Represents if the Source I\-D Text Editor U\-I element is currently changing. \hypertarget{classSSRSceneAutomationProcessorEditor_a4dbdd07cfff3b73d474e04c5ad63c17f}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-model\-\_\-dropdown@{source\-\_\-model\-\_\-dropdown}}
+\index{source\-\_\-model\-\_\-dropdown@{source\-\_\-model\-\_\-dropdown}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-model\-\_\-dropdown}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Combo\-Box$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-model\-\_\-dropdown\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a4dbdd07cfff3b73d474e04c5ad63c17f}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ab5ae83420f2f2920091a28276d53451d}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-model\-\_\-label@{source\-\_\-model\-\_\-label}}
+\index{source\-\_\-model\-\_\-label@{source\-\_\-model\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-model\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-model\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ab5ae83420f2f2920091a28276d53451d}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a422e70882a85cf2bb1f0318198956dbe}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-mute\-\_\-button@{source\-\_\-mute\-\_\-button}}
+\index{source\-\_\-mute\-\_\-button@{source\-\_\-mute\-\_\-button}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-mute\-\_\-button}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Button$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-mute\-\_\-button\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a422e70882a85cf2bb1f0318198956dbe}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a37c3865b4714e3bd2165afea5131368c}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-name\-\_\-label@{source\-\_\-name\-\_\-label}}
+\index{source\-\_\-name\-\_\-label@{source\-\_\-name\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-name\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-name\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a37c3865b4714e3bd2165afea5131368c}
+\hypertarget{classSSRSceneAutomationProcessorEditor_aec0f1060346ef2a70a6c08d4cd970ee0}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-name\-\_\-text\-\_\-editor@{source\-\_\-name\-\_\-text\-\_\-editor}}
+\index{source\-\_\-name\-\_\-text\-\_\-editor@{source\-\_\-name\-\_\-text\-\_\-editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-name\-\_\-text\-\_\-editor}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Editor$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-name\-\_\-text\-\_\-editor\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_aec0f1060346ef2a70a6c08d4cd970ee0}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a9b038b3d9f1465f812e83a1ec6c619ea}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}}
+\index{source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-name\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a9b038b3d9f1465f812e83a1ec6c619ea}
+Represents if the Source Name Text Editor U\-I element is currently changing. \hypertarget{classSSRSceneAutomationProcessorEditor_ac329e29cdd3a7386ad6122c77781709a}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-orientation\-\_\-label@{source\-\_\-orientation\-\_\-label}}
+\index{source\-\_\-orientation\-\_\-label@{source\-\_\-orientation\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-orientation\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-orientation\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ac329e29cdd3a7386ad6122c77781709a}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a572b560f0fa280dbd86796784ea93f6d}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-orientation\-\_\-text\-\_\-editor@{source\-\_\-orientation\-\_\-text\-\_\-editor}}
+\index{source\-\_\-orientation\-\_\-text\-\_\-editor@{source\-\_\-orientation\-\_\-text\-\_\-editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-orientation\-\_\-text\-\_\-editor}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Editor$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-orientation\-\_\-text\-\_\-editor\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a572b560f0fa280dbd86796784ea93f6d}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ae007a69167bba11989cab71c4eefabfa}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}}
+\index{source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-orientation\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ae007a69167bba11989cab71c4eefabfa}
+Represents if the Source Orientation Text Editor U\-I element is currently changing. \hypertarget{classSSRSceneAutomationProcessorEditor_adc6f53764eebe7e985d7e7538b657766}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-properties\-\_\-file\-\_\-label@{source\-\_\-properties\-\_\-file\-\_\-label}}
+\index{source\-\_\-properties\-\_\-file\-\_\-label@{source\-\_\-properties\-\_\-file\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-properties\-\_\-file\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-properties\-\_\-file\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_adc6f53764eebe7e985d7e7538b657766}
+\hypertarget{classSSRSceneAutomationProcessorEditor_accfe386cb8e7ea25adae552e90897e45}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor@{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor}}
+\index{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor@{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Text\-Editor$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_accfe386cb8e7ea25adae552e90897e45}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ac9ea7632491a932069641de078345b68}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}}
+\index{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing@{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-properties\-\_\-file\-\_\-text\-\_\-editor\-\_\-is\-\_\-changing\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ac9ea7632491a932069641de078345b68}
+Represents if the Source Properties File Text Editor U\-I element is currently changing. \hypertarget{classSSRSceneAutomationProcessorEditor_a31349521dc9c13bb9a91085c53415377}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-x\-\_\-position\-\_\-label@{source\-\_\-x\-\_\-position\-\_\-label}}
+\index{source\-\_\-x\-\_\-position\-\_\-label@{source\-\_\-x\-\_\-position\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-x\-\_\-position\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-x\-\_\-position\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a31349521dc9c13bb9a91085c53415377}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ab7c71c06346473482f60a13d64a77ff3}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-x\-\_\-position\-\_\-slider@{source\-\_\-x\-\_\-position\-\_\-slider}}
+\index{source\-\_\-x\-\_\-position\-\_\-slider@{source\-\_\-x\-\_\-position\-\_\-slider}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-x\-\_\-position\-\_\-slider}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Slider$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-x\-\_\-position\-\_\-slider\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_ab7c71c06346473482f60a13d64a77ff3}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a421ad7fa49ee85d7466be0a318ae3409}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-y\-\_\-position\-\_\-label@{source\-\_\-y\-\_\-position\-\_\-label}}
+\index{source\-\_\-y\-\_\-position\-\_\-label@{source\-\_\-y\-\_\-position\-\_\-label}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-y\-\_\-position\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Label$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-y\-\_\-position\-\_\-label\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a421ad7fa49ee85d7466be0a318ae3409}
+\hypertarget{classSSRSceneAutomationProcessorEditor_a4dfea9893ab555673dc67b81a7721932}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!source\-\_\-y\-\_\-position\-\_\-slider@{source\-\_\-y\-\_\-position\-\_\-slider}}
+\index{source\-\_\-y\-\_\-position\-\_\-slider@{source\-\_\-y\-\_\-position\-\_\-slider}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{source\-\_\-y\-\_\-position\-\_\-slider}]{\setlength{\rightskip}{0pt plus 5cm}Scoped\-Pointer$<$Slider$>$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::source\-\_\-y\-\_\-position\-\_\-slider\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSRSceneAutomationProcessorEditor_a4dfea9893ab555673dc67b81a7721932}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ab6a8a9ff45ef50aa206d4702ad25f53c}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!tub\-\_\-logo\-\_\-png@{tub\-\_\-logo\-\_\-png}}
+\index{tub\-\_\-logo\-\_\-png@{tub\-\_\-logo\-\_\-png}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{tub\-\_\-logo\-\_\-png}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::tub\-\_\-logo\-\_\-png = (const char$\ast$) resource\-\_\-\-S\-S\-R\-Scene\-Automation\-Processor\-Editor\-\_\-tub\-\_\-logo\-\_\-png\hspace{0.3cm}{\ttfamily [static]}}}\label{classSSRSceneAutomationProcessorEditor_ab6a8a9ff45ef50aa206d4702ad25f53c}
+\hypertarget{classSSRSceneAutomationProcessorEditor_ac5570c4666280cb9a09ffa8464f6a1e3}{\index{S\-S\-R\-Scene\-Automation\-Processor\-Editor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}!tub\-\_\-logo\-\_\-png\-Size@{tub\-\_\-logo\-\_\-png\-Size}}
+\index{tub\-\_\-logo\-\_\-png\-Size@{tub\-\_\-logo\-\_\-png\-Size}!SSRSceneAutomationProcessorEditor@{S\-S\-R\-Scene\-Automation\-Processor\-Editor}}
+\subsubsection[{tub\-\_\-logo\-\_\-png\-Size}]{\setlength{\rightskip}{0pt plus 5cm}const int S\-S\-R\-Scene\-Automation\-Processor\-Editor\-::tub\-\_\-logo\-\_\-png\-Size = 28396\hspace{0.3cm}{\ttfamily [static]}}}\label{classSSRSceneAutomationProcessorEditor_ac5570c4666280cb9a09ffa8464f6a1e3}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Source/\hyperlink{PluginEditor_8h}{Plugin\-Editor.\-h}\item 
+Source/\hyperlink{PluginEditor_8cpp}{Plugin\-Editor.\-cpp}\end{DoxyCompactItemize}

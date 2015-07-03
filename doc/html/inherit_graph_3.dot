@@ -1,0 +1,11 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="exception",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SSR::jack_server_not\l_running_exception",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSSR_1_1jack__server__not__running__exception.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SSR::no_jack_ports\l_available_exception",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSSR_1_1no__jack__ports__available__exception.html"];
+}

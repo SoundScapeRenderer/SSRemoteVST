@@ -1,0 +1,145 @@
+\hypertarget{classSSR_1_1IConnection}{\section{S\-S\-R\-:\-:I\-Connection Class Reference}
+\label{classSSR_1_1IConnection}\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}}
+}
+
+
+{\ttfamily \#include $<$iconnection.\-h$>$}
+
+
+
+Inheritance diagram for S\-S\-R\-:\-:I\-Connection\-:
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classSSR_1_1IConnection_a9c9bb021de5e335863ce13046f77cac8}{$\sim$\-I\-Connection} ()
+\item 
+virtual bool \hyperlink{classSSR_1_1IConnection_a105a6d8e43cd9320a44034ecade1127c}{connect} ()=0
+\item 
+virtual void \hyperlink{classSSR_1_1IConnection_a1b457fd6b5eec8396ab0c60ae16af76a}{disconnect} ()=0
+\item 
+virtual bool \hyperlink{classSSR_1_1IConnection_a81bef4b41f8619cd465117b49a2404bd}{get\-\_\-message} (std\-::string $\ast$new\-\_\-message, int $\ast$wait\-\_\-in\-\_\-msec)=0
+\item 
+virtual bool \hyperlink{classSSR_1_1IConnection_a2cc678a37ae55b627149b00adf43e8bc}{send\-\_\-message} (const std\-::string $\ast$message\-\_\-to\-\_\-send, int wait\-\_\-in\-\_\-msec)=0
+\item 
+virtual bool \hyperlink{classSSR_1_1IConnection_a3b081084454585e81e095b58ada98589}{is\-\_\-connected} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This interface class represents a network connection.
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-8 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSSR_1_1IConnection_a9c9bb021de5e335863ce13046f77cac8}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!$\sim$\-I\-Connection@{$\sim$\-I\-Connection}}
+\index{$\sim$\-I\-Connection@{$\sim$\-I\-Connection}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{$\sim$\-I\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}virtual S\-S\-R\-::\-I\-Connection\-::$\sim$\-I\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classSSR_1_1IConnection_a9c9bb021de5e335863ce13046f77cac8}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classSSR_1_1IConnection_a105a6d8e43cd9320a44034ecade1127c}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!connect@{connect}}
+\index{connect@{connect}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool S\-S\-R\-::\-I\-Connection\-::connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classSSR_1_1IConnection_a105a6d8e43cd9320a44034ecade1127c}
+This method shall connect to a server.
+
+\begin{DoxyReturn}{Returns}
+true if connection was successfully, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSSR_1_1TCP__connection_a57551329370d667e324fc9c19d8f0ae3}{S\-S\-R\-::\-T\-C\-P\-\_\-connection}.
+
+\hypertarget{classSSR_1_1IConnection_a1b457fd6b5eec8396ab0c60ae16af76a}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}virtual void S\-S\-R\-::\-I\-Connection\-::disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classSSR_1_1IConnection_a1b457fd6b5eec8396ab0c60ae16af76a}
+This method shall disconnect from the server. 
+
+Implemented in \hyperlink{classSSR_1_1TCP__connection_adb9bad291355dec27e72d3eb63cedeb5}{S\-S\-R\-::\-T\-C\-P\-\_\-connection}.
+
+\hypertarget{classSSR_1_1IConnection_a81bef4b41f8619cd465117b49a2404bd}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!get\-\_\-message@{get\-\_\-message}}
+\index{get\-\_\-message@{get\-\_\-message}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{get\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool S\-S\-R\-::\-I\-Connection\-::get\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{new\-\_\-message, }
+\item[{int $\ast$}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classSSR_1_1IConnection_a81bef4b41f8619cd465117b49a2404bd}
+This method shall get a new message coming from the connected server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-message} & The new message from the connected server.\\
+\hline
+{\em wait\-\_\-in\-\_\-msec} & How many milliseconds this method shall wait to receive a new message from the server.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a new message was received, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSSR_1_1TCP__connection_a74b65153b0c0ec20cad64b7faea7f122}{S\-S\-R\-::\-T\-C\-P\-\_\-connection}.
+
+\hypertarget{classSSR_1_1IConnection_a3b081084454585e81e095b58ada98589}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!is\-\_\-connected@{is\-\_\-connected}}
+\index{is\-\_\-connected@{is\-\_\-connected}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{is\-\_\-connected}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool S\-S\-R\-::\-I\-Connection\-::is\-\_\-connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classSSR_1_1IConnection_a3b081084454585e81e095b58ada98589}
+This method shall return if this client is connected to the server. W\-A\-R\-N\-I\-N\-G\-: This method does not test wether the connection is interrupted it only checks wether this client had already established a connection to the server.
+
+\begin{DoxyReturn}{Returns}
+true if the client is connected to the server, otherweise false. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSSR_1_1TCP__connection_a562746faf53010b01af52f02817abcd4}{S\-S\-R\-::\-T\-C\-P\-\_\-connection}.
+
+\hypertarget{classSSR_1_1IConnection_a2cc678a37ae55b627149b00adf43e8bc}{\index{S\-S\-R\-::\-I\-Connection@{S\-S\-R\-::\-I\-Connection}!send\-\_\-message@{send\-\_\-message}}
+\index{send\-\_\-message@{send\-\_\-message}!SSR::IConnection@{S\-S\-R\-::\-I\-Connection}}
+\subsubsection[{send\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool S\-S\-R\-::\-I\-Connection\-::send\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{const std\-::string $\ast$}]{message\-\_\-to\-\_\-send, }
+\item[{int}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classSSR_1_1IConnection_a2cc678a37ae55b627149b00adf43e8bc}
+This method shall send a message to the connected server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\-\_\-to\-\_\-send} & The message that shall be send to the server.\\
+\hline
+{\em wait\-\_\-in\-\_\-msec} & How many milliseconds this method shall wait until the server is read to reveive a new message from this client server.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the message was send to the server, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSSR_1_1TCP__connection_a5ac5568c97d926507c4455daf7304ec4}{S\-S\-R\-::\-T\-C\-P\-\_\-connection}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Source/utils/\hyperlink{iconnection_8h}{iconnection.\-h}\end{DoxyCompactItemize}

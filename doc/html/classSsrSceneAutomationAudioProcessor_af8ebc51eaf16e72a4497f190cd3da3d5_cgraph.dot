@@ -1,0 +1,11 @@
+digraph "SsrSceneAutomationAudioProcessor::get_all_jack_ports"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SsrSceneAutomationAudioProcessor\l::get_all_jack_ports",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SSR::Jack_client::look\l_up_jack_ports",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1Jack__client.html#ad5883392dffbd3ea4b4f54d6f51b88ad"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SSR::jack_server_not\l_running_exception::what",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSSR_1_1jack__server__not__running__exception.html#a25981c716f91fe94840fc0f3b3b601ac"];
+}

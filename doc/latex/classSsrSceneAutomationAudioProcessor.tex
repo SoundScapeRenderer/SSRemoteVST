@@ -1,0 +1,671 @@
+\hypertarget{classSsrSceneAutomationAudioProcessor}{\section{Ssr\-Scene\-Automation\-Audio\-Processor Class Reference}
+\label{classSsrSceneAutomationAudioProcessor}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+}
+
+
+{\ttfamily \#include $<$Plugin\-Processor.\-h$>$}
+
+
+
+Inheritance diagram for Ssr\-Scene\-Automation\-Audio\-Processor\-:
+
+
+Collaboration diagram for Ssr\-Scene\-Automation\-Audio\-Processor\-:
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}{parameters} \{ \\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda08a5aa0ea6620ad6e7bf54d657ffe09c}{parameter\-\_\-master\-\_\-bypass} = 0, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda4c3c375c77f104ad2bdd72adcb86359d}{parameter\-\_\-source\-\_\-gain}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaa2ad27d5f8f2223ee7bba970f9846801}{parameter\-\_\-source\-\_\-x\-\_\-position}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda73565d28839935b9996a37359a9275a6}{parameter\-\_\-source\-\_\-y\-\_\-position}, 
+\\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda11c610560dd88dc904ad049360ac4b5e}{parameter\-\_\-source\-\_\-id}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf59ba9ce0d7082d245da338e6b6e56e8}{parameter\-\_\-source\-\_\-orientation}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf8093e0191bbcdb9b53fcf5e8cca442b}{parameter\-\_\-source\-\_\-mute}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddac132aa8fe7437b258445266435224ee0}{parameter\-\_\-source\-\_\-fixed}, 
+\\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda57727d572d5bce1bffb42b4c589def0c}{parameter\-\_\-source\-\_\-model\-\_\-point}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddabf5efcb9cfd92164204c01d3516b51ae}{number\-\_\-of\-\_\-parameters}
+ \}
+\item 
+enum \hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66}{update\-\_\-specificator} \{ \\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a758580a50810aa6de51a7be8401811de}{update\-\_\-source\-\_\-gain}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aaaa219ae518ba83f8a59f81857226208}{update\-\_\-source\-\_\-position}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a50331edd49648ca6d2e2e015617e44f3}{update\-\_\-source\-\_\-mute}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aec0f433ec3adb0b9abf0d0f13cc5b340}{update\-\_\-source\-\_\-fixed}, 
+\\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a082181b4b71a0723500fec23f03fef22}{update\-\_\-source\-\_\-model}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a0f444263ba395044235167310a3b1a6d}{update\-\_\-source\-\_\-properties\-\_\-file}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66acc70935b8db10b939d19757af8b7198f}{update\-\_\-source\-\_\-port}, 
+\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a1a23cacc25a77c408b2267f0c69c24dc}{update\-\_\-source\-\_\-name}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSsrSceneAutomationAudioProcessor_a31b57d7c7f5c2acf0ff1f3967d3a9f5e}{Ssr\-Scene\-Automation\-Audio\-Processor} ()
+\item 
+\hyperlink{classSsrSceneAutomationAudioProcessor_a1be67dcc7f2eb2a560f7195b3a08d722}{$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor} ()
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a5e2395f7b4071ae1e32fbc27bd55e723}{prepare\-To\-Play} (double sample\-Rate, int samples\-Per\-Block)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_aa785afcd23ef7d76706c6a77cc580ba9}{release\-Resources} ()
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_acc16cd381aa1d34399a0269fdc366b6f}{process\-Block} (Audio\-Sample\-Buffer \&buffer, Midi\-Buffer \&midi\-Messages)
+\item 
+Audio\-Processor\-Editor $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_aba22d3fa2b9544fbe16ec2f14371b891}{create\-Editor} ()
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a4eb39183e8c9c9ef3a85c07d08694cf0}{has\-Editor} () const 
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_ac6b3faf16b722aa1751e9a304ddf3e3e}{get\-Name} () const 
+\item 
+int \hyperlink{classSsrSceneAutomationAudioProcessor_a6313fc89ab2b2d05dba38af3306b53bf}{get\-Num\-Parameters} ()
+\item 
+float \hyperlink{classSsrSceneAutomationAudioProcessor_ac352fd36aa2a65b61be25586798e40ee}{get\-Parameter} (int index)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a773e1a285faf01349aa3e40326b150b2}{set\-Parameter} (int index, float new\-Value)
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_a1c06b922487949f19b6bd6e332d4d961}{get\-Parameter\-Name} (int index)
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_a618f8dd5bfcf2d1fe0ffadf99eaa6cb2}{get\-Parameter\-Text} (int index)
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_afb7c6d06cfcc363d08a0778a028d00d8}{get\-Input\-Channel\-Name} (int channel\-Index) const 
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_a899e7bb0bce22f012243d66bd29e3ccd}{get\-Output\-Channel\-Name} (int channel\-Index) const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a859adec37fe713011e192ff88fd0b114}{is\-Input\-Channel\-Stereo\-Pair} (int index) const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a5b395f466b996f00af891c9b8533011a}{is\-Output\-Channel\-Stereo\-Pair} (int index) const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a4090dee24cd41be3239ba05253860709}{accepts\-Midi} () const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a398a7e53c748edd945533fee4f86a317}{produces\-Midi} () const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a2f4c8b2744ebfc641fed9517016d2fd0}{silence\-In\-Produces\-Silence\-Out} () const 
+\item 
+double \hyperlink{classSsrSceneAutomationAudioProcessor_af740567e8b2b7f01803ffc6976f84a1b}{get\-Tail\-Length\-Seconds} () const 
+\item 
+int \hyperlink{classSsrSceneAutomationAudioProcessor_ad34c8255d7e87c287c4d98e6c1b11cd7}{get\-Num\-Programs} ()
+\item 
+int \hyperlink{classSsrSceneAutomationAudioProcessor_a0671bbc7dcdc68151f227b1cbdd959c9}{get\-Current\-Program} ()
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a3fdc162c554428293320e244601c0286}{set\-Current\-Program} (int index)
+\item 
+const String \hyperlink{classSsrSceneAutomationAudioProcessor_a32c34f52f18073fe94fcee958c72acb4}{get\-Program\-Name} (int index)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_aabe3213d57ebcd38e916cb4ae7a7a24c}{change\-Program\-Name} (int index, const String \&new\-Name)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a93f80b21816df0ea3d18f0cda89119b3}{get\-State\-Information} (Memory\-Block \&dest\-Data)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_afc94e90987ec7d2939c74df160d3d752}{set\-State\-Information} (const void $\ast$data, int size\-In\-Bytes)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_aca296d25f3ba295af72df31cd7d30711}{set\-\_\-source\-\_\-name} (const std\-::string new\-\_\-name)
+\item 
+const std\-::string \hyperlink{classSsrSceneAutomationAudioProcessor_ade71ef4fe651826fe1de17778f4a6066}{get\-\_\-source\-\_\-name} () const 
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_ad62d5f7c45526d350b6f20927fc21511}{set\-\_\-properties\-\_\-file} (const std\-::string new\-\_\-properties\-\_\-file)
+\item 
+const std\-::string \hyperlink{classSsrSceneAutomationAudioProcessor_a8c831a4c51ba2f963d0997b27f7fa15d}{get\-\_\-properties\-\_\-file} () const 
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a2f7d4376ccee717fa5553eb3bc000fe2}{set\-\_\-source\-\_\-port} (const std\-::string new\-\_\-port)
+\item 
+const std\-::string \hyperlink{classSsrSceneAutomationAudioProcessor_a9880e8af71ebb7649a0c1b0b82682c78}{get\-\_\-source\-\_\-port} () const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_afd82a1fa84469a1ac573c27392cf2f94}{read\-\_\-ssr\-\_\-incoming\-\_\-message} ()
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a7bb6fce56ec87f75947168a8feba5ea3}{is\-\_\-connected\-\_\-to\-\_\-ssr} () const 
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_a0061dc6f04b69c2a77097ca535c80ad9}{ui\-\_\-needs\-\_\-update} () const 
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a19f85fce91341f901ee7094b326d2d6f}{ui\-\_\-request\-\_\-update} ()
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a6daf4a8c2e26e0912c2d3d218e35bfd9}{ui\-\_\-clear\-\_\-update\-\_\-flag} ()
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classSsrSceneAutomationAudioProcessor_af8ebc51eaf16e72a4497f190cd3da3d5}{get\-\_\-all\-\_\-jack\-\_\-ports} (const unsigned long flags)
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a27e503cea52e39e00694f5049a1bfad3}{update\-\_\-ssr} (\hyperlink{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66}{update\-\_\-specificator} specificator)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSsrSceneAutomationAudioProcessor_a2c60db16017bac6a6dd9e7613fba233f}{send\-\_\-message\-\_\-to\-\_\-ssr} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::array$<$ float, \\*
+\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddabf5efcb9cfd92164204c01d3516b51ae}{number\-\_\-of\-\_\-parameters} $>$ \hyperlink{classSsrSceneAutomationAudioProcessor_a65db1e242ec5ba4a421619efa63cd9ee}{user\-\_\-parameters}
+\item 
+bool \hyperlink{classSsrSceneAutomationAudioProcessor_afed1df18714184953906f47aaa174797}{ui\-\_\-update\-\_\-flag}
+\item 
+\hyperlink{classSSR_1_1IConnection}{S\-S\-R\-::\-I\-Connection} $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a583eadabeda7280aa6c4bfcc3de871d1}{tcp\-\_\-connection}
+\item 
+std\-::string $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a1b5359f318acfbe073ba294a974d2620}{message\-\_\-to\-\_\-ssr}
+\item 
+std\-::string $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a65e29a4ddbaeb3659895ac0191299fa5}{message\-\_\-from\-\_\-ssr}
+\item 
+std\-::string $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a6224b4d4a4617b35dc1e2861cb8057cb}{source\-\_\-name}
+\item 
+std\-::string $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a9e35e41e3f46e62c6f34712831d5eda0}{source\-\_\-properties\-\_\-file}
+\item 
+std\-::string $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_aa81d7065ff2247c0df43bf80f4db5198}{source\-\_\-port}
+\item 
+\hyperlink{classSSR_1_1Jack__client}{S\-S\-R\-::\-Jack\-\_\-client} \hyperlink{classSsrSceneAutomationAudioProcessor_a77e39471c75bf35dc14b7cee9fb55130}{jack\-\_\-client}
+\item 
+\hyperlink{classSSR_1_1SSR__requester}{S\-S\-R\-::\-S\-S\-R\-\_\-requester} $\ast$ \hyperlink{classSsrSceneAutomationAudioProcessor_a7afa611e32e349dbc508592c607725a9}{requester}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameters@{parameters}}
+\index{parameters@{parameters}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{parameters}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Ssr\-Scene\-Automation\-Audio\-Processor\-::parameters}}}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}
+This enum represents all numeric parameters of this plugin. Those parameters are the indices for an array that hold the real values. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{parameter\-\_\-master\-\_\-bypass@{parameter\-\_\-master\-\_\-bypass}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-master\-\_\-bypass@{parameter\-\_\-master\-\_\-bypass}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda08a5aa0ea6620ad6e7bf54d657ffe09c}{parameter\-\_\-master\-\_\-bypass}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda08a5aa0ea6620ad6e7bf54d657ffe09c}
+}]\index{parameter\-\_\-source\-\_\-gain@{parameter\-\_\-source\-\_\-gain}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-gain@{parameter\-\_\-source\-\_\-gain}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda4c3c375c77f104ad2bdd72adcb86359d}{parameter\-\_\-source\-\_\-gain}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda4c3c375c77f104ad2bdd72adcb86359d}
+}]Gain as linear Value (N\-O\-T d\-B!) \index{parameter\-\_\-source\-\_\-x\-\_\-position@{parameter\-\_\-source\-\_\-x\-\_\-position}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-x\-\_\-position@{parameter\-\_\-source\-\_\-x\-\_\-position}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaa2ad27d5f8f2223ee7bba970f9846801}{parameter\-\_\-source\-\_\-x\-\_\-position}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaa2ad27d5f8f2223ee7bba970f9846801}
+}]The sources X position. \index{parameter\-\_\-source\-\_\-y\-\_\-position@{parameter\-\_\-source\-\_\-y\-\_\-position}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-y\-\_\-position@{parameter\-\_\-source\-\_\-y\-\_\-position}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda73565d28839935b9996a37359a9275a6}{parameter\-\_\-source\-\_\-y\-\_\-position}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda73565d28839935b9996a37359a9275a6}
+}]The source Y Position. \index{parameter\-\_\-source\-\_\-id@{parameter\-\_\-source\-\_\-id}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-id@{parameter\-\_\-source\-\_\-id}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda11c610560dd88dc904ad049360ac4b5e}{parameter\-\_\-source\-\_\-id}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda11c610560dd88dc904ad049360ac4b5e}
+}]The source unique numeric I\-D. \index{parameter\-\_\-source\-\_\-orientation@{parameter\-\_\-source\-\_\-orientation}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-orientation@{parameter\-\_\-source\-\_\-orientation}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf59ba9ce0d7082d245da338e6b6e56e8}{parameter\-\_\-source\-\_\-orientation}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf59ba9ce0d7082d245da338e6b6e56e8}
+}]The source orientation (azimuth). \index{parameter\-\_\-source\-\_\-mute@{parameter\-\_\-source\-\_\-mute}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-mute@{parameter\-\_\-source\-\_\-mute}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf8093e0191bbcdb9b53fcf5e8cca442b}{parameter\-\_\-source\-\_\-mute}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddaf8093e0191bbcdb9b53fcf5e8cca442b}
+}]\index{parameter\-\_\-source\-\_\-fixed@{parameter\-\_\-source\-\_\-fixed}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-fixed@{parameter\-\_\-source\-\_\-fixed}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddac132aa8fe7437b258445266435224ee0}{parameter\-\_\-source\-\_\-fixed}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddac132aa8fe7437b258445266435224ee0}
+}]Represents if the source is fixed\-: 1.\-0 means fixed, 0.\-0 means not fixed \index{parameter\-\_\-source\-\_\-model\-\_\-point@{parameter\-\_\-source\-\_\-model\-\_\-point}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!parameter\-\_\-source\-\_\-model\-\_\-point@{parameter\-\_\-source\-\_\-model\-\_\-point}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda57727d572d5bce1bffb42b4c589def0c}{parameter\-\_\-source\-\_\-model\-\_\-point}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dda57727d572d5bce1bffb42b4c589def0c}
+}]Represents if the source is a point model. 1.\-0 means Point, 0.\-0 means Plane \index{number\-\_\-of\-\_\-parameters@{number\-\_\-of\-\_\-parameters}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!number\-\_\-of\-\_\-parameters@{number\-\_\-of\-\_\-parameters}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddabf5efcb9cfd92164204c01d3516b51ae}{number\-\_\-of\-\_\-parameters}\label{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92ddabf5efcb9cfd92164204c01d3516b51ae}
+}]Represents the total number of parameters. W\-A\-R\-N\-I\-N\-G\-: This aprameters has to be at the end of this enum! \end{description}
+\end{Desc}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-specificator@{update\-\_\-specificator}}
+\index{update\-\_\-specificator@{update\-\_\-specificator}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{update\-\_\-specificator}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Ssr\-Scene\-Automation\-Audio\-Processor\-::update\-\_\-specificator}}}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66}
+This enum represents update specificators for the function update\-\_\-ssr(...). \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{update\-\_\-source\-\_\-gain@{update\-\_\-source\-\_\-gain}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-gain@{update\-\_\-source\-\_\-gain}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a758580a50810aa6de51a7be8401811de}{update\-\_\-source\-\_\-gain}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a758580a50810aa6de51a7be8401811de}
+}]\index{update\-\_\-source\-\_\-position@{update\-\_\-source\-\_\-position}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-position@{update\-\_\-source\-\_\-position}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aaaa219ae518ba83f8a59f81857226208}{update\-\_\-source\-\_\-position}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aaaa219ae518ba83f8a59f81857226208}
+}]\index{update\-\_\-source\-\_\-mute@{update\-\_\-source\-\_\-mute}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-mute@{update\-\_\-source\-\_\-mute}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a50331edd49648ca6d2e2e015617e44f3}{update\-\_\-source\-\_\-mute}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a50331edd49648ca6d2e2e015617e44f3}
+}]\index{update\-\_\-source\-\_\-fixed@{update\-\_\-source\-\_\-fixed}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-fixed@{update\-\_\-source\-\_\-fixed}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aec0f433ec3adb0b9abf0d0f13cc5b340}{update\-\_\-source\-\_\-fixed}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66aec0f433ec3adb0b9abf0d0f13cc5b340}
+}]\index{update\-\_\-source\-\_\-model@{update\-\_\-source\-\_\-model}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-model@{update\-\_\-source\-\_\-model}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a082181b4b71a0723500fec23f03fef22}{update\-\_\-source\-\_\-model}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a082181b4b71a0723500fec23f03fef22}
+}]\index{update\-\_\-source\-\_\-properties\-\_\-file@{update\-\_\-source\-\_\-properties\-\_\-file}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-properties\-\_\-file@{update\-\_\-source\-\_\-properties\-\_\-file}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a0f444263ba395044235167310a3b1a6d}{update\-\_\-source\-\_\-properties\-\_\-file}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a0f444263ba395044235167310a3b1a6d}
+}]\index{update\-\_\-source\-\_\-port@{update\-\_\-source\-\_\-port}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-port@{update\-\_\-source\-\_\-port}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66acc70935b8db10b939d19757af8b7198f}{update\-\_\-source\-\_\-port}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66acc70935b8db10b939d19757af8b7198f}
+}]\index{update\-\_\-source\-\_\-name@{update\-\_\-source\-\_\-name}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-source\-\_\-name@{update\-\_\-source\-\_\-name}}\item[{\em 
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a1a23cacc25a77c408b2267f0c69c24dc}{update\-\_\-source\-\_\-name}\label{classSsrSceneAutomationAudioProcessor_ac035d17c84c4f0155bf36023b3f6cb66a1a23cacc25a77c408b2267f0c69c24dc}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a31b57d7c7f5c2acf0ff1f3967d3a9f5e}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{Ssr\-Scene\-Automation\-Audio\-Processor}]{\setlength{\rightskip}{0pt plus 5cm}Ssr\-Scene\-Automation\-Audio\-Processor\-::\-Ssr\-Scene\-Automation\-Audio\-Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a31b57d7c7f5c2acf0ff1f3967d3a9f5e}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a1be67dcc7f2eb2a560f7195b3a08d722}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor@{$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor}}
+\index{$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor@{$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor}]{\setlength{\rightskip}{0pt plus 5cm}Ssr\-Scene\-Automation\-Audio\-Processor\-::$\sim$\-Ssr\-Scene\-Automation\-Audio\-Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a1be67dcc7f2eb2a560f7195b3a08d722}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a4090dee24cd41be3239ba05253860709}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!accepts\-Midi@{accepts\-Midi}}
+\index{accepts\-Midi@{accepts\-Midi}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{accepts\-Midi}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::accepts\-Midi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a4090dee24cd41be3239ba05253860709}
+\hypertarget{classSsrSceneAutomationAudioProcessor_aabe3213d57ebcd38e916cb4ae7a7a24c}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!change\-Program\-Name@{change\-Program\-Name}}
+\index{change\-Program\-Name@{change\-Program\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{change\-Program\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::change\-Program\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{const String \&}]{new\-Name}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_aabe3213d57ebcd38e916cb4ae7a7a24c}
+\hypertarget{classSsrSceneAutomationAudioProcessor_aba22d3fa2b9544fbe16ec2f14371b891}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!create\-Editor@{create\-Editor}}
+\index{create\-Editor@{create\-Editor}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{create\-Editor}]{\setlength{\rightskip}{0pt plus 5cm}Audio\-Processor\-Editor $\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::create\-Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_aba22d3fa2b9544fbe16ec2f14371b891}
+\hypertarget{classSsrSceneAutomationAudioProcessor_af8ebc51eaf16e72a4497f190cd3da3d5}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-\_\-all\-\_\-jack\-\_\-ports@{get\-\_\-all\-\_\-jack\-\_\-ports}}
+\index{get\-\_\-all\-\_\-jack\-\_\-ports@{get\-\_\-all\-\_\-jack\-\_\-ports}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-\_\-all\-\_\-jack\-\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-\_\-all\-\_\-jack\-\_\-ports (
+\begin{DoxyParamCaption}
+\item[{const unsigned long}]{flags}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_af8ebc51eaf16e72a4497f190cd3da3d5}
+This method returns all Jack Ports specified by the flags.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & Flags to specify which Jack Ports shall be returned.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+all jackports specified by the flags. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a8c831a4c51ba2f963d0997b27f7fa15d}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-\_\-properties\-\_\-file@{get\-\_\-properties\-\_\-file}}
+\index{get\-\_\-properties\-\_\-file@{get\-\_\-properties\-\_\-file}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-\_\-properties\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-\_\-properties\-\_\-file (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a8c831a4c51ba2f963d0997b27f7fa15d}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ade71ef4fe651826fe1de17778f4a6066}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-\_\-source\-\_\-name@{get\-\_\-source\-\_\-name}}
+\index{get\-\_\-source\-\_\-name@{get\-\_\-source\-\_\-name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-\_\-source\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-\_\-source\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_ade71ef4fe651826fe1de17778f4a6066}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a9880e8af71ebb7649a0c1b0b82682c78}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-\_\-source\-\_\-port@{get\-\_\-source\-\_\-port}}
+\index{get\-\_\-source\-\_\-port@{get\-\_\-source\-\_\-port}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-\_\-source\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-\_\-source\-\_\-port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a9880e8af71ebb7649a0c1b0b82682c78}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a0671bbc7dcdc68151f227b1cbdd959c9}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Current\-Program@{get\-Current\-Program}}
+\index{get\-Current\-Program@{get\-Current\-Program}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Current\-Program}]{\setlength{\rightskip}{0pt plus 5cm}int Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Current\-Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a0671bbc7dcdc68151f227b1cbdd959c9}
+\hypertarget{classSsrSceneAutomationAudioProcessor_afb7c6d06cfcc363d08a0778a028d00d8}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Input\-Channel\-Name@{get\-Input\-Channel\-Name}}
+\index{get\-Input\-Channel\-Name@{get\-Input\-Channel\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Input\-Channel\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Input\-Channel\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{channel\-Index}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_afb7c6d06cfcc363d08a0778a028d00d8}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac6b3faf16b722aa1751e9a304ddf3e3e}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_ac6b3faf16b722aa1751e9a304ddf3e3e}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a6313fc89ab2b2d05dba38af3306b53bf}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Num\-Parameters@{get\-Num\-Parameters}}
+\index{get\-Num\-Parameters@{get\-Num\-Parameters}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Num\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}int Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Num\-Parameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a6313fc89ab2b2d05dba38af3306b53bf}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ad34c8255d7e87c287c4d98e6c1b11cd7}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Num\-Programs@{get\-Num\-Programs}}
+\index{get\-Num\-Programs@{get\-Num\-Programs}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Num\-Programs}]{\setlength{\rightskip}{0pt plus 5cm}int Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Num\-Programs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_ad34c8255d7e87c287c4d98e6c1b11cd7}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a899e7bb0bce22f012243d66bd29e3ccd}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Output\-Channel\-Name@{get\-Output\-Channel\-Name}}
+\index{get\-Output\-Channel\-Name@{get\-Output\-Channel\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Output\-Channel\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Output\-Channel\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{channel\-Index}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a899e7bb0bce22f012243d66bd29e3ccd}
+\hypertarget{classSsrSceneAutomationAudioProcessor_ac352fd36aa2a65b61be25586798e40ee}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Parameter@{get\-Parameter}}
+\index{get\-Parameter@{get\-Parameter}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}float Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Parameter (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_ac352fd36aa2a65b61be25586798e40ee}
+Returns the value of the parameter at the transfered index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of which the parameter value will be returned (\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\{\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}{Ssr\-Scene\-Automation\-Audio\-Processor\-::parameters}\}) 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+the value of the parameter. 
+\end{DoxyReturn}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a1c06b922487949f19b6bd6e332d4d961}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Parameter\-Name@{get\-Parameter\-Name}}
+\index{get\-Parameter\-Name@{get\-Parameter\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Parameter\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Parameter\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a1c06b922487949f19b6bd6e332d4d961}
+Returs the name of the parameter given by the transfered index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of which the parameter name will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of the parameter. 
+\end{DoxyReturn}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a618f8dd5bfcf2d1fe0ffadf99eaa6cb2}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Parameter\-Text@{get\-Parameter\-Text}}
+\index{get\-Parameter\-Text@{get\-Parameter\-Text}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Parameter\-Text}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Parameter\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a618f8dd5bfcf2d1fe0ffadf99eaa6cb2}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a32c34f52f18073fe94fcee958c72acb4}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Program\-Name@{get\-Program\-Name}}
+\index{get\-Program\-Name@{get\-Program\-Name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Program\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const String Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Program\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a32c34f52f18073fe94fcee958c72acb4}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a93f80b21816df0ea3d18f0cda89119b3}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-State\-Information@{get\-State\-Information}}
+\index{get\-State\-Information@{get\-State\-Information}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-State\-Information}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-State\-Information (
+\begin{DoxyParamCaption}
+\item[{Memory\-Block \&}]{dest\-Data}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a93f80b21816df0ea3d18f0cda89119b3}
+\hypertarget{classSsrSceneAutomationAudioProcessor_af740567e8b2b7f01803ffc6976f84a1b}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!get\-Tail\-Length\-Seconds@{get\-Tail\-Length\-Seconds}}
+\index{get\-Tail\-Length\-Seconds@{get\-Tail\-Length\-Seconds}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{get\-Tail\-Length\-Seconds}]{\setlength{\rightskip}{0pt plus 5cm}double Ssr\-Scene\-Automation\-Audio\-Processor\-::get\-Tail\-Length\-Seconds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_af740567e8b2b7f01803ffc6976f84a1b}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a4eb39183e8c9c9ef3a85c07d08694cf0}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!has\-Editor@{has\-Editor}}
+\index{has\-Editor@{has\-Editor}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{has\-Editor}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::has\-Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a4eb39183e8c9c9ef3a85c07d08694cf0}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a7bb6fce56ec87f75947168a8feba5ea3}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!is\-\_\-connected\-\_\-to\-\_\-ssr@{is\-\_\-connected\-\_\-to\-\_\-ssr}}
+\index{is\-\_\-connected\-\_\-to\-\_\-ssr@{is\-\_\-connected\-\_\-to\-\_\-ssr}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{is\-\_\-connected\-\_\-to\-\_\-ssr}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::is\-\_\-connected\-\_\-to\-\_\-ssr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a7bb6fce56ec87f75947168a8feba5ea3}
+Returns true if the connection to \hyperlink{namespaceSSR}{S\-S\-R} is established. 
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a859adec37fe713011e192ff88fd0b114}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!is\-Input\-Channel\-Stereo\-Pair@{is\-Input\-Channel\-Stereo\-Pair}}
+\index{is\-Input\-Channel\-Stereo\-Pair@{is\-Input\-Channel\-Stereo\-Pair}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{is\-Input\-Channel\-Stereo\-Pair}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::is\-Input\-Channel\-Stereo\-Pair (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a859adec37fe713011e192ff88fd0b114}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a5b395f466b996f00af891c9b8533011a}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!is\-Output\-Channel\-Stereo\-Pair@{is\-Output\-Channel\-Stereo\-Pair}}
+\index{is\-Output\-Channel\-Stereo\-Pair@{is\-Output\-Channel\-Stereo\-Pair}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{is\-Output\-Channel\-Stereo\-Pair}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::is\-Output\-Channel\-Stereo\-Pair (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a5b395f466b996f00af891c9b8533011a}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a5e2395f7b4071ae1e32fbc27bd55e723}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!prepare\-To\-Play@{prepare\-To\-Play}}
+\index{prepare\-To\-Play@{prepare\-To\-Play}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{prepare\-To\-Play}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::prepare\-To\-Play (
+\begin{DoxyParamCaption}
+\item[{double}]{sample\-Rate, }
+\item[{int}]{samples\-Per\-Block}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a5e2395f7b4071ae1e32fbc27bd55e723}
+\hypertarget{classSsrSceneAutomationAudioProcessor_acc16cd381aa1d34399a0269fdc366b6f}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!process\-Block@{process\-Block}}
+\index{process\-Block@{process\-Block}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{process\-Block}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::process\-Block (
+\begin{DoxyParamCaption}
+\item[{Audio\-Sample\-Buffer \&}]{buffer, }
+\item[{Midi\-Buffer \&}]{midi\-Messages}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_acc16cd381aa1d34399a0269fdc366b6f}
+float left\-\_\-data = 0.\-0f; float right\-\_\-data = 0.\-0f;
+
+for (int i = 0; i $<$ buffer.\-get\-Num\-Samples(); i++) \{ \begin{DoxyVerb}left_data = buffer.getSample(0, i);
+right_data = buffer.getSample(1, i);
+
+mWidthControl.clockProcess(&left_data, &right_data);
+volumeControl.clockProcess(&left_data, &right_data);
+\end{DoxyVerb}
+
+
+\} \hypertarget{classSsrSceneAutomationAudioProcessor_a398a7e53c748edd945533fee4f86a317}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!produces\-Midi@{produces\-Midi}}
+\index{produces\-Midi@{produces\-Midi}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{produces\-Midi}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::produces\-Midi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a398a7e53c748edd945533fee4f86a317}
+\hypertarget{classSsrSceneAutomationAudioProcessor_afd82a1fa84469a1ac573c27392cf2f94}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!read\-\_\-ssr\-\_\-incoming\-\_\-message@{read\-\_\-ssr\-\_\-incoming\-\_\-message}}
+\index{read\-\_\-ssr\-\_\-incoming\-\_\-message@{read\-\_\-ssr\-\_\-incoming\-\_\-message}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{read\-\_\-ssr\-\_\-incoming\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::read\-\_\-ssr\-\_\-incoming\-\_\-message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_afd82a1fa84469a1ac573c27392cf2f94}
+This method reads the incoming message from the \hyperlink{namespaceSSR}{S\-S\-R} server, interprets them and updates the members if there have been any request of doing so from the \hyperlink{namespaceSSR}{S\-S\-R} server.
+
+\begin{DoxyReturn}{Returns}
+if there was any message from the \hyperlink{namespaceSSR}{S\-S\-R} server to inerpret. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_aa785afcd23ef7d76706c6a77cc580ba9}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!release\-Resources@{release\-Resources}}
+\index{release\-Resources@{release\-Resources}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{release\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::release\-Resources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_aa785afcd23ef7d76706c6a77cc580ba9}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a2c60db16017bac6a6dd9e7613fba233f}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!send\-\_\-message\-\_\-to\-\_\-ssr@{send\-\_\-message\-\_\-to\-\_\-ssr}}
+\index{send\-\_\-message\-\_\-to\-\_\-ssr@{send\-\_\-message\-\_\-to\-\_\-ssr}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{send\-\_\-message\-\_\-to\-\_\-ssr}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::send\-\_\-message\-\_\-to\-\_\-ssr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a2c60db16017bac6a6dd9e7613fba233f}
+If message\-\_\-from\-\_\-ssr\-\_\-complete = true, the message will be send to the ssr. 
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_ad62d5f7c45526d350b6f20927fc21511}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-\_\-properties\-\_\-file@{set\-\_\-properties\-\_\-file}}
+\index{set\-\_\-properties\-\_\-file@{set\-\_\-properties\-\_\-file}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-\_\-properties\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-\_\-properties\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const std\-::string}]{new\-\_\-properties\-\_\-file}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_ad62d5f7c45526d350b6f20927fc21511}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_aca296d25f3ba295af72df31cd7d30711}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-\_\-source\-\_\-name@{set\-\_\-source\-\_\-name}}
+\index{set\-\_\-source\-\_\-name@{set\-\_\-source\-\_\-name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-\_\-source\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-\_\-source\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const std\-::string}]{new\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_aca296d25f3ba295af72df31cd7d30711}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a2f7d4376ccee717fa5553eb3bc000fe2}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-\_\-source\-\_\-port@{set\-\_\-source\-\_\-port}}
+\index{set\-\_\-source\-\_\-port@{set\-\_\-source\-\_\-port}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-\_\-source\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-\_\-source\-\_\-port (
+\begin{DoxyParamCaption}
+\item[{const std\-::string}]{new\-\_\-port}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a2f7d4376ccee717fa5553eb3bc000fe2}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a3fdc162c554428293320e244601c0286}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-Current\-Program@{set\-Current\-Program}}
+\index{set\-Current\-Program@{set\-Current\-Program}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-Current\-Program}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-Current\-Program (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a3fdc162c554428293320e244601c0286}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a773e1a285faf01349aa3e40326b150b2}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-Parameter@{set\-Parameter}}
+\index{set\-Parameter@{set\-Parameter}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-Parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-Parameter (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{float}]{new\-Value}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a773e1a285faf01349aa3e40326b150b2}
+Sets the parameter at the transfered index to the value of new\-Value. Will set the ui\-\_\-update\-\_\-flag to true.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of which the parameter will be set. \\
+\hline
+{\em new\-Value} & The new Value for the parameter. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_afc94e90987ec7d2939c74df160d3d752}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!set\-State\-Information@{set\-State\-Information}}
+\index{set\-State\-Information@{set\-State\-Information}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{set\-State\-Information}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::set\-State\-Information (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{data, }
+\item[{int}]{size\-In\-Bytes}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_afc94e90987ec7d2939c74df160d3d752}
+
+
+Here is the call graph for this function\-:
+
+
+\hypertarget{classSsrSceneAutomationAudioProcessor_a2f4c8b2744ebfc641fed9517016d2fd0}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!silence\-In\-Produces\-Silence\-Out@{silence\-In\-Produces\-Silence\-Out}}
+\index{silence\-In\-Produces\-Silence\-Out@{silence\-In\-Produces\-Silence\-Out}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{silence\-In\-Produces\-Silence\-Out}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::silence\-In\-Produces\-Silence\-Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a2f4c8b2744ebfc641fed9517016d2fd0}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a6daf4a8c2e26e0912c2d3d218e35bfd9}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!ui\-\_\-clear\-\_\-update\-\_\-flag@{ui\-\_\-clear\-\_\-update\-\_\-flag}}
+\index{ui\-\_\-clear\-\_\-update\-\_\-flag@{ui\-\_\-clear\-\_\-update\-\_\-flag}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{ui\-\_\-clear\-\_\-update\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::ui\-\_\-clear\-\_\-update\-\_\-flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a6daf4a8c2e26e0912c2d3d218e35bfd9}
+Clears the ui\-\_\-update\-\_\-flag by setting it on false. \hypertarget{classSsrSceneAutomationAudioProcessor_a0061dc6f04b69c2a77097ca535c80ad9}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!ui\-\_\-needs\-\_\-update@{ui\-\_\-needs\-\_\-update}}
+\index{ui\-\_\-needs\-\_\-update@{ui\-\_\-needs\-\_\-update}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{ui\-\_\-needs\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::ui\-\_\-needs\-\_\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSsrSceneAutomationAudioProcessor_a0061dc6f04b69c2a77097ca535c80ad9}
+Returns true if the U\-I needs update. \hypertarget{classSsrSceneAutomationAudioProcessor_a19f85fce91341f901ee7094b326d2d6f}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!ui\-\_\-request\-\_\-update@{ui\-\_\-request\-\_\-update}}
+\index{ui\-\_\-request\-\_\-update@{ui\-\_\-request\-\_\-update}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{ui\-\_\-request\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::ui\-\_\-request\-\_\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a19f85fce91341f901ee7094b326d2d6f}
+Sets the ui\-\_\-update\-\_\-flag on true for requesting update. \hypertarget{classSsrSceneAutomationAudioProcessor_a27e503cea52e39e00694f5049a1bfad3}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!update\-\_\-ssr@{update\-\_\-ssr}}
+\index{update\-\_\-ssr@{update\-\_\-ssr}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{update\-\_\-ssr}]{\setlength{\rightskip}{0pt plus 5cm}void Ssr\-Scene\-Automation\-Audio\-Processor\-::update\-\_\-ssr (
+\begin{DoxyParamCaption}
+\item[{{\bf update\-\_\-specificator}}]{specificator}
+\end{DoxyParamCaption}
+)}}\label{classSsrSceneAutomationAudioProcessor_a27e503cea52e39e00694f5049a1bfad3}
+
+
+Here is the call graph for this function\-:
+
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a77e39471c75bf35dc14b7cee9fb55130}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!jack\-\_\-client@{jack\-\_\-client}}
+\index{jack\-\_\-client@{jack\-\_\-client}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{jack\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-S\-R\-::\-Jack\-\_\-client} Ssr\-Scene\-Automation\-Audio\-Processor\-::jack\-\_\-client\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a77e39471c75bf35dc14b7cee9fb55130}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a65e29a4ddbaeb3659895ac0191299fa5}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!message\-\_\-from\-\_\-ssr@{message\-\_\-from\-\_\-ssr}}
+\index{message\-\_\-from\-\_\-ssr@{message\-\_\-from\-\_\-ssr}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{message\-\_\-from\-\_\-ssr}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::message\-\_\-from\-\_\-ssr\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a65e29a4ddbaeb3659895ac0191299fa5}
+The message that comes from the \hyperlink{namespaceSSR}{S\-S\-R} server. It has to have an '\textbackslash{}0' at the end. \hypertarget{classSsrSceneAutomationAudioProcessor_a1b5359f318acfbe073ba294a974d2620}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!message\-\_\-to\-\_\-ssr@{message\-\_\-to\-\_\-ssr}}
+\index{message\-\_\-to\-\_\-ssr@{message\-\_\-to\-\_\-ssr}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{message\-\_\-to\-\_\-ssr}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::message\-\_\-to\-\_\-ssr\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a1b5359f318acfbe073ba294a974d2620}
+The message that will be send to the \hyperlink{namespaceSSR}{S\-S\-R} server. It has to include the '\textbackslash{}0' also called E\-O\-F ending so the \hyperlink{namespaceSSR}{S\-S\-R} server understands that this is the end of the message. \hypertarget{classSsrSceneAutomationAudioProcessor_a7afa611e32e349dbc508592c607725a9}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!requester@{requester}}
+\index{requester@{requester}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{requester}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-S\-R\-::\-S\-S\-R\-\_\-requester}$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::requester\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a7afa611e32e349dbc508592c607725a9}
+\hypertarget{classSsrSceneAutomationAudioProcessor_a6224b4d4a4617b35dc1e2861cb8057cb}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!source\-\_\-name@{source\-\_\-name}}
+\index{source\-\_\-name@{source\-\_\-name}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{source\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::source\-\_\-name\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a6224b4d4a4617b35dc1e2861cb8057cb}
+The Sources name. \hypertarget{classSsrSceneAutomationAudioProcessor_aa81d7065ff2247c0df43bf80f4db5198}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!source\-\_\-port@{source\-\_\-port}}
+\index{source\-\_\-port@{source\-\_\-port}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{source\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::source\-\_\-port\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_aa81d7065ff2247c0df43bf80f4db5198}
+The port of the source related to the jack server. \hypertarget{classSsrSceneAutomationAudioProcessor_a9e35e41e3f46e62c6f34712831d5eda0}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!source\-\_\-properties\-\_\-file@{source\-\_\-properties\-\_\-file}}
+\index{source\-\_\-properties\-\_\-file@{source\-\_\-properties\-\_\-file}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{source\-\_\-properties\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::source\-\_\-properties\-\_\-file\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a9e35e41e3f46e62c6f34712831d5eda0}
+The property file relating the source. \hypertarget{classSsrSceneAutomationAudioProcessor_a583eadabeda7280aa6c4bfcc3de871d1}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!tcp\-\_\-connection@{tcp\-\_\-connection}}
+\index{tcp\-\_\-connection@{tcp\-\_\-connection}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{tcp\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-S\-R\-::\-I\-Connection}$\ast$ Ssr\-Scene\-Automation\-Audio\-Processor\-::tcp\-\_\-connection\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a583eadabeda7280aa6c4bfcc3de871d1}
+T\-C\-P connection object for connecting to ssr. \hypertarget{classSsrSceneAutomationAudioProcessor_afed1df18714184953906f47aaa174797}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!ui\-\_\-update\-\_\-flag@{ui\-\_\-update\-\_\-flag}}
+\index{ui\-\_\-update\-\_\-flag@{ui\-\_\-update\-\_\-flag}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{ui\-\_\-update\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}bool Ssr\-Scene\-Automation\-Audio\-Processor\-::ui\-\_\-update\-\_\-flag\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_afed1df18714184953906f47aaa174797}
+Bool flag indicating if the user interface needs to be updated (= true). \hypertarget{classSsrSceneAutomationAudioProcessor_a65db1e242ec5ba4a421619efa63cd9ee}{\index{Ssr\-Scene\-Automation\-Audio\-Processor@{Ssr\-Scene\-Automation\-Audio\-Processor}!user\-\_\-parameters@{user\-\_\-parameters}}
+\index{user\-\_\-parameters@{user\-\_\-parameters}!SsrSceneAutomationAudioProcessor@{Ssr\-Scene\-Automation\-Audio\-Processor}}
+\subsubsection[{user\-\_\-parameters}]{\setlength{\rightskip}{0pt plus 5cm}std\-::array$<$float, {\bf number\-\_\-of\-\_\-parameters}$>$ Ssr\-Scene\-Automation\-Audio\-Processor\-::user\-\_\-parameters\hspace{0.3cm}{\ttfamily [private]}}}\label{classSsrSceneAutomationAudioProcessor_a65db1e242ec5ba4a421619efa63cd9ee}
+This array represents the parameters which are accessible through the user. Look \begin{DoxySeeAlso}{See Also}
+\{\hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}{Ssr\-Scene\-Automation\-Audio\-Processor\-::parameters}\} specifying which \hyperlink{classSsrSceneAutomationAudioProcessor_ae03aeb4847a435789be1b6112a7d92dd}{parameters} there are (and how many). 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Source/\hyperlink{PluginProcessor_8h}{Plugin\-Processor.\-h}\item 
+Source/\hyperlink{PluginProcessor_8cpp}{Plugin\-Processor.\-cpp}\end{DoxyCompactItemize}

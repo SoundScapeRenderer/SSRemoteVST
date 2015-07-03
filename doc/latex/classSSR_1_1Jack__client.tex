@@ -1,0 +1,109 @@
+\hypertarget{classSSR_1_1Jack__client}{\section{S\-S\-R\-:\-:Jack\-\_\-client Class Reference}
+\label{classSSR_1_1Jack__client}\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}}
+}
+
+
+{\ttfamily \#include $<$jack\-\_\-client.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSSR_1_1Jack__client_aa9235ed1d957f0dec80012cc9c7c2a80}{Jack\-\_\-client} ()
+\item 
+\hyperlink{classSSR_1_1Jack__client_a6525774ad921e067c8f4cafe3e0998e8}{$\sim$\-Jack\-\_\-client} ()
+\item 
+void \hyperlink{classSSR_1_1Jack__client_adaa47a4feebb858ea07ad64328794b3a}{register\-\_\-client} (const char $\ast$jack\-\_\-client\-\_\-name)
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classSSR_1_1Jack__client_ad5883392dffbd3ea4b4f54d6f51b88ad}{look\-\_\-up\-\_\-jack\-\_\-ports} (unsigned long flags)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+jack\-\_\-client\-\_\-t $\ast$ \hyperlink{classSSR_1_1Jack__client_ac8e23397794574f1066ee78c69c08f58}{client}
+\item 
+jack\-\_\-status\-\_\-t \hyperlink{classSSR_1_1Jack__client_a0e34088a4eaa840399ce372195ee9839}{status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a client wrapper class for the jack audio server.
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-5 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSSR_1_1Jack__client_aa9235ed1d957f0dec80012cc9c7c2a80}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!Jack\-\_\-client@{Jack\-\_\-client}}
+\index{Jack\-\_\-client@{Jack\-\_\-client}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{Jack\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-Jack\-\_\-client\-::\-Jack\-\_\-client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1Jack__client_aa9235ed1d957f0dec80012cc9c7c2a80}
+\hypertarget{classSSR_1_1Jack__client_a6525774ad921e067c8f4cafe3e0998e8}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!$\sim$\-Jack\-\_\-client@{$\sim$\-Jack\-\_\-client}}
+\index{$\sim$\-Jack\-\_\-client@{$\sim$\-Jack\-\_\-client}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{$\sim$\-Jack\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-Jack\-\_\-client\-::$\sim$\-Jack\-\_\-client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1Jack__client_a6525774ad921e067c8f4cafe3e0998e8}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSSR_1_1Jack__client_ad5883392dffbd3ea4b4f54d6f51b88ad}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!look\-\_\-up\-\_\-jack\-\_\-ports@{look\-\_\-up\-\_\-jack\-\_\-ports}}
+\index{look\-\_\-up\-\_\-jack\-\_\-ports@{look\-\_\-up\-\_\-jack\-\_\-ports}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{look\-\_\-up\-\_\-jack\-\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ S\-S\-R\-::\-Jack\-\_\-client\-::look\-\_\-up\-\_\-jack\-\_\-ports (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{flags}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1Jack__client_ad5883392dffbd3ea4b4f54d6f51b88ad}
+This method looks for all Jack Ports that match the flags parameter and returns them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & See Jack\-Port\-Flags (jack/types.\-h) for all flags you can set.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{structSSR_1_1no__jack__ports__available__exception}{no\-\_\-jack\-\_\-ports\-\_\-available\-\_\-exception}} & If there are no Jack Ports available matching the transfered flags.\\
+\hline
+{\em \hyperlink{structSSR_1_1jack__server__not__running__exception}{jack\-\_\-server\-\_\-not\-\_\-running\-\_\-exception}} & If this jack client is not connected to the Jack server.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+all Jack Ports that matched the flags. 
+\end{DoxyReturn}
+\hypertarget{classSSR_1_1Jack__client_adaa47a4feebb858ea07ad64328794b3a}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!register\-\_\-client@{register\-\_\-client}}
+\index{register\-\_\-client@{register\-\_\-client}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{register\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::\-Jack\-\_\-client\-::register\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{jack\-\_\-client\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1Jack__client_adaa47a4feebb858ea07ad64328794b3a}
+This method registers this Jack client to the Jack Server with the transfered jack\-\_\-client\-\_\-name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em jack\-\_\-client\-\_\-name} & The name which identifies this client on the Jack server. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Field Documentation}
+\hypertarget{classSSR_1_1Jack__client_ac8e23397794574f1066ee78c69c08f58}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!client@{client}}
+\index{client@{client}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{client}]{\setlength{\rightskip}{0pt plus 5cm}jack\-\_\-client\-\_\-t$\ast$ S\-S\-R\-::\-Jack\-\_\-client\-::client\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1Jack__client_ac8e23397794574f1066ee78c69c08f58}
+\hypertarget{classSSR_1_1Jack__client_a0e34088a4eaa840399ce372195ee9839}{\index{S\-S\-R\-::\-Jack\-\_\-client@{S\-S\-R\-::\-Jack\-\_\-client}!status@{status}}
+\index{status@{status}!SSR::Jack_client@{S\-S\-R\-::\-Jack\-\_\-client}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}jack\-\_\-status\-\_\-t S\-S\-R\-::\-Jack\-\_\-client\-::status\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1Jack__client_a0e34088a4eaa840399ce372195ee9839}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Source/utils/\hyperlink{jack__client_8h}{jack\-\_\-client.\-h}\item 
+Source/utils/\hyperlink{jack__client_8cpp}{jack\-\_\-client.\-cpp}\end{DoxyCompactItemize}

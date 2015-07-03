@@ -1,0 +1,29 @@
+digraph "SSRSceneAutomationProcessorEditor::timerCallback"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SSRSceneAutomationProcessor\lEditor::timerCallback",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SSRSceneAutomationProcessor\lEditor::getProcessor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSRSceneAutomationProcessorEditor.html#a05df0d6d92eccab2ecf4348d398322d8"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SsrSceneAutomationAudioProcessor\l::read_ssr_incoming_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#afd82a1fa84469a1ac573c27392cf2f94"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SSR::IConnection::get\l_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1IConnection.html#a81bef4b41f8619cd465117b49a2404bd"];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SSR::Helper::dB_to\l_linear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1Helper.html#a0152e8af20095363df1cf5d209b34036"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SsrSceneAutomationAudioProcessor\l::ui_needs_update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#a0061dc6f04b69c2a77097ca535c80ad9"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SsrSceneAutomationAudioProcessor\l::getParameter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#ac352fd36aa2a65b61be25586798e40ee"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="SsrSceneAutomationAudioProcessor\l::get_source_name",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#ade71ef4fe651826fe1de17778f4a6066"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="SsrSceneAutomationAudioProcessor\l::get_properties_file",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#a8c831a4c51ba2f963d0997b27f7fa15d"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="SSR::Helper::linear\l_to_dB",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1Helper.html#aa2dc7c3f6abd4a52d7ef78d82dd89852"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="SsrSceneAutomationAudioProcessor\l::get_source_port",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#a9880e8af71ebb7649a0c1b0b82682c78"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="SsrSceneAutomationAudioProcessor\l::ui_clear_update_flag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#a6daf4a8c2e26e0912c2d3d218e35bfd9"];
+}

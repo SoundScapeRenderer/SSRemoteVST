@@ -1,0 +1,246 @@
+\hypertarget{namespaceSSR_1_1request}{\section{S\-S\-R\-:\-:request Namespace Reference}
+\label{namespaceSSR_1_1request}\index{S\-S\-R\-::request@{S\-S\-R\-::request}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceSSR_1_1request_ae279ccd2363c0366e0b6da3a156604de}{source\-\_\-position} (std\-::ostream $\ast$output, const float source\-\_\-id, const float x, const float y)
+\item 
+void \hyperlink{namespaceSSR_1_1request_ae74fe50dcd28b59a65a302493b94d689}{source\-\_\-gain} (std\-::ostream $\ast$output, const float source\-\_\-id, const float gain\-\_\-in\-\_\-db)
+\item 
+void \hyperlink{namespaceSSR_1_1request_adf834fe564574b466e558639ea46b499}{source\-\_\-mute} (std\-::ostream $\ast$output, const int source\-\_\-id, const bool mute)
+\item 
+void \hyperlink{namespaceSSR_1_1request_a18a96e931ab9839772bc687a905073ea}{source\-\_\-fixed} (std\-::ostream $\ast$output, const int source\-\_\-id, const bool fixed)
+\item 
+void \hyperlink{namespaceSSR_1_1request_ab54d0c73a1809fbd81bb8c63397a145c}{source\-\_\-model} (std\-::ostream $\ast$output, const int source\-\_\-id, const std\-::string model)
+\item 
+void \hyperlink{namespaceSSR_1_1request_a02e519f25618e37b02d961d0b484abe0}{source\-\_\-name} (std\-::ostream $\ast$output, const int source\-\_\-id, const std\-::string $\ast$name)
+\item 
+void \hyperlink{namespaceSSR_1_1request_a39eaeaa80a353d669fdca01c5b5ecc9a}{source\-\_\-properties\-\_\-file} (std\-::ostream $\ast$output, const int source\-\_\-id, const std\-::string $\ast$properties\-\_\-file)
+\item 
+void \hyperlink{namespaceSSR_1_1request_ac23a51a3ed4e1a3887d06d7c3bad2af4}{source\-\_\-port} (std\-::ostream $\ast$output, const int source\-\_\-id, const std\-::string $\ast$port)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceSSR_1_1request_a18a96e931ab9839772bc687a905073ea}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-fixed@{source\-\_\-fixed}}
+\index{source\-\_\-fixed@{source\-\_\-fixed}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-fixed}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-fixed (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const bool}]{fixed}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_a18a96e931ab9839772bc687a905073ea}
+This function writes the source fixed X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{}$>$$<$position fixed=\char`\"{}fixed\char`\"{}/$>$$<$/source$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em fixed} & True if the source shall be fixed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_ae74fe50dcd28b59a65a302493b94d689}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-gain@{source\-\_\-gain}}
+\index{source\-\_\-gain@{source\-\_\-gain}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-gain (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const float}]{source\-\_\-id, }
+\item[{const float}]{gain\-\_\-in\-\_\-db}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_ae74fe50dcd28b59a65a302493b94d689}
+This function writes the source gain X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{} volume=\char`\"{}gain\-\_\-in\-\_\-db\char`\"{}/$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em gain\-\_\-in\-\_\-db} & The gain in d\-B which shall be assigned to the source. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_ab54d0c73a1809fbd81bb8c63397a145c}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-model@{source\-\_\-model}}
+\index{source\-\_\-model@{source\-\_\-model}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-model (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const std\-::string}]{model}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_ab54d0c73a1809fbd81bb8c63397a145c}
+This function writes the source model X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{} model=\char`\"{}model\char`\"{}/$>$}
+
+Possible models are\-: {\ttfamily \char`\"{}point\char`\"{}} or {\ttfamily \char`\"{}plane\char`\"{}}. For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em model} & The model type of the source (\char`\"{}point\char`\"{} or \char`\"{}plane\char`\"{}) which shall be assigned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_adf834fe564574b466e558639ea46b499}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-mute@{source\-\_\-mute}}
+\index{source\-\_\-mute@{source\-\_\-mute}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-mute}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-mute (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const bool}]{mute}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_adf834fe564574b466e558639ea46b499}
+This function writes the source mute X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{} mute=\char`\"{}mute\char`\"{}/$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em mute} & True if the source shall be muted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_a02e519f25618e37b02d961d0b484abe0}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-name@{source\-\_\-name}}
+\index{source\-\_\-name@{source\-\_\-name}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const std\-::string $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_a02e519f25618e37b02d961d0b484abe0}
+This function writes the source name X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{} name=\char`\"{}name\char`\"{}/$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em name} & The name which shall be assigned to the source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_ac23a51a3ed4e1a3887d06d7c3bad2af4}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-port@{source\-\_\-port}}
+\index{source\-\_\-port@{source\-\_\-port}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-port (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const std\-::string $\ast$}]{port}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_ac23a51a3ed4e1a3887d06d7c3bad2af4}
+This function writes the port X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{}$>$$<$port$>$port$<$/port$>$$<$/source$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+W\-A\-R\-N\-I\-N\-G\-: Since this is only possible at the creation of the source, this works only one time at the moment (Bug \#1778)
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em port} & The port with which the source shall be connected with (Jackport). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_ae279ccd2363c0366e0b6da3a156604de}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-position@{source\-\_\-position}}
+\index{source\-\_\-position@{source\-\_\-position}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const float}]{source\-\_\-id, }
+\item[{const float}]{x, }
+\item[{const float}]{y}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_ae279ccd2363c0366e0b6da3a156604de}
+This function writes the source position X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{}$>$$<$position x=\char`\"{}x\char`\"{} y=\char`\"{}y\char`\"{}/$>$$<$/source$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em x} & The position on the X axis. \\
+\hline
+{\em y} & The position on the Y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{namespaceSSR_1_1request_a39eaeaa80a353d669fdca01c5b5ecc9a}{\index{S\-S\-R\-::request@{S\-S\-R\-::request}!source\-\_\-properties\-\_\-file@{source\-\_\-properties\-\_\-file}}
+\index{source\-\_\-properties\-\_\-file@{source\-\_\-properties\-\_\-file}!SSR::request@{S\-S\-R\-::request}}
+\subsubsection[{source\-\_\-properties\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::request\-::source\-\_\-properties\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{output, }
+\item[{const int}]{source\-\_\-id, }
+\item[{const std\-::string $\ast$}]{properties\-\_\-file}
+\end{DoxyParamCaption}
+)}}\label{namespaceSSR_1_1request_a39eaeaa80a353d669fdca01c5b5ecc9a}
+This function writes the properties file X\-M\-L request statement into output as follows\-:
+
+{\ttfamily $<$source id=\char`\"{}source\-\_\-id\char`\"{} properties\-\_\-file=\char`\"{}properties\-\_\-file\char`\"{}/$>$}
+
+For more detailed information please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The stream in which the X\-M\-L request is written. \\
+\hline
+{\em source\-\_\-id} & The source I\-D. \\
+\hline
+{\em properties\-\_\-file} & The name of the properties file which the source shall use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}

@@ -1,0 +1,92 @@
+\hypertarget{classSSR_1_1SSR__requester}{\section{S\-S\-R\-:\-:S\-S\-R\-\_\-requester Class Reference}
+\label{classSSR_1_1SSR__requester}\index{S\-S\-R\-::\-S\-S\-R\-\_\-requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}}
+}
+
+
+{\ttfamily \#include $<$ssr\-\_\-requester.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSSR_1_1SSR__requester_a64099ad3a98b8cd909961aad04a32858}{S\-S\-R\-\_\-requester} ()
+\item 
+\hyperlink{classSSR_1_1SSR__requester_abf1b1504ecdb0f0164f52327a9022eb2}{$\sim$\-S\-S\-R\-\_\-requester} ()
+\item 
+const std\-::string \hyperlink{classSSR_1_1SSR__requester_a12e16372ec9efbca90653e92e4b64af6}{build} (std\-::function$<$ void(std\-::ostream $\ast$output)$>$ fun)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::stringstream $\ast$ \hyperlink{classSSR_1_1SSR__requester_af84b6008c29f0403d75c15c5c0e1d3a8}{request\-\_\-ss}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+With this class you can build X\-M\-L requests for the \hyperlink{namespaceSSR}{S\-S\-R}. The class provides a build method which does all the work. Please read the documentation of {\ttfamily build} for more detailed information how to build X\-M\-L requests.
+
+For more detailed information for \hyperlink{namespaceSSR}{S\-S\-R} request, please visit\-: \href{http://ssr.readthedocs.org}{\tt http\-://ssr.\-readthedocs.\-org}
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSSR_1_1SSR__requester_a12e16372ec9efbca90653e92e4b64af6}{build} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSSR_1_1SSR__requester_a64099ad3a98b8cd909961aad04a32858}{\index{S\-S\-R\-::\-S\-S\-R\-\_\-requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}!S\-S\-R\-\_\-requester@{S\-S\-R\-\_\-requester}}
+\index{S\-S\-R\-\_\-requester@{S\-S\-R\-\_\-requester}!SSR::SSR_requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}}
+\subsubsection[{S\-S\-R\-\_\-requester}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-S\-S\-R\-\_\-requester\-::\-S\-S\-R\-\_\-requester (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1SSR__requester_a64099ad3a98b8cd909961aad04a32858}
+The constructor for the \hyperlink{namespaceSSR}{S\-S\-R} requester. \hypertarget{classSSR_1_1SSR__requester_abf1b1504ecdb0f0164f52327a9022eb2}{\index{S\-S\-R\-::\-S\-S\-R\-\_\-requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}!$\sim$\-S\-S\-R\-\_\-requester@{$\sim$\-S\-S\-R\-\_\-requester}}
+\index{$\sim$\-S\-S\-R\-\_\-requester@{$\sim$\-S\-S\-R\-\_\-requester}!SSR::SSR_requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}}
+\subsubsection[{$\sim$\-S\-S\-R\-\_\-requester}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-S\-S\-R\-\_\-requester\-::$\sim$\-S\-S\-R\-\_\-requester (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1SSR__requester_abf1b1504ecdb0f0164f52327a9022eb2}
+The deconstructor for the \hyperlink{namespaceSSR}{S\-S\-R} requester. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classSSR_1_1SSR__requester_a12e16372ec9efbca90653e92e4b64af6}{\index{S\-S\-R\-::\-S\-S\-R\-\_\-requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}!build@{build}}
+\index{build@{build}!SSR::SSR_requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string S\-S\-R\-::\-S\-S\-R\-\_\-requester\-::build (
+\begin{DoxyParamCaption}
+\item[{std\-::function$<$ void(std\-::ostream $\ast$output)$>$}]{fun}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1SSR__requester_a12e16372ec9efbca90653e92e4b64af6}
+With this Method you can build various \hyperlink{namespaceSSR}{S\-S\-R} requests.
+
+Use\-: build(std\-::bind(\hyperlink{namespaceSSR_1_1request}{S\-S\-R\-::request}\-:\-:$<$function$>$, std\-::placeholders\-::\-\_\-1, $<$value1$>$, ..., $<$value\-N$>$))
+
+The transfered function has to have a pointer to an ostream thats why there is the need for the placeholder. The method returns the build \hyperlink{namespaceSSR}{S\-S\-R} request always beginning with $<$request$>$ and ends with $<$/request$>$\-:
+
+{\ttfamily $<$request$>$I\-N\-P\-U\-T$<$/request$>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em fun} & A function which has to have an ostream as argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the build \hyperlink{namespaceSSR}{S\-S\-R} request. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+\subsection{Field Documentation}
+\hypertarget{classSSR_1_1SSR__requester_af84b6008c29f0403d75c15c5c0e1d3a8}{\index{S\-S\-R\-::\-S\-S\-R\-\_\-requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}!request\-\_\-ss@{request\-\_\-ss}}
+\index{request\-\_\-ss@{request\-\_\-ss}!SSR::SSR_requester@{S\-S\-R\-::\-S\-S\-R\-\_\-requester}}
+\subsubsection[{request\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stringstream$\ast$ S\-S\-R\-::\-S\-S\-R\-\_\-requester\-::request\-\_\-ss\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1SSR__requester_af84b6008c29f0403d75c15c5c0e1d3a8}
+The request string stream with which all requests are concatenated. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Source/utils/\hyperlink{ssr__requester_8h}{ssr\-\_\-requester.\-h}\item 
+Source/utils/\hyperlink{ssr__requester_8cpp}{ssr\-\_\-requester.\-cpp}\end{DoxyCompactItemize}

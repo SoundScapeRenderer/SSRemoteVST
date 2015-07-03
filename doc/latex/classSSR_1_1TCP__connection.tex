@@ -1,0 +1,297 @@
+\hypertarget{classSSR_1_1TCP__connection}{\section{S\-S\-R\-:\-:T\-C\-P\-\_\-connection Class Reference}
+\label{classSSR_1_1TCP__connection}\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+}
+
+
+{\ttfamily \#include $<$tcp\-\_\-connection.\-h$>$}
+
+
+
+Inheritance diagram for S\-S\-R\-:\-:T\-C\-P\-\_\-connection\-:
+
+
+Collaboration diagram for S\-S\-R\-:\-:T\-C\-P\-\_\-connection\-:
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSSR_1_1TCP__connection_a0a05d880ac368d6404d3b553593a8357}{T\-C\-P\-\_\-connection} (const std\-::string \hyperlink{classSSR_1_1TCP__connection_af7f5b7d55ac15ea615354eeb885512e2}{hostname}, const int \hyperlink{classSSR_1_1TCP__connection_a30734c753f6d788ee25211ba6180380d}{port}, const int \hyperlink{classSSR_1_1TCP__connection_ab190449951139b0705e2c7cd70de1903}{timeout}, const char \hyperlink{classSSR_1_1TCP__connection_a375054b2058fea473aeda2df3f2ee8be}{end\-\_\-of\-\_\-message})
+\item 
+virtual \hyperlink{classSSR_1_1TCP__connection_a8f2c1ee8bd67f8e3de0e51d080edcf94}{$\sim$\-T\-C\-P\-\_\-connection} ()
+\item 
+virtual bool \hyperlink{classSSR_1_1TCP__connection_a57551329370d667e324fc9c19d8f0ae3}{connect} ()
+\item 
+virtual void \hyperlink{classSSR_1_1TCP__connection_adb9bad291355dec27e72d3eb63cedeb5}{disconnect} ()
+\item 
+virtual bool \hyperlink{classSSR_1_1TCP__connection_a74b65153b0c0ec20cad64b7faea7f122}{get\-\_\-message} (std\-::string $\ast$new\-\_\-message, int $\ast$wait\-\_\-in\-\_\-msec)
+\item 
+virtual bool \hyperlink{classSSR_1_1TCP__connection_a5ac5568c97d926507c4455daf7304ec4}{send\-\_\-message} (const std\-::string $\ast$message\-\_\-to\-\_\-send, int wait\-\_\-in\-\_\-msec)
+\item 
+virtual bool \hyperlink{classSSR_1_1TCP__connection_a562746faf53010b01af52f02817abcd4}{is\-\_\-connected} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSSR_1_1TCP__connection_aa9a40255447f6bad172a985d99c23ca5}{read\-\_\-message} (int $\ast$wait\-\_\-in\-\_\-msec)
+\item 
+bool \hyperlink{classSSR_1_1TCP__connection_a0e92f67aebe07f4b2c440c13c153234d}{load\-\_\-buffer} (int $\ast$wait\-\_\-in\-\_\-msec)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classSSR_1_1TCP__connection_af7f5b7d55ac15ea615354eeb885512e2}{hostname}
+\item 
+int \hyperlink{classSSR_1_1TCP__connection_a30734c753f6d788ee25211ba6180380d}{port}
+\item 
+int \hyperlink{classSSR_1_1TCP__connection_ab190449951139b0705e2c7cd70de1903}{timeout}
+\item 
+char \hyperlink{classSSR_1_1TCP__connection_a375054b2058fea473aeda2df3f2ee8be}{end\-\_\-of\-\_\-message}
+\item 
+std\-::stringstream $\ast$ \hyperlink{classSSR_1_1TCP__connection_ae2920895ce251ebd5625a028c546ff8f}{ss}
+\item 
+Streaming\-Socket \hyperlink{classSSR_1_1TCP__connection_a3d22ed1c827d76a52914d4a76eae1b7f}{ss\-\_\-connection}
+\item 
+bool \hyperlink{classSSR_1_1TCP__connection_a5a9548fef4138d6cc2a71122ba115ec9}{new\-\_\-message\-\_\-available}
+\item 
+int \hyperlink{classSSR_1_1TCP__connection_a46f58bc3afd2d8f6087a8f5ab69170a5}{buffer\-\_\-index}
+\item 
+std\-::array$<$ char, 128 $>$ \hyperlink{classSSR_1_1TCP__connection_ac056f76e1f68c1d55c24c54da85b86f2}{incoming\-\_\-message\-\_\-buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a tcp client connection and is basically a wrapper class of the J\-U\-C\-E class Streaming\-Socket.
+
+This class provides methods to connect to a host and disconnect from it, methods to get messages from the host and send messages to the host and a method to check whether this client is connected to the host.
+
+Warning\-: This class should implement an interface allready written but this does not work properly, so this is something to work on...
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-7 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2014-\/11-\/14 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSSR_1_1TCP__connection_a0a05d880ac368d6404d3b553593a8357}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!T\-C\-P\-\_\-connection@{T\-C\-P\-\_\-connection}}
+\index{T\-C\-P\-\_\-connection@{T\-C\-P\-\_\-connection}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{T\-C\-P\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::\-T\-C\-P\-\_\-connection (
+\begin{DoxyParamCaption}
+\item[{const std\-::string}]{hostname, }
+\item[{const int}]{port, }
+\item[{const int}]{timeout, }
+\item[{const char}]{end\-\_\-of\-\_\-message}
+\end{DoxyParamCaption}
+)}}\label{classSSR_1_1TCP__connection_a0a05d880ac368d6404d3b553593a8357}
+This constructor needs a hostname, a port and a timeout for the \hyperlink{classSSR_1_1TCP__connection_a57551329370d667e324fc9c19d8f0ae3}{connect()} method and the end\-\_\-of\-\_\-message char for incoming messages.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hostname} & The hostname (domain name or ip address) to connect to.\\
+\hline
+{\em prot} & The port on which to send and receive messages.\\
+\hline
+{\em timeout} & Timeout in milliseconds when trying to connect to the host.\\
+\hline
+{\em end\-\_\-of\-\_\-message} & The char that represents the end of a message when receiving a message from the host.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+Initially fill the incoming\-\_\-message\-\_\-buffer with the E\-O\-T (end of transmission) character.\hypertarget{classSSR_1_1TCP__connection_a8f2c1ee8bd67f8e3de0e51d080edcf94}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!$\sim$\-T\-C\-P\-\_\-connection@{$\sim$\-T\-C\-P\-\_\-connection}}
+\index{$\sim$\-T\-C\-P\-\_\-connection@{$\sim$\-T\-C\-P\-\_\-connection}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{$\sim$\-T\-C\-P\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::$\sim$\-T\-C\-P\-\_\-connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_a8f2c1ee8bd67f8e3de0e51d080edcf94}
+Deconstructor which also disconnects if not allready done. Dont have to check whether the streaming socket is allready closed this is managed by the Streaming\-Socket class itself.
+
+\subsection{Member Function Documentation}
+\hypertarget{classSSR_1_1TCP__connection_a57551329370d667e324fc9c19d8f0ae3}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!connect@{connect}}
+\index{connect@{connect}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_a57551329370d667e324fc9c19d8f0ae3}
+This method connects this client to the given host with the parameters transfered by creating this object.
+
+\begin{DoxyReturn}{Returns}
+true if the connection was succesfull, false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+Implements \hyperlink{classSSR_1_1IConnection_a105a6d8e43cd9320a44034ecade1127c}{S\-S\-R\-::\-I\-Connection}.
+
+\hypertarget{classSSR_1_1TCP__connection_adb9bad291355dec27e72d3eb63cedeb5}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_adb9bad291355dec27e72d3eb63cedeb5}
+This method disconnects this client from the given host with the parameters transfered by creating this object.
+
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+Dont have to check whether the streaming socket is allready closed this is managed by the Streaming\-Socket class itself.
+
+Implements \hyperlink{classSSR_1_1IConnection_a1b457fd6b5eec8396ab0c60ae16af76a}{S\-S\-R\-::\-I\-Connection}.
+
+\hypertarget{classSSR_1_1TCP__connection_a74b65153b0c0ec20cad64b7faea7f122}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!get\-\_\-message@{get\-\_\-message}}
+\index{get\-\_\-message@{get\-\_\-message}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{get\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::get\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{new\-\_\-message, }
+\item[{int $\ast$}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_a74b65153b0c0ec20cad64b7faea7f122}
+This method gets a message from the host which ends with the transfered parameter end\-\_\-of\-\_\-message by creating this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-message} & The message received from the host will be put into this string without the character representing the end of the message.\\
+\hline
+{\em wait\-\_\-in\-\_\-msec} & The time in milliseconds waiting for a message to come in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is a new message, otherwise false.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+Implements \hyperlink{classSSR_1_1IConnection_a81bef4b41f8619cd465117b49a2404bd}{S\-S\-R\-::\-I\-Connection}.
+
+\hypertarget{classSSR_1_1TCP__connection_a562746faf53010b01af52f02817abcd4}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!is\-\_\-connected@{is\-\_\-connected}}
+\index{is\-\_\-connected@{is\-\_\-connected}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{is\-\_\-connected}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::is\-\_\-connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_a562746faf53010b01af52f02817abcd4}
+This method returns a boolean value if the client is connected to the host.
+
+W\-A\-R\-N\-I\-N\-G\-: It does not check whether the host is unreachable after the initial connection was successfully established.
+
+\begin{DoxyReturn}{Returns}
+true if the client is connected to the host, otherwise false. Please pay attention to the warning mentioned above.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+
+
+Implements \hyperlink{classSSR_1_1IConnection_a3b081084454585e81e095b58ada98589}{S\-S\-R\-::\-I\-Connection}.
+
+\hypertarget{classSSR_1_1TCP__connection_a0e92f67aebe07f4b2c440c13c153234d}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!load\-\_\-buffer@{load\-\_\-buffer}}
+\index{load\-\_\-buffer@{load\-\_\-buffer}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{load\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::load\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a0e92f67aebe07f4b2c440c13c153234d}
+This methods loads the incoming\-\_\-message\-\_\-buffer with new messages coming from the host.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wait\-\_\-in\-\_\-msec} & The time in milliseconds waiting for a message to come in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+\hypertarget{classSSR_1_1TCP__connection_aa9a40255447f6bad172a985d99c23ca5}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!read\-\_\-message@{read\-\_\-message}}
+\index{read\-\_\-message@{read\-\_\-message}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{read\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}void S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::read\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_aa9a40255447f6bad172a985d99c23ca5}
+This method reads the incoming message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wait\-\_\-in\-\_\-msec} & The time in milliseconds waiting for a message to come in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+Clear the content of the string stream as described\-: m.\-str(std\-::string()) -\/$>$ is technically more efficient, because you avoid invoking the \char`\"{}std\-::string\char`\"{} constructor that takes \char`\"{}const char$\ast$\char`\"{}
+
+\href{http://stackoverflow.com/questions/20731/in-c-how-do-you-clear-a-stringstream-variable}{\tt http\-://stackoverflow.\-com/questions/20731/in-\/c-\/how-\/do-\/you-\/clear-\/a-\/stringstream-\/variable}\hypertarget{classSSR_1_1TCP__connection_a5ac5568c97d926507c4455daf7304ec4}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!send\-\_\-message@{send\-\_\-message}}
+\index{send\-\_\-message@{send\-\_\-message}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{send\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::send\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{const std\-::string $\ast$}]{message\-\_\-to\-\_\-send, }
+\item[{int}]{wait\-\_\-in\-\_\-msec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSSR_1_1TCP__connection_a5ac5568c97d926507c4455daf7304ec4}
+This method sends the transfered message\-\_\-to\-\_\-send to the host.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\-\_\-to\-\_\-send} & The message that will be send to the host. \\
+\hline
+{\em wait\-\_\-in\-\_\-msec} & The time in milliseconds waiting for the being ready to receive a message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if sending the message was successful, false otherwise.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Florian Willich 
+\end{DoxyAuthor}
+From the J\-U\-C\-E Documentation\-: If the socket is ready on return, this returns 1. If it times-\/out before the socket becomes ready, it returns 0. If an error occurs, it returns -\/1.
+
+Implements \hyperlink{classSSR_1_1IConnection_a2cc678a37ae55b627149b00adf43e8bc}{S\-S\-R\-::\-I\-Connection}.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classSSR_1_1TCP__connection_a46f58bc3afd2d8f6087a8f5ab69170a5}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!buffer\-\_\-index@{buffer\-\_\-index}}
+\index{buffer\-\_\-index@{buffer\-\_\-index}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{buffer\-\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}int S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::buffer\-\_\-index\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a46f58bc3afd2d8f6087a8f5ab69170a5}
+Index for the incoming\-\_\-message\-\_\-buffer which is needed to work with it more efficient. \hypertarget{classSSR_1_1TCP__connection_a375054b2058fea473aeda2df3f2ee8be}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!end\-\_\-of\-\_\-message@{end\-\_\-of\-\_\-message}}
+\index{end\-\_\-of\-\_\-message@{end\-\_\-of\-\_\-message}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{end\-\_\-of\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}char S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::end\-\_\-of\-\_\-message\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a375054b2058fea473aeda2df3f2ee8be}
+The character representing the end of a message of incoming messages. \hypertarget{classSSR_1_1TCP__connection_af7f5b7d55ac15ea615354eeb885512e2}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!hostname@{hostname}}
+\index{hostname@{hostname}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{hostname}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::hostname\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_af7f5b7d55ac15ea615354eeb885512e2}
+The hostname which can be a domain name or I\-P adress. \hypertarget{classSSR_1_1TCP__connection_ac056f76e1f68c1d55c24c54da85b86f2}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!incoming\-\_\-message\-\_\-buffer@{incoming\-\_\-message\-\_\-buffer}}
+\index{incoming\-\_\-message\-\_\-buffer@{incoming\-\_\-message\-\_\-buffer}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{incoming\-\_\-message\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}std\-::array$<$char, 128$>$ S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::incoming\-\_\-message\-\_\-buffer\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_ac056f76e1f68c1d55c24c54da85b86f2}
+The buffer which is used for the incoming messages limited to 128 chars. \hypertarget{classSSR_1_1TCP__connection_a5a9548fef4138d6cc2a71122ba115ec9}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!new\-\_\-message\-\_\-available@{new\-\_\-message\-\_\-available}}
+\index{new\-\_\-message\-\_\-available@{new\-\_\-message\-\_\-available}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{new\-\_\-message\-\_\-available}]{\setlength{\rightskip}{0pt plus 5cm}bool S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::new\-\_\-message\-\_\-available\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a5a9548fef4138d6cc2a71122ba115ec9}
+Represents if there is a new message available from the host or not. \hypertarget{classSSR_1_1TCP__connection_a30734c753f6d788ee25211ba6180380d}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!port@{port}}
+\index{port@{port}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{port}]{\setlength{\rightskip}{0pt plus 5cm}int S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::port\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a30734c753f6d788ee25211ba6180380d}
+The port on which the service runs on. \hypertarget{classSSR_1_1TCP__connection_ae2920895ce251ebd5625a028c546ff8f}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!ss@{ss}}
+\index{ss@{ss}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{ss}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stringstream$\ast$ S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::ss\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_ae2920895ce251ebd5625a028c546ff8f}
+Stringstream for incoming messages handling. \hypertarget{classSSR_1_1TCP__connection_a3d22ed1c827d76a52914d4a76eae1b7f}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!ss\-\_\-connection@{ss\-\_\-connection}}
+\index{ss\-\_\-connection@{ss\-\_\-connection}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{ss\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}Streaming\-Socket S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::ss\-\_\-connection\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_a3d22ed1c827d76a52914d4a76eae1b7f}
+J\-U\-C\-E Streaming\-Socket object which does all the basic socket work. \hypertarget{classSSR_1_1TCP__connection_ab190449951139b0705e2c7cd70de1903}{\index{S\-S\-R\-::\-T\-C\-P\-\_\-connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}!timeout@{timeout}}
+\index{timeout@{timeout}!SSR::TCP_connection@{S\-S\-R\-::\-T\-C\-P\-\_\-connection}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}int S\-S\-R\-::\-T\-C\-P\-\_\-connection\-::timeout\hspace{0.3cm}{\ttfamily [private]}}}\label{classSSR_1_1TCP__connection_ab190449951139b0705e2c7cd70de1903}
+The timeout in milliseconds waiting for the host by connecting to it. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Source/utils/\hyperlink{tcp__connection_8h}{tcp\-\_\-connection.\-h}\item 
+Source/utils/\hyperlink{tcp__connection_8cpp}{tcp\-\_\-connection.\-cpp}\end{DoxyCompactItemize}

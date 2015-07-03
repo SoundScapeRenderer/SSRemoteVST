@@ -1,0 +1,27 @@
+digraph "SSRSceneAutomationProcessorEditor::SSRSceneAutomationProcessorEditor"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SSRSceneAutomationProcessor\lEditor::SSRSceneAutomationProcessor\lEditor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="SSRSceneAutomationProcessor\lEditor::getProcessor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSRSceneAutomationProcessorEditor.html#a05df0d6d92eccab2ecf4348d398322d8"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="SsrSceneAutomationAudioProcessor\l::is_connected_to_ssr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#a7bb6fce56ec87f75947168a8feba5ea3"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="SSR::IConnection::is\l_connected",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1IConnection.html#a3b081084454585e81e095b58ada98589"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="SSRSceneAutomationProcessor\lEditor::fill_jackport_dropdown",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSRSceneAutomationProcessorEditor.html#ae1a2d27acb0671fbc738d855a77de9dd"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="SsrSceneAutomationAudioProcessor\l::get_all_jack_ports",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#af8ebc51eaf16e72a4497f190cd3da3d5"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="SSR::Jack_client::look\l_up_jack_ports",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1Jack__client.html#ad5883392dffbd3ea4b4f54d6f51b88ad"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="SSR::jack_server_not\l_running_exception::what",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSSR_1_1jack__server__not__running__exception.html#a25981c716f91fe94840fc0f3b3b601ac"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="SsrSceneAutomationAudioProcessor\l::read_ssr_incoming_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSsrSceneAutomationAudioProcessor.html#afd82a1fa84469a1ac573c27392cf2f94"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="SSR::IConnection::get\l_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1IConnection.html#a81bef4b41f8619cd465117b49a2404bd"];
+  Node9 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="SSR::Helper::dB_to\l_linear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSSR_1_1Helper.html#a0152e8af20095363df1cf5d209b34036"];
+}
