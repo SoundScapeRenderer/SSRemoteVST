@@ -702,7 +702,7 @@ boost::filesystem::path Controller::get_config_file_path()
 
   //Try to get env var SSREMOTE_CONFIG for config file path, else get HOME path
   try {
-      config_file_location = SSR::Helper::get_environment_variable("SSREMOTE_CONFIG");
+      config_file_location = SSR::Helper::get_environment_variable("SSREMOTE_VST");
   } catch (std::invalid_argument& iae) {
       SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, "Environemnt variable SSREMOTE_CONFIG is not set!", LOG_TO_FILE);
   }
