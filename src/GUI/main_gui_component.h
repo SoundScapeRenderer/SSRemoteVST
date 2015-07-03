@@ -1,6 +1,18 @@
 #ifndef __JUCE_HEADER_3AFE319E6C7B8A70__
 #define __JUCE_HEADER_3AFE319E6C7B8A70__
 
+/**
+ * GNU GENERAL PUBLIC LICENSE
+ * Version 3, 29 June 2007
+ *
+ * Copyright © 2015
+ * Quality and Usability Lab
+ * Berlin Institute of Technology
+ * http://www.qu.tu-berlin.de
+ *
+ * For more detailed information, please read the license.txt in the root directory.
+ */
+
 //Own Classes
 #include <src/GUI/head_frame/head_frame_gui_component.h>
 #include <src/GUI/source_frame/source_frame_gui_component.h>

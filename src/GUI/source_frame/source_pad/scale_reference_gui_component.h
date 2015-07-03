@@ -1,6 +1,18 @@
 #ifndef SCALE_REFERENCE_GUI_COMPONENT
 #define SCALE_REFERENCE_GUI_COMPONENT
 
+/**
+ * GNU GENERAL PUBLIC LICENSE
+ * Version 3, 29 June 2007
+ *
+ * Copyright © 2015
+ * Quality and Usability Lab
+ * Berlin Institute of Technology
+ * http://www.qu.tu-berlin.de
+ *
+ * For more detailed information, please read the license.txt in the root directory.
+ */
+
 //JUCE Include
 #include <JuceLibraryCode/JuceHeader.h>
 

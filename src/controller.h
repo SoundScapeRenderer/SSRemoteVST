@@ -1,6 +1,18 @@
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
 
+/**
+ * GNU GENERAL PUBLIC LICENSE
+ * Version 3, 29 June 2007
+ *
+ * Copyright © 2015
+ * Quality and Usability Lab
+ * Berlin Institute of Technology
+ * http://www.qu.tu-berlin.de
+ *
+ * For more detailed information, please read the license.txt in the root directory.
+ */
+
 #include <algorithm> 
 #include <array>
 #include <iostream>
