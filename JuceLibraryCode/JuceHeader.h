@@ -37,9 +37,9 @@
 
 namespace ProjectInfo
 {
-    const char* const  projectName    = "SSRSceneAutomation";
-    const char* const  versionString  = "0.0.1";
-    const int          versionNumber  = 0x1;
+    const char* const  projectName    = "SSRemoteVST";
+    const char* const  versionString  = "0.0.9";
+    const int          versionNumber  = 0x9;
 }
 
 #endif   // __APPHEADERFILE_HJDAJU__
