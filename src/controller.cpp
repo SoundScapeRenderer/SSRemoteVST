@@ -11,8 +11,6 @@
  */
 
 //C++ Libs
-#include "controller.h"
-
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -22,6 +20,7 @@
 #include <map>
 
 //Own Libs
+#include <src/controller.h>
 #include <src/utils/jack_client.h>
 #include <src/utils/tcp_connection.h>
 #include <src/utils/ssr_requester.h>
