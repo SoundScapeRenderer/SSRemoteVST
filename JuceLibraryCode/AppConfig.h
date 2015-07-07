@@ -1,25 +1,5 @@
-/*
-
-    IMPORTANT! This file is auto-generated each time you save your
-    project - if you alter its contents, your changes may be overwritten!
-
-    There's a section below where you can add your own custom code safely, and the
-    Introjucer will preserve the contents of that block, but the best way to change
-    any of these definitions is by using the Introjucer's project settings.
-
-    Any commented-out settings will assume their default values.
-
-*/
-
 #ifndef __JUCE_APPCONFIG_HJDAJU__
 #define __JUCE_APPCONFIG_HJDAJU__
-
-//==============================================================================
-// [BEGIN_USER_CODE_SECTION]
-
-// (You can add your own code in this section, and the Introjucer will not overwrite it)
-
-// [END_USER_CODE_SECTION]
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics             1
@@ -213,13 +193,13 @@
  #define JucePlugin_Build_AAX              0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "SSRSceneAutomation"
+ #define JucePlugin_Name                   "SSRemoteVST"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Automation tool for ssr source movement and much more..."
+ #define JucePlugin_Desc                   "Automation tool for the SoundScapeRenderer (SSR) scene."
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "University of Technology Berlin"
+ #define JucePlugin_Manufacturer           "Berlin Institute of Technology"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
  #define JucePlugin_ManufacturerWebsite    "http://spatialaudio.net/ssr/"
@@ -228,10 +208,10 @@
  #define JucePlugin_ManufacturerEmail      "ssr@spatialaudio.net"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       'TUbe'
+ #define JucePlugin_ManufacturerCode       'BIT'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             'SSRa'
+ #define JucePlugin_PluginCode             'SSRemoteVST'
 #endif
 #ifndef  JucePlugin_MaxNumInputChannels
  #define JucePlugin_MaxNumInputChannels    2
@@ -264,7 +244,7 @@
  #define JucePlugin_VersionCode            0x1
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "0.0.1"
+ #define JucePlugin_VersionString          "0.0.9"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
@@ -282,7 +262,7 @@
  #define JucePlugin_AUExportPrefix         SSRSceneAutomationAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "SSRSceneAutomationAU"
+ #define JucePlugin_AUExportPrefixQuoted   "SSRemoteAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
