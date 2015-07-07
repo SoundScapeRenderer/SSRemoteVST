@@ -13,9 +13,11 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
-#include <JuceLibraryCode/JuceHeader.h>
-
+//C++ Libs
 #include <memory>
+
+//Juce Libs
+#include <src/JuceHeader.h>
 
 namespace SSR
 {

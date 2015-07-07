@@ -21,8 +21,8 @@
 #include <memory>
 #include <map>
 
-//JUCE Include
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 //Own classes
 #include <src/utils/jack_client.h>

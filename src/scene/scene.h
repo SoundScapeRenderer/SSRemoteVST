@@ -20,7 +20,8 @@
 //Own Libs
 #include <src/scene/source.h>
 
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 namespace SSR
 {

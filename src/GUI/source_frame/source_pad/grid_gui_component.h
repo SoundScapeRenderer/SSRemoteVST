@@ -16,8 +16,8 @@
 //C++ Libs
 #include <memory>
 
-//JUCE Include
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 namespace SSR
 {

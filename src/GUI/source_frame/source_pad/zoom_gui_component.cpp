@@ -13,7 +13,7 @@
 #include <src/GUI/source_frame/source_pad/zoom_gui_component.h>
 
 //JUCE Lib
-#include <JuceLibraryCode/JuceHeader.h>
+#include <src/JuceHeader.h>
 
 //C++ Lib
 #include <cmath>

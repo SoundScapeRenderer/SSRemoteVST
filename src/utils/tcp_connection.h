@@ -19,11 +19,11 @@
 #include <array>
 #include <memory>
 
-//JUCE Libs
-#include <JuceHeader.h>
-
 //Own Libs
 #include <src/utils/iconnection.h>
+
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 namespace SSR {
 

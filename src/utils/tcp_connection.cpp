@@ -16,13 +16,13 @@
 #include <array>
 #include <functional>
 
-//JUCE Libs
-#include <JuceHeader.h>
-
 //Own Libs
 #include <src/utils/iconnection.h>
 #include <src/utils/tcp_connection.h>
 #include <src/utils/debug.h>
+
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 //============================================================================
 // PUBLIC

@@ -14,9 +14,6 @@
 #include <string>
 #include <sstream>
 
-//JUCE Lib
-#include <JuceLibraryCode/JuceHeader.h>
-
 //Own classes
 #include <src/utils/ssr_requester.h>
 #include <src/utils/helper.h>

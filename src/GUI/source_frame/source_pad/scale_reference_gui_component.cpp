@@ -18,7 +18,7 @@
 #include <iomanip>
 
 //JUCE Include
-#include <JuceLibraryCode/JuceHeader.h>
+#include <src/JuceHeader.h>
 
 SSR::Scale_reference_GUI_component::Scale_reference_GUI_component(unsigned int reference_pixels, double reference_range)
 : reference_pixels(reference_pixels)

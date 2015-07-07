@@ -13,7 +13,8 @@
 //JUCE Include
 #include <src/GUI/source_frame/source_pad/source_pad_and_controls_gui_component.h>
 
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 //Own Libs
 #include <src/GUI/gui_components_configurator.h>

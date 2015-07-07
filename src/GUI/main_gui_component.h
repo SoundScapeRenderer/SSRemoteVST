@@ -14,6 +14,7 @@
  */
 
 //Own Classes
+#include <src/controller.h>
 #include <src/GUI/head_frame/head_frame_gui_component.h>
 #include <src/GUI/source_frame/source_frame_gui_component.h>
 
@@ -23,9 +24,8 @@
 #include <map>
 #include <memory>
 
-//JUCE Libs
-#include <JuceLibraryCode/JuceHeader.h>
-#include <src/controller.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 
 /**

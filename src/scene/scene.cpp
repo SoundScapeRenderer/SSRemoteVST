@@ -21,7 +21,8 @@
 #include <src/scene/source.h>
 #include <src/parameter/parameter.h>
 
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 typedef std::vector<SSR::Source>::iterator source_iterator;
 

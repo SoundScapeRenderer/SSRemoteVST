@@ -13,8 +13,8 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
-//JUCE Include
-#include <JuceLibraryCode/JuceHeader.h>
+//JUCE Lib
+#include <src/JuceHeader.h>
 
 //Own Libs
 #include <memory>

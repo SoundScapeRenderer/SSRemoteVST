@@ -25,9 +25,6 @@
 //Jack Libs
 #include <jack/jack.h>
 
-//JUCE Libs
-#include <JuceHeader.h>
-
 namespace SSR 
 {
 

@@ -18,9 +18,6 @@
 #include <sstream>
 #include <functional>
 
-//JUCE Lib
-#include <JuceLibraryCode/JuceHeader.h>
-
 namespace SSR 
 {
 
