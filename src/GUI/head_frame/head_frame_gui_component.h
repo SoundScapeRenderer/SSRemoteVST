@@ -17,7 +17,7 @@
 #include <memory>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 //Own Libs
 #include <src/GUI/head_frame/network_gui_component.h>

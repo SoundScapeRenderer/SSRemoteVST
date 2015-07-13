@@ -15,9 +15,9 @@ ifeq ($(CONFIG),Debug)
   endif
 
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -D "JUCE_APP_VERSION=0.0.1" -D "JUCE_APP_VERSION_HEX=0x1" -I /usr/include -I /usr/include/freetype2 -I $(VST3_SDK) -I $(JUCE_LIB_CODE) -I $(SSREMOTE_VST)
+  # (-Wl --no-undefined) -> Checks if the linker has undefined references
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -std=c++11
   CXXFLAGS += $(CFLAGS)
-  # (-Wl --no-undefined) -> Checks if the linker has undefined references
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -shared -Wl,--no-undefined -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -ljack -lboost_filesystem -lboost_system
   LDDEPS :=
   RESFLAGS :=  -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -D "JUCE_APP_VERSION=0.0.1" -D "JUCE_APP_VERSION_HEX=0x1" -I /usr/include -I /usr/include/freetype2 -I $(VST3_SDK) -I $(JUCE_LIB_CODE) -I $(SSREMOTE_VST)
@@ -41,7 +41,7 @@ ifeq ($(CONFIG),Release)
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -ljack 
   LDDEPS :=
-  RESFLAGS :=  -D "LINUX=1" -D "NDEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -D "JUCE_APP_VERSION=0.0.1" -D "JUCE_APP_VERSION_HEX=0x1" -I /usr/include -I /usr/include/freetype2 -I $(VST3_SDK) -I $(SSREMOTE_VST)
+  RESFLAGS :=  -D "LINUX=1" -D "NDEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -D "JUCE_APP_VERSION=0.0.1" -D "JUCE_APP_VERSION_HEX=0x1" -I /usr/include -I /usr/include/freetype2 -I $(VST3_SDK) -I $(JUCE_LIB_CODE) -I $(SSREMOTE_VST)
   TARGET := ssr_scene_automation_vst_plugin.so
   BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
   CLEANCMD = rm -rf $(OUTDIR)/$(TARGET) $(OBJDIR)
@@ -81,6 +81,7 @@ OBJECTS := \
   $(OBJDIR)/juce_audio_formats_d349f0c8.o \
   $(OBJDIR)/juce_audio_processors_44a134a2.o \
   $(OBJDIR)/juce_core_aff681cc.o \
+  $(OBJDIR)/juce_cryptography_25c7e826.o \
   $(OBJDIR)/juce_data_structures_bdd6d488.o \
   $(OBJDIR)/juce_events_79b2840.o \
   $(OBJDIR)/juce_graphics_c8f1e7a4.o \
@@ -88,24 +89,25 @@ OBJECTS := \
   $(OBJDIR)/juce_gui_extra_7767d6a8.o \
   $(OBJDIR)/juce_opengl_c7e3506c.o \
   $(OBJDIR)/juce_PluginUtilities_e2e19a34.o \
+  $(OBJDIR)/juce_video_184321c8.o \
   $(OBJDIR)/juce_VST_Wrapper_bb62e93d.o \
   $(OBJDIR)/juce_VST3_Wrapper_77e7c73b.o \
 
 .PHONY: clean
 
 $(OUTDIR)/$(TARGET): $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking SSRemoteVST
+	@echo Linking SSRSceneAutomation
 	-@mkdir -p $(BINDIR)
 	-@mkdir -p $(LIBDIR)
 	-@mkdir -p $(OUTDIR)
 	@$(BLDCMD)
 
 clean:
-	@echo Cleaning SSRemoteVST
+	@echo Cleaning SSRSceneAutomation
 	@$(CLEANCMD)
 
 strip:
-	@echo Stripping SSRemoteVST
+	@echo Stripping SSRSceneAutomation
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
 $(OBJDIR)/clock.o: $(SSREMOTE_VST)/src/utils/clock.cpp
@@ -273,6 +275,11 @@ $(OBJDIR)/juce_core_aff681cc.o: $(SSREMOTE_VST)/JUCE/modules/juce_core/juce_core
 	@echo "Compiling juce_core.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/juce_cryptography_25c7e826.o: $(SSREMOTE_VST)/JUCE/modules/juce_cryptography/juce_cryptography.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling juce_cryptography.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/juce_data_structures_bdd6d488.o: $(SSREMOTE_VST)/JUCE/modules/juce_data_structures/juce_data_structures.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling juce_data_structures.cpp"
@@ -306,6 +313,11 @@ $(OBJDIR)/juce_opengl_c7e3506c.o: $(SSREMOTE_VST)/JUCE/modules/juce_opengl/juce_
 $(OBJDIR)/juce_PluginUtilities_e2e19a34.o: $(SSREMOTE_VST)/JUCE/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling juce_PluginUtilities.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/juce_video_184321c8.o: $(SSREMOTE_VST)/JUCE/modules/juce_video/juce_video.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling juce_video.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_VST_Wrapper_bb62e93d.o: $(SSREMOTE_VST)/JUCE/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp

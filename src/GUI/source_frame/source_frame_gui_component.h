@@ -17,7 +17,7 @@
 #include <memory>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 #include <src/GUI/source_frame/source_pad/source_pad_and_controls_gui_component.h>
 #include <src/GUI/source_frame/source_parameters/source_parameters_gui_component.h>

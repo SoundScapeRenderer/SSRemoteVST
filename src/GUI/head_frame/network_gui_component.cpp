@@ -11,7 +11,7 @@
  */
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 //C++ Libs
 #include <memory>

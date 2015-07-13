@@ -22,7 +22,7 @@
 #include <src/parameter/parameter.h>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 typedef std::vector<SSR::Source>::iterator source_iterator;
 

@@ -23,7 +23,7 @@
 #include <src/utils/iconnection.h>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 namespace SSR {
 

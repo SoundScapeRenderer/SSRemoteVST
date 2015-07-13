@@ -13,7 +13,7 @@
 #include <src/config/ssr_colour.h>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 juce::Colour SSR::colour::get_colour(SSR::colour::Colours specifier)
 {

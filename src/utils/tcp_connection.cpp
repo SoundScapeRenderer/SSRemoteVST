@@ -10,6 +10,8 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
+#include <src/utils/tcp_connection.h>
+
 //C++ Libs
 #include <string>
 #include <sstream>
@@ -18,11 +20,10 @@
 
 //Own Libs
 #include <src/utils/iconnection.h>
-#include <src/utils/tcp_connection.h>
 #include <src/utils/debug.h>
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 //============================================================================
 // PUBLIC

@@ -11,7 +11,7 @@
  */
 
 //JUCE Lib
-#include <src/JuceHeader.h>
+#include <JUCE/JuceHeader.h>
 
 //Own Libs
 #include <src/GUI/head_frame/head_frame_gui_component.h>

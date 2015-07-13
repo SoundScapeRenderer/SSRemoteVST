@@ -10,6 +10,8 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
+#include <src/controller.h>
+ 
 //C++ Libs
 #include <iostream>
 #include <string>
@@ -19,8 +21,10 @@
 #include <stdexcept>
 #include <map>
 
+//JUCE Lib
+#include <JUCE/JuceHeader.h>
+
 //Own Libs
-#include <src/controller.h>
 #include <src/utils/jack_client.h>
 #include <src/utils/tcp_connection.h>
 #include <src/utils/ssr_requester.h>
