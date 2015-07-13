@@ -19,14 +19,14 @@ The folder where your VST3 SDK (Steinberg) is located your mashine:
 export VST3_SDK=/path/to/VST3SDK
 ```
 
-The folder where the JUCE library code is located on your mashine:
-
-```bash
-export JUCE_LIB_CODE=/path/to/JuceLibraryCode
-```
-
 The folder where the SSRemote VST is localted on your mashine:
 
 ```bash
 export SSREMOTE_VST=/path/to/ssremote_vst
+```
+
+The folder where the JUCE library code is located in the SSRemote VST folder (due to the fact, that the JUCE library includes ```"AppConfig.h"``` for example, this environment variable has to be set as described!):
+
+```bash
+export JUCE_LIB_CODE=/path/to/ssremote_vst/JUCE
 ```
