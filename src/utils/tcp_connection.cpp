@@ -20,7 +20,8 @@
 
 //Own Libs
 #include <src/utils/iconnection.h>
-#include <src/utils/debug.h>
+#include <src/controller.h>
+#include <src/utils/logger.h>
 
 //JUCE Lib
 #include <JUCE/JuceHeader.h>
