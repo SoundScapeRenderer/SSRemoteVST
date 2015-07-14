@@ -79,11 +79,7 @@ bool SSR::TCP_connection::get_message(std::shared_ptr<std::string> new_message, 
 
 #if DEBUG_TCP_IN
 
-      auto debug_lambda = [](std::string message)-> std::string {
-        return "[TCP IN] " + message;
-      };
-
-      debug::print::print_function(std::bind(debug_lambda, *new_message));
+      SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "[TCP IN]: " + *new_message, true);
 
 #endif
 
@@ -105,11 +101,7 @@ bool SSR::TCP_connection::send_message(const std::shared_ptr<std::string> messag
 
 #if DEBUG_TCP_OUT
 
-      auto debug_lambda = [](std::string outgoing_message) -> std::string {
-        return "[TCP OUT] " + outgoing_message;
-      };
-
-      debug::print::print_function(std::bind(debug_lambda, *message_to_send));
+      SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "[TCP OUT]: " + *message_to_send, true);
 
 #endif
 
@@ -201,11 +193,9 @@ bool SSR::TCP_connection::load_buffer(int* wait_in_msec) {
 
   } else {
 
-#if ERROR_MESSAGE
-      if (ready_flag == -1) {
-          std::cerr << "[ERROR]: Tcp connection error!" << std::endl;
-      }
-#endif
+    if (ready_flag == -1) {
+        SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, "TCP/IP connection error occurred", true);
+    }
 
   }
 

@@ -19,15 +19,6 @@
 #include <sstream>
 #include <chrono>
 
-#define ERROR_MESSAGE 1
-
-#if ERROR_MESSAGE
-
-#define DEBUG_TCP_OUT 1
-#define DEBUG_TCP_IN 1
-
-#endif
-
 namespace debug
 {
 

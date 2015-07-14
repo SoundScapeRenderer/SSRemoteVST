@@ -44,6 +44,15 @@
 
 #define LOG_TO_FILE 1
 
+#define ERROR_MESSAGE 1
+
+#if ERROR_MESSAGE
+
+#define DEBUG_TCP_OUT 0
+#define DEBUG_TCP_IN 0
+
+#endif
+
 //==============================================================================
 Controller::Controller()
 : ui_update_flag(true)
