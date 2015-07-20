@@ -20,8 +20,8 @@ namespace SSR
   {
 
     /**
-     * Computes the source relative position from absolute value and
-     * returns the relative value.
+     * Computes the source continuous position from discrete value and
+     * returns the continuous value.
      *
      * This is made with the following linear function:
      *
@@ -30,18 +30,18 @@ namespace SSR
      * The function will return 0.0 if the position is less or equal range / -2
      * and 1.0 if the position is greater or equal range / 2.
      *
-     * @param           position        The absolute position.
+     * @param           position        The discrete position.
      * @param           range           The scene range.
      *
      * @return          0.0 if the position is less or equal range / -2, 1.0
      *                  if the position is greater or equal range / 2, otherwise
      *                  the result of the above written function f.
      */
-    float x_position_discrete_to_continuous(float absolute_position, double scene_range);
+    float x_position_discrete_to_continuous(float discrete_position, double scene_range);
 
     /**
-     * Computes the source position from a relative value (0.0 to 1.0) and
-     * returns the absolute value.
+     * Computes the source position from a continuous value (0.0 to 1.0) and
+     * returns the discrete value.
      *
      * This is made with the following linear function:
      *
@@ -50,7 +50,7 @@ namespace SSR
      * The function will return the minimum or maximum value of the current
      * range if the value is greater than 1.0 or less than 0.0.
      *
-     * @param           relative_position       The relative position of the source
+     * @param           continuous_position       The continuous position of the source
      *                                          position.
      * @param           range                   The scene range.
      *
@@ -58,25 +58,25 @@ namespace SSR
      *                   range if the value is greater than 1.0 or less than
      *                   0.0 else the result of the above written function f.
      */
-    float x_position_continuous_to_discrete(float relative_position, double scene_range);
+    float x_position_continuous_to_discrete(float continuous_position, double scene_range);
 
-    float y_position_discrete_to_continuous(float absolute_position, double scene_range);
-    float y_position_continuous_to_discrete(float relative_position, double scene_range);
+    float y_position_discrete_to_continuous(float discrete_position, double scene_range);
+    float y_position_continuous_to_discrete(float continuous_position, double scene_range);
 
-    float gain_discrete_to_continuous(float absolute_linear_gain);
-    float gain_continuous_to_discrete(float relative_linear_gain);
+    float gain_discrete_to_continuous(float discrete_linear_gain);
+    float gain_continuous_to_discrete(float continuous_linear_gain);
 
-    float orientation_discrete_to_continuous(float absolute_orientation);
-    float orientation_continuous_to_discrete(float relative_orientation);
+    float orientation_discrete_to_continuous(float discrete_orientation);
+    float orientation_continuous_to_discrete(float continuous_orientation);
 
-    float mute_discrete_to_continuous(bool absolute_mute);
-    bool mute_continuous_to_discrete(float relative_mute);
+    float mute_discrete_to_continuous(bool discrete_mute);
+    bool mute_continuous_to_discrete(float continuous_mute);
 
-    float model_point_discrete_to_continuous(bool absolute_model);
-    bool model_point_continuous_to_discrete(float relative_model);
+    float model_point_discrete_to_continuous(bool discrete_model);
+    bool model_point_continuous_to_discrete(float continuous_model);
     
-    float fixed_discrete_to_continuous(bool absolute_fixed);
-    bool fixed_continuous_to_discrete(float relative_fixed);
+    float fixed_discrete_to_continuous(bool discrete_fixed);
+    bool fixed_continuous_to_discrete(float continuous_fixed);
 
   }
 
