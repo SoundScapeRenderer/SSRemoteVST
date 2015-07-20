@@ -18,7 +18,7 @@
 //Boost Libs
 #include <boost/math/constants/constants.hpp>
 
-float SSR::translations::x_position_absolute_to_relative(float absolute_position, double scene_range)
+float SSR::translations::x_position_discrete_to_continuous(float absolute_position, double scene_range)
 {
   float relative_position = 0.0f;
   float lower_bound = scene_range / -2.0f;
@@ -35,7 +35,7 @@ float SSR::translations::x_position_absolute_to_relative(float absolute_position
   return relative_position;
 }
 
-float SSR::translations::x_position_relative_to_absolute(float relative_position, double scene_range)
+float SSR::translations::x_position_continuous_to_discrete(float relative_position, double scene_range)
 {
   float absolute_position = 0.0f;
   float margin = scene_range / 2.0f;
@@ -51,7 +51,7 @@ float SSR::translations::x_position_relative_to_absolute(float relative_position
   return absolute_position;
 }
 
-float SSR::translations::y_position_absolute_to_relative(float absolute_position, double scene_range)
+float SSR::translations::y_position_discrete_to_continuous(float absolute_position, double scene_range)
 {
   absolute_position *= -1.0f;
 
@@ -70,7 +70,7 @@ float SSR::translations::y_position_absolute_to_relative(float absolute_position
   return relative_position;
 }
 
-float SSR::translations::y_position_relative_to_absolute(float relative_position, double scene_range)
+float SSR::translations::y_position_continuous_to_discrete(float relative_position, double scene_range)
 {
   float absolute_position = 0.0f;
   float margin = scene_range / 2.0f;
@@ -86,7 +86,7 @@ float SSR::translations::y_position_relative_to_absolute(float relative_position
   return absolute_position * -1.0f;
 }
 
-float SSR::translations::gain_absolute_to_relative(float absolute_linear_gain)
+float SSR::translations::gain_discrete_to_continuous(float absolute_linear_gain)
 {
   float relative_value = absolute_linear_gain / 4.0f;
   relative_value = relative_value > 1.0f ? 1.0f : relative_value;
@@ -95,12 +95,12 @@ float SSR::translations::gain_absolute_to_relative(float absolute_linear_gain)
   return relative_value;
 }
 
-float SSR::translations::gain_relative_to_absolute(float relative_linear_gain)
+float SSR::translations::gain_continuous_to_discrete(float relative_linear_gain)
 {
   return relative_linear_gain * 4.0f;
 }
 
-float SSR::translations::orientation_absolute_to_relative(float absolute_orientation)
+float SSR::translations::orientation_discrete_to_continuous(float absolute_orientation)
 {
   float relative_orientation = absolute_orientation / (2 *  boost::math::float_constants::pi);
   relative_orientation = relative_orientation > 1.0f ? 1.0f : relative_orientation;
@@ -109,7 +109,7 @@ float SSR::translations::orientation_absolute_to_relative(float absolute_orienta
   return relative_orientation;
 }
 
-float SSR::translations::orientation_relative_to_absolute(float relative_orientation)
+float SSR::translations::orientation_continuous_to_discrete(float relative_orientation)
 {
   float absolute_orientation = relative_orientation * 2 * boost::math::float_constants::pi;
   absolute_orientation = std::fmod(absolute_orientation, 2 * boost::math::float_constants::pi);
@@ -117,32 +117,32 @@ float SSR::translations::orientation_relative_to_absolute(float relative_orienta
   return absolute_orientation;
 }
 
-float SSR::translations::mute_absolute_to_relative(bool absolute_mute)
+float SSR::translations::mute_discrete_to_continuous(bool absolute_mute)
 {
   return absolute_mute ? 1.0f : 0.0f;
 }
 
-bool SSR::translations::mute_relative_to_absolute(float relative_mute)
+bool SSR::translations::mute_continuous_to_discrete(float relative_mute)
 {
   return relative_mute == 1.0f;
 }
 
-float SSR::translations::model_point_absolute_to_relative(bool absolute_model)
+float SSR::translations::model_point_discrete_to_continuous(bool absolute_model)
 {
   return absolute_model ? 1.0f : 0.0f;
 }
 
-bool SSR::translations::model_point_relative_to_absolute(float relative_model)
+bool SSR::translations::model_point_continuous_to_discrete(float relative_model)
 {
   return relative_model == 1.0f;
 }
 
-float SSR::translations::fixed_absolute_to_relative(bool absolute_fixed)
+float SSR::translations::fixed_discrete_to_continuous(bool absolute_fixed)
 {
   return absolute_fixed ? 1.0f : 0.0f;
 }
 
-bool SSR::translations::fixed_relative_to_absolute(float relative_fixed)
+bool SSR::translations::fixed_continuous_to_discrete(float relative_fixed)
 {
   return relative_fixed == 1.0f;
 }

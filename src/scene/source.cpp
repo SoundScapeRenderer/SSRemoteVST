@@ -27,38 +27,38 @@ SSR::Source::Source(const unsigned int id, const std::string name)
 : id(id)
 , x_position(   0.0f,
                 0.0f,
-                std::bind(SSR::translations::x_position_absolute_to_relative, std::placeholders::_1, 2000.0f),
-                std::bind(SSR::translations::x_position_relative_to_absolute, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::x_position_discrete_to_continuous, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::x_position_continuous_to_discrete, std::placeholders::_1, 2000.0f),
                 "X Position")
 , y_position(   0.0f,
                 0.0f,
-                std::bind(SSR::translations::y_position_absolute_to_relative, std::placeholders::_1, 2000.0f),
-                std::bind(SSR::translations::y_position_relative_to_absolute, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::y_position_discrete_to_continuous, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::y_position_continuous_to_discrete, std::placeholders::_1, 2000.0f),
                 "Y Position")
 , gain(         1.0f,
                 1.0f,
-                SSR::translations::gain_absolute_to_relative,
-                SSR::translations::gain_relative_to_absolute,
+                SSR::translations::gain_discrete_to_continuous,
+                SSR::translations::gain_continuous_to_discrete,
                 "Gain")
 , orientation(  0.0f,
                 0.0f,
-                SSR::translations::orientation_absolute_to_relative,
-                SSR::translations::orientation_relative_to_absolute,
+                SSR::translations::orientation_discrete_to_continuous,
+                SSR::translations::orientation_continuous_to_discrete,
                 "Orientation")
 , mute(         false,
                 false,
-                SSR::translations::mute_absolute_to_relative,
-                SSR::translations::mute_relative_to_absolute,
+                SSR::translations::mute_discrete_to_continuous,
+                SSR::translations::mute_continuous_to_discrete,
                 "Mute")
 , model_point(  true,
                 true,
-                SSR::translations::model_point_absolute_to_relative,
-                SSR::translations::model_point_relative_to_absolute,
+                SSR::translations::model_point_discrete_to_continuous,
+                SSR::translations::model_point_continuous_to_discrete,
                 "Model")
 , fixed(        false,
                 false,
-                SSR::translations::fixed_absolute_to_relative,
-                SSR::translations::fixed_relative_to_absolute,
+                SSR::translations::fixed_discrete_to_continuous,
+                SSR::translations::fixed_continuous_to_discrete,
                 "Fixed")
 , name(name)
 , properties_file("")

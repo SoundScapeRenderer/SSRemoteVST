@@ -37,7 +37,7 @@ namespace SSR
      *                  if the position is greater or equal range / 2, otherwise
      *                  the result of the above written function f.
      */
-    float x_position_absolute_to_relative(float absolute_position, double scene_range);
+    float x_position_discrete_to_continuous(float absolute_position, double scene_range);
 
     /**
      * Computes the source position from a relative value (0.0 to 1.0) and
@@ -58,25 +58,25 @@ namespace SSR
      *                   range if the value is greater than 1.0 or less than
      *                   0.0 else the result of the above written function f.
      */
-    float x_position_relative_to_absolute(float relative_position, double scene_range);
+    float x_position_continuous_to_discrete(float relative_position, double scene_range);
 
-    float y_position_absolute_to_relative(float absolute_position, double scene_range);
-    float y_position_relative_to_absolute(float relative_position, double scene_range);
+    float y_position_discrete_to_continuous(float absolute_position, double scene_range);
+    float y_position_continuous_to_discrete(float relative_position, double scene_range);
 
-    float gain_absolute_to_relative(float absolute_linear_gain);
-    float gain_relative_to_absolute(float relative_linear_gain);
+    float gain_discrete_to_continuous(float absolute_linear_gain);
+    float gain_continuous_to_discrete(float relative_linear_gain);
 
-    float orientation_absolute_to_relative(float absolute_orientation);
-    float orientation_relative_to_absolute(float relative_orientation);
+    float orientation_discrete_to_continuous(float absolute_orientation);
+    float orientation_continuous_to_discrete(float relative_orientation);
 
-    float mute_absolute_to_relative(bool absolute_mute);
-    bool mute_relative_to_absolute(float relative_mute);
+    float mute_discrete_to_continuous(bool absolute_mute);
+    bool mute_continuous_to_discrete(float relative_mute);
 
-    float model_point_absolute_to_relative(bool absolute_model);
-    bool model_point_relative_to_absolute(float relative_model);
+    float model_point_discrete_to_continuous(bool absolute_model);
+    bool model_point_continuous_to_discrete(float relative_model);
     
-    float fixed_absolute_to_relative(bool absolute_fixed);
-    bool fixed_relative_to_absolute(float relative_fixed);
+    float fixed_discrete_to_continuous(bool absolute_fixed);
+    bool fixed_continuous_to_discrete(float relative_fixed);
 
   }
 
