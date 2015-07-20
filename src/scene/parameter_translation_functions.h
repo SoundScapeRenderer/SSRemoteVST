@@ -20,18 +20,19 @@ namespace SSR
   {
 
     /**
-     * Computes the source continuous position from discrete value and
+     * Computes the source continuous X position from discrete value and
      * returns the continuous value.
      *
      * This is made with the following linear function:
      *
-     * f(x) = (0.5 / (range / 2)) * x + 0.5 { x || x > (range / 2) & x < (range / -2) }
+     * f(x) = (0.5 / (range / 2)) * x + 0.5 { x || x >= (range / 2) & x <= (range / -2) }
      *
      * The function will return 0.0 if the position is less or equal range / -2
      * and 1.0 if the position is greater or equal range / 2.
      *
-     * @param           position        The discrete position.
-     * @param           range           The scene range.
+     * @param           discrete_position       The discrete position.
+     *
+     * @param           scene_range             The scene range.
      *
      * @return          0.0 if the position is less or equal range / -2, 1.0
      *                  if the position is greater or equal range / 2, otherwise
@@ -40,19 +41,19 @@ namespace SSR
     float x_position_discrete_to_continuous(float discrete_position, double scene_range);
 
     /**
-     * Computes the source position from a continuous value (0.0 to 1.0) and
+     * Computes the discrete source X position from a continuous value (0.0 to 1.0) and
      * returns the discrete value.
      *
      * This is made with the following linear function:
      *
-     * f(x) = range * x - range/2 { x || x > 0.0 & x < 1.0 }
+     * f(x) = range * x - range/2 { x || x >= 0.0 & x <= 1.0 }
      *
      * The function will return the minimum or maximum value of the current
      * range if the value is greater than 1.0 or less than 0.0.
      *
-     * @param           continuous_position       The continuous position of the source
-     *                                          position.
-     * @param           range                   The scene range.
+     * @param           continuous_position     The continuous position.
+     *
+     * @param           scene_range             The scene range.
      *
      * @return           the minimum or maximum value of the current
      *                   range if the value is greater than 1.0 or less than
@@ -60,7 +61,27 @@ namespace SSR
      */
     float x_position_continuous_to_discrete(float continuous_position, double scene_range);
 
+    /**
+     * Computes the source continuous Y position from discrete value and
+     * returns the continuous value.
+     *
+     * This is made with the following linear function:
+     *
+     * f(x) = (0.5 / (range / 2)) * (x * -1) + 0.5 { x || x >= (range / 2) & x <= (range / -2)
+     *
+     * The function will return 0.0 if the position is less or equal range / -2
+     * and 1.0 if the position is greater or equal range / 2.
+     *
+     * @param           discrete_position       The discrete position.
+     *
+     * @param           scene_range             The scene range.
+     *
+     * @return          0.0 if the position is less or equal range / -2, 1.0
+     *                  if the position is greater or equal range / 2, otherwise
+     *                  the result of the above written function f.
+     */
     float y_position_discrete_to_continuous(float discrete_position, double scene_range);
+
     float y_position_continuous_to_discrete(float continuous_position, double scene_range);
 
     float gain_discrete_to_continuous(float discrete_linear_gain);
