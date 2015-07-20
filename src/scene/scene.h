@@ -26,18 +26,45 @@
 namespace SSR
 {
 
+  /**
+   * This class represents the SSR scene with all related sources.
+   *
+   * @since 2015-07-20
+   * @author Florian Willich
+   */
   class Scene
   {
 
   public:
+
+    /**
+     * Creates a new Scene with a scene range of 2000.
+     */
     Scene();
 
+    /**
+     * Destructor.
+     */
     ~Scene();
 
-    void create_new_source(std::string name);
-
+    /**
+     * Interprets the transferred xml_message and sets all source attributes
+     * to the requested parameters.
+     *
+     * @param   xml_message             The XML message that shall be
+     *                                  interpreted.
+     */
     void interpret_xml_message(std::string xml_message);
 
+    /**
+     * Changes the current selected source to the source with the transferred
+     * id and returns if the selection was successful.
+     *
+     * @param           id              The id of the source that shall be
+     *                                  selected.
+     *
+     * @return          true if the selection was successful, false otherwise.
+     */
     bool select_source(const int id);
 
     /**
@@ -50,19 +77,109 @@ namespace SSR
      */
     std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > get_source_ids_and_names();
 
+    /**
+     * Returns the current selected source.
+     *
+     * @return the current selected source.
+     *
+     * @author Florian Willich
+     */
     SSR::Source get_source() const;
 
+    /**
+     * Creates a new source with the transferred name. The ID will automatically
+     * be computed and assigned.
+     *
+     * After creating the new source, the new source will be the current selected
+     * source.
+     *
+     * The ID of the source will be returned.
+     *
+     * @see get_next_id()
+     *
+     * @param           name            The name of the source that shall be
+     *                                  created.
+     *
+     * @return          The ID of the new created source.
+     *
+     * @author Florian Willich
+     */
     unsigned int new_source(const std::string name);
 
+    /**
+     * Creates a new source with the transferred name and id.
+     *
+     * If the id already exists, the source will not be created and the method
+     * will return false.
+     *
+     * If the id is available, the source will be created and also selected
+     * as the current source.
+     *
+     * @param           name            The name of the source that shall be
+     *                                  created.
+     *
+     * @param           id              The id of the source that shall be
+     *                                  created.
+     *
+     * @return          True if the transferred id is available, otherwise
+     *                  false.
+     *
+     * @author Florian Willich
+     */
     bool new_source(const std::string name, const unsigned int id);
 
+    /**
+     * Creates a new source with the transferred name, id and jackport.
+     *
+     * If the id already exists, the source will not be created and the method
+     * will return false.
+     *
+     * If the id is available, the source will be created and also selected
+     * as the current source.
+     *
+     * @param           name            The name of the source that shall be
+     *                                  created.
+     *
+     * @param           id              The id of the source that shall be
+     *                                  created.
+     *
+     * @param           jackport        The jackport of the source.
+     *
+     * @return          True if the transferred id is available, otherwise
+     *                  false.
+     *
+     * @author Florian Willich
+     */
     bool new_source(const std::string name, const unsigned int id, const std::string jackport);
 
-    //Delegations for source parameters
+    /**
+     * Sets the id of the current selected source to the transferred id.
+     *
+     * @param           id              The id that the selected source
+     *                                  shall be set to.
+     *
+     * @author Florian Willich
+     */
     void set_id_of_selected_source(const int id);
 
+    /**
+     * Returns the ID of the current selected source.
+     *
+     * @return the ID of the current selected source.
+     *
+     * @author Florian Willich
+     */
     int get_id_of_selected_source() const;
 
+    /**
+     * Sets the absolute X position of the current selected source to the
+     * new_position.
+     *
+     * @param           new_position    The new X position that the current
+     *                                  selected source shall be set to.
+     *
+     * @author Florian Willich
+     */
     void set_x_position_absolute_of_selected_source(const float new_position);
 
     void set_x_position_relative_of_selected_source(const float new_position);

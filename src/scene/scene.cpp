@@ -37,7 +37,7 @@ SSR::Scene::Scene()
 
 SSR::Scene::~Scene()
 {
-  sources = nullptr;
+
 }
 
 void SSR::Scene::interpret_xml_message(std::string xml_message)
@@ -330,7 +330,6 @@ const source_iterator SSR::Scene::get_iterator(unsigned int id)
 
 void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::XmlElement* element)
 {
-
 
   if (element->hasAttribute("volume")) {
       source_to_manipulate->set_absolute_gain(static_cast<float>(element->getDoubleAttribute("volume")), false);
