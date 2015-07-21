@@ -15,7 +15,8 @@
 
 #include <string>
 
-namespace SSR {
+namespace SSR
+{
 
     /**
      * Computes the current time and returns it formatted as follows:
