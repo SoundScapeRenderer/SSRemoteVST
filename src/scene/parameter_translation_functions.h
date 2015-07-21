@@ -16,6 +16,18 @@
 namespace SSR
 {
 
+  /**
+   * This file contains functions to translate discrete to continuous values
+   * and continuous to discrete values.
+   *
+   * The need for the translation functions is caused by the VST automation
+   * interface. The VST automation interface represents and stores all
+   * parameters as continuous values (from 0.0 to 1.0). The SSRemote VST
+   * therefore stores all parameters as discrete and continuous values.
+   *
+   * @since 2015-07-21
+   * @author Florian Willich
+   */
   namespace translations
   {
 
