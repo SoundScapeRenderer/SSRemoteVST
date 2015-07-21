@@ -14,6 +14,7 @@
 
 //C++ Libs
 #include <cmath>
+#include <algorithm>
 
 //Boost Libs
 #include <boost/math/constants/constants.hpp>
@@ -89,8 +90,9 @@ float SSR::translations::y_position_continuous_to_discrete(float continuous_posi
 float SSR::translations::gain_discrete_to_continuous(float discrete_linear_gain)
 {
   float continuous_value = discrete_linear_gain / 4.0f;
-  continuous_value = continuous_value > 1.0f ? 1.0f : continuous_value;
-  continuous_value = continuous_value < 0.0f ? 0.0f : continuous_value;
+
+  continuous_value = std::min(continuous_value, 1.0f);
+  continuous_value = std::max(continuous_value, 0.0f);
 
   return continuous_value;
 }
@@ -103,8 +105,9 @@ float SSR::translations::gain_continuous_to_discrete(float continuous_linear_gai
 float SSR::translations::orientation_discrete_to_continuous(float discrete_orientation)
 {
   float continuous_orientation = discrete_orientation / (2 *  boost::math::float_constants::pi);
-  continuous_orientation = continuous_orientation > 1.0f ? 1.0f : continuous_orientation;
-  continuous_orientation = continuous_orientation < 0.0f ? 0.0f : continuous_orientation;
+
+  continuous_orientation = std::min(continuous_orientation, 1.0f);
+  continuous_orientation = std::max(continuous_orientation, 0.0f);
 
   return continuous_orientation;
 }
