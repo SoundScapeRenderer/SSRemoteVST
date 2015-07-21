@@ -51,8 +51,6 @@
 #define DEBUG_TCP_OUT 0
 #define DEBUG_TCP_IN 0
 
-#define BUILD_VERSION 1
-
 #endif
 
 //==============================================================================
@@ -67,7 +65,7 @@ Controller::Controller()
 , scene(new SSR::Scene())
 {
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Constructor of Controller was called!", false);
-  SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: " + BUILD_VERSION, false);
+  SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 1", false);
 
   try {
       boost::filesystem::path config_file = get_config_file_path();
