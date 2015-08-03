@@ -22,7 +22,7 @@
 
 //Own includes
 #include <src/config/config.h>
-#include <utils/logger.h>
+#include <src/utils/logger.h>
 
 SSR::Config::Config(boost::filesystem::path& config_file)
 : config_file(config_file)
