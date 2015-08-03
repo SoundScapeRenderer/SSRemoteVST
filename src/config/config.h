@@ -166,11 +166,12 @@ namespace SSR
  *
  * @param       stream          The output stream where the string
  *                              representation of the SSR Config object is
- *                              put it.
+ *                              streamed to.
  * @param       config          The SSR Config object which will be represented
  *                              as a string.
  *
- * @return the stream where the config file
+ * @return      the stream including the string representation of the network
+ *              configuration.
  *
  * @author Florian Willich
  */
