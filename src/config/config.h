@@ -28,10 +28,14 @@ namespace SSR
 {
 
     /**
+     * This class represents the user specific configuration for the
+     * SSRemoteVST such as the network configuration.
+     *
      * This class provides methods for loading a xml config file and writing a
      * xml config file. It also provides an interface to configure the network
      * configuration.
      *
+     * @see network_config.h
      * @author Florian Willich
      * @since 2015-06-30
      */
@@ -53,21 +57,20 @@ namespace SSR
         Config(boost::filesystem::path& config_file);
 
         /**
-         * Destructor.
+         * Destructor which writes the config to (XML) file.
          */
         ~Config();
 
         /**
-         * Method that loads the config XML file and sets all related members
-         * to the configs settings.
+         * Reads the config XML file and sets all related members to the
+         * configs settings.
          *
          * @author Florian Willich
          */
         void load_config_xml_file();
 
         /**
-         * Method that writes the config XML file with all settings that have
-         * been made.
+         * Writes the config XML file with all settings that have been made.
          *
          * @author Florian Willich
          */
