@@ -10,15 +10,19 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
+//C++ includes
 #include <ostream>
 #include <sstream>
 #include <string>
 
+//Boost includes
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/filesystem.hpp>
 
+//Own includes
 #include <src/config/config.h>
+#include <utils/logger.h>
 
 SSR::Config::Config(boost::filesystem::path& config_file)
 : config_file(config_file)
@@ -47,8 +51,7 @@ void SSR::Config::load_config_xml_file()
         set_network_config(hostname, port, timeout);
 
     } catch (const boost::property_tree::xml_parser::xml_parser_error& e) {
-        std::cerr << "Exception Thrown in Config::load_config_xml_file() Method!" << std::endl;
-        std::cerr << e.what() << std::endl;
+        SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, e.what(), true);
     }
 
 }
@@ -64,8 +67,7 @@ void SSR::Config::write_config_xml_file()
     try {
         boost::property_tree::write_xml(config_file.generic_string(), document);
     } catch (const boost::property_tree::xml_parser::xml_parser_error& e) {
-        std::cerr << "Exception Thrown in Config::load_config_xml_file() Method!" << std::endl;
-        std::cerr << e.what() << std::endl;
+        SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, e.what(), true);
     }
 
 }
