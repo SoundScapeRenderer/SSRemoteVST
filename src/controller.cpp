@@ -67,13 +67,9 @@ Controller::Controller()
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Constructor of Controller was called!", false);
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 2", false);
 
-  try {
-      boost::filesystem::path config_file = get_config_file_path();
-      config = std::unique_ptr<SSR::Config>(new SSR::Config(config_file));
-      config->load_config_xml_file();
-  } catch (std::invalid_argument& ia) {
-      std::cerr << ia.what() << std::endl;
-  }
+  boost::filesystem::path config_file = get_config_file_path();
+  config = std::unique_ptr<SSR::Config>(new SSR::Config(config_file));
+  config->load_config_xml_file();
 
   connect();
 
