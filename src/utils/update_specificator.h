@@ -16,11 +16,27 @@
 namespace SSR
 {
 
+  /**
+   * This class helps to specify which parameter has to be updated by the SSR.
+   */
   class Update_specificator
   {
 
   public:
 
+    /**
+     * The specificators:
+     *
+     * - gain
+     * - position
+     * - mute
+     * - fixed
+     * - model
+     * - properties_file
+     * - port
+     * - name
+     * - new_source
+     */
     enum Specificators {
       gain,
       position,
@@ -33,14 +49,30 @@ namespace SSR
       new_source
     };
 
-    Update_specificator(Specificators spec);
+    /**
+     * Constructor setting the member specificator to the transferred
+     * specificator.
+     */
+    Update_specificator(Specificators specificator);
 
+    /**
+     * Destructor.
+     */
     ~Update_specificator();
 
+    /**
+     * Returns the specificator which has be set during construction.
+     *
+     * @see Specificators
+     */
     Specificators get_spec() const;
 
   private:
-    Specificators spec;
+
+    /**
+     * The specificator.
+     */
+    Specificators specificator;
 
   };
 
