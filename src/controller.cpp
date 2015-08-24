@@ -125,28 +125,28 @@ SSR::Source Controller::get_source() const
 
 void Controller::set_parameter_source_x_position(const float value)
 {
-  scene->set_x_position_absolute_of_selected_source(value);
+  scene->set_x_position_discrete_of_selected_source(value);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
   ui_update_flag = true;
 }
 
 void Controller::set_parameter_source_y_position(const float value)
 {
-  scene->set_y_position_absolute_of_selected_source(value);
+  scene->set_y_position_discrete_of_selected_source(value);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
   ui_update_flag = true;
 }
 
 void Controller::set_parameter_source_gain(const float value, const bool linear)
 {
-  scene->set_gain_absolute_of_selected_source(value, linear);
+  scene->set_gain_discrete_of_selected_source(value, linear);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::gain));
   ui_update_flag = true;
 }
 
 void Controller::set_parameter_source_mute(const bool value)
 {
-  scene->set_mute_absolute_of_selected_source(value);
+  scene->set_mute_discrete_of_selected_source(value);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::mute));
   ui_update_flag = true;
 }
@@ -254,15 +254,15 @@ void Controller::setParameter(int parameterIndex, float newValue)
   switch (parameterIndex)
   {
     case source_parameter::x_position_idx:
-      scene->set_x_position_relative_of_selected_source(newValue);
+      scene->set_x_position_continuous_of_selected_source(newValue);
       break;
 
     case source_parameter::y_position_idx:
-      scene->set_y_position_relative_of_selected_source(newValue);
+      scene->set_y_position_continuous_of_selected_source(newValue);
       break;
 
     case source_parameter::gain_idx:
-      scene->set_gain_relative_of_selected_source(newValue);
+      scene->set_gain_continuous_of_selected_source(newValue);
       specificator = update_specificators::gain;
       break;
 
@@ -271,7 +271,7 @@ void Controller::setParameter(int parameterIndex, float newValue)
       break;
 
     case source_parameter::mute_idx:
-      scene->set_mute_relative_of_selected_source(newValue);
+      scene->set_mute_continuous_of_selected_source(newValue);
       specificator = update_specificators::mute;
       break;
 
