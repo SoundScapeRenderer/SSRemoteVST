@@ -31,7 +31,6 @@ namespace SSR
    * http://ssr.readthedocs.org
    *
    * @see build
-   * @author Florian Willich
    **/
   class SSR_requester
   {
@@ -70,12 +69,13 @@ namespace SSR
      *
      * @param        fun         A function which has to have an ostream as
      *                           argument.
+     *
      * @return       the build SSR request.
-     * @author       Florian Willich
      **/
     const std::string build(Build_function bf);
 
   private:
+
     /**
      * The request string stream with which all requests are concatenated.
      **/
@@ -99,7 +99,6 @@ namespace SSR
      * @param        source_id       The source ID.
      * @param        x               The position on the X axis.
      * @param        y               The position on the Y axis.
-     * @author       Florian Willich
      **/
     void source_position(std::ostream* output, const float source_id, const float x, const float y);
 
@@ -116,7 +115,6 @@ namespace SSR
      * @param        source_id           The source ID.
      * @param        gain_in_db          The gain in dB which shall be assigned
      *                                   to the source.
-     * @author       Florian Willich
      **/
     void source_gain(std::ostream* output, const float source_id, const float gain_in_db);
 
@@ -132,7 +130,6 @@ namespace SSR
      *                               written.
      * @param       source_id        The source ID.
      * @param       mute             True if the source shall be muted.
-     * @author      Florian Willich
      **/
     void source_mute(std::ostream* output, const int source_id, const bool mute);
 
@@ -148,7 +145,6 @@ namespace SSR
      *                               written.
      * @param       source_id        The source ID.
      * @param       fixed            True if the source shall be fixed
-     * @author      Florian Willich
      **/
     void source_fixed(std::ostream* output, const int source_id, const bool fixed);
 
@@ -166,7 +162,6 @@ namespace SSR
      * @param       source_id        The source ID.
      * @param       model            The model type of the source ("point" or
      *                               "plane") which shall be assigned.
-     * @author      Florian Willich
      **/
     void source_model(std::ostream* output, const int source_id, const std::string model);
 
@@ -183,7 +178,6 @@ namespace SSR
      * @param       source_id        The source ID.
      * @param       name             The name which shall be assigned to the
      *                               source
-     * @author      Florian Willich
      **/
     void source_name(std::ostream* output, const int source_id, const std::string name);
 
@@ -200,7 +194,6 @@ namespace SSR
      * @param       source_id        The source ID.
      * @param       properties_file  The name of the properties file which the
      *                               source shall use.
-     * @author      Florian Willich
      **/
     void source_properties_file(std::ostream* output, const int source_id, const std::string properties_file);
 
@@ -220,7 +213,6 @@ namespace SSR
      * @param       source_id        The source ID.
      * @param       port             The port with which the source shall be
      *                               connected with (Jackport).
-     * @author      Florian Willich
      **/
     void source_port(std::ostream* output, const int source_id, const std::string port) ;
 
@@ -236,8 +228,6 @@ namespace SSR
      * @param           port            The Jackport on with which the source shall connect to.
      * @param           x_position      The initial position on the x axis of the new source.
      * @param           y_position      The initial position on the y axis of the new source.
-     *
-     * @author          Florian Willich
      */
     void new_source(std::ostream* output, const std::string name, const std::string port, const float x_position, const float y_position);
 
