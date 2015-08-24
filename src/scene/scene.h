@@ -30,7 +30,6 @@ namespace SSR
    * This class represents the SSR scene with all related sources.
    *
    * @since 2015-07-20
-   * @author Florian Willich
    */
   class Scene
   {
@@ -38,9 +37,9 @@ namespace SSR
   public:
 
     /**
-     * Creates a new Scene with a scene range of 2000.
+     * Creates a new Scene with the transferred scene range.
      */
-    Scene();
+    Scene(float scene_range);
 
     /**
      * Destructor.
@@ -72,8 +71,6 @@ namespace SSR
      * returns it.
      *
      * @return the sources ids and names.
-     *
-     * @author Florian Willich
      */
     std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > get_source_ids_and_names();
 
@@ -101,8 +98,6 @@ namespace SSR
      *                                  created.
      *
      * @return          The ID of the new created source.
-     *
-     * @author Florian Willich
      */
     unsigned int new_source(const std::string name);
 
@@ -123,8 +118,6 @@ namespace SSR
      *
      * @return          True if the transferred id is available, otherwise
      *                  false.
-     *
-     * @author Florian Willich
      */
     bool new_source(const std::string name, const unsigned int id);
 
@@ -147,8 +140,6 @@ namespace SSR
      *
      * @return          True if the transferred id is available, otherwise
      *                  false.
-     *
-     * @author Florian Willich
      */
     bool new_source(const std::string name, const unsigned int id, const std::string jackport);
 
@@ -157,8 +148,6 @@ namespace SSR
      *
      * @param           id              The id that the selected source
      *                                  shall be set to.
-     *
-     * @author Florian Willich
      */
     void set_id_of_selected_source(const int id);
 
@@ -166,48 +155,140 @@ namespace SSR
      * Returns the ID of the current selected source.
      *
      * @return the ID of the current selected source.
-     *
-     * @author Florian Willich
      */
     int get_id_of_selected_source() const;
 
     /**
-     * Sets the absolute X position of the current selected source to the
-     * new_position.
+     * Sets the discrete X position of the current selected source to
+     * the transferred position.
      *
-     * @param           new_position    The new X position that the current
-     *                                  selected source shall be set to.
-     *
-     * @author Florian Willich
+     * @param           position        The new discrete X position the
+     *                                  current selected source shall be
+     *                                  set to.
      */
-    void set_x_position_absolute_of_selected_source(const float new_position);
+    void set_x_position_discrete_of_selected_source(const float position);
 
-    void set_x_position_relative_of_selected_source(const float new_position);
+    /**
+     * Sets the continuous X position of the current selected source to
+     * the transferred position.
+     *
+     * @param           position        The new continuous X position the
+     *                                  current selected source shall be
+     *                                  set to.
+     */
+    void set_x_position_continuous_of_selected_source(const float position);
 
+    /**
+     * Returns the X position of the current selected source.
+     *
+     * @return the X position of the current selected source.
+     */
     SSR::Parameter<float, float> get_x_position_of_selected_source() const;
 
-    void set_y_position_absolute_of_selected_source(const float new_position);
+    /**
+     * Sets the discrete Y position of the current selected source to
+     * the transferred position.
+     *
+     * @param           position        The new discrete Y position the
+     *                                  current selected source shall be
+     *                                  set to.
+     */
+    void set_y_position_discrete_of_selected_source(const float position);
 
-    void set_y_position_relative_of_selected_source(const float new_position);
+    /**
+     * Sets the continuous Y position of the current selected source to
+     * the transferred position.
+     *
+     * @param           position        The new continuous Y position the
+     *                                  current selected source shall be
+     *                                  set to.
+     */
+    void set_y_position_continuous_of_selected_source(const float position);
 
+    /**
+     * Returns the Y position of the current selected source.
+     *
+     * @return the Y position of the current selected source.
+     */
     SSR::Parameter<float, float> get_y_position_of_selected_source() const;
 
-    void set_gain_absolute_of_selected_source(const float value, const bool linear);
+    /**
+     * Sets the discrete gain value of the current selected source to the
+     * transferred gain. The additional transferred linear value determines
+     * whether the gain value is linear (true) or not (false).
+     *
+     * @param           gain            The new discrete gain the current
+     *                                  selected source shall be set to.
+     *
+     * @param           linear          Determines if the transferred gain
+     *                                  value is linear (true) or not (false).
+     */
+    void set_gain_discrete_of_selected_source(const float gain, const bool linear);
 
-    void set_gain_relative_of_selected_source(const float new_gain);
+    /**
+     * Sets the continuous gain value of the current selected source to the
+     * transferred gain.
+     *
+     * @param           gain            The new continuous gain the current
+     *                                  selected source shall be set to.
+     */
+    void set_gain_continuous_of_selected_source(const float gain);
 
+    /**
+     * Returns the gain of the current selected source.
+     *
+     * @return the gain of the current selected source.
+     */
     SSR::Parameter<float, float> get_gain_of_selected_source() const;
 
-    void set_orientation_absolute_of_selected_source(const float value);
+    /**
+     * Sets the discrete orientation of the current selected source to the
+     * transferred orientation value.
+     *
+     * @param           orientation     The new orientation the current
+     *                                  selected source shall be set to.
+     */
+    void set_orientation_discrete_of_selected_source(const float orientation);
 
-    void set_orientation_relative_of_selected_source(const float value);
+    /**
+     * Sets the continuous orientation of the current selected source to the
+     * transferred orientation value.
+     *
+     * @param           orientation     The new orientation the current
+     *                                  selected source shall be set to.
+     */
+    void set_orientation_continuous_of_selected_source(const float orientation);
 
+    /**
+     * Returns the orientation of the current selected source.
+     *
+     * @return the orientation of the current selected source.
+     */
     SSR::Parameter<float, float> get_orientation_of_selected_source() const;
 
-    void set_mute_absolute_of_selected_source(const bool value);
+    /**
+     * Sets the discrete mute value of the current selected source to the
+     * transferred mute value.
+     *
+     * @param           mute            The new value the current selected
+     *                                  source parameter mute shall be set to.
+     */
+    void set_mute_discrete_of_selected_source(const bool mute);
 
-    void set_mute_relative_of_selected_source(const float value);
+    /**
+     * Sets the continuous mute value of the current selected source to the
+     * transferred mute value.
+     *
+     * @param           mute            The new value the current selected
+     *                                  source parameter mute shall be set to.
+     */
+    void set_mute_continuous_of_selected_source(const float mute);
 
+    /**
+     * Returns the mute parameter of the current selected source.
+     *
+     * @return the mute parameter of the current selected source.
+     */
     SSR::Parameter<bool, float> get_mute_of_selected_source() const;
 
     void set_model_point_absolute_of_selected_source(const bool value);
@@ -251,7 +332,7 @@ namespace SSR
     /**
      * The scenes range.
      */
-    double scene_range;
+    float scene_range;
 
     std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > ids_and_names;
 

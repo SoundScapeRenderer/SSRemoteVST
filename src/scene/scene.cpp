@@ -26,10 +26,10 @@
 
 typedef std::vector<SSR::Source>::iterator source_iterator;
 
-SSR::Scene::Scene()
+SSR::Scene::Scene(float scene_range)
 : sources(new std::vector<SSR::Source>())
 , ids_and_names(new std::vector< std::pair<unsigned int, std::string> >())
-, scene_range(2000.0)
+, scene_range(scene_range)
 , current_selected_source()
 {
   new_source("Default Source");
@@ -65,7 +65,7 @@ void SSR::Scene::interpret_xml_message(std::string xml_message)
                     if (e->hasAttribute("name")) {
 
                         std::string name = e->getStringAttribute("name").toStdString();
-                        sources->push_back(SSR::Source(id, name));
+                        sources->push_back(SSR::Source(id, name, scene_range));
                         ids_and_names->push_back( std::pair<unsigned int, std::string>(id, name) );
                         current_selected_source = sources->begin();
 
@@ -117,7 +117,7 @@ SSR::Source SSR::Scene::get_source() const
 unsigned int SSR::Scene::new_source(const std::string name)
 {
   unsigned int id = get_next_id();
-  sources->push_back(SSR::Source(id, name));
+  sources->push_back(SSR::Source(id, name, scene_range));
   ids_and_names->push_back( std::pair<unsigned int, std::string>(id, name) );
   current_selected_source = get_iterator(id);
   return id;
@@ -128,7 +128,7 @@ bool SSR::Scene::new_source(const std::string name, const unsigned int id)
   bool source_successfully_created = false;
 
   if (!id_already_in_use(id)) {
-      sources->push_back(SSR::Source(id, name));
+      sources->push_back(SSR::Source(id, name, scene_range));
       ids_and_names->push_back( std::pair<unsigned int, std::string>(id, name) );
       current_selected_source = get_iterator(id);
       source_successfully_created = true;
@@ -142,7 +142,7 @@ bool SSR::Scene::new_source(const std::string name, const unsigned int id, const
   bool source_successfully_created = false;
 
   if (!id_already_in_use(id)) {
-      sources->push_back(SSR::Source(id, name, jackport));
+      sources->push_back(SSR::Source(id, name, scene_range, jackport));
       ids_and_names->push_back( std::pair<unsigned int, std::string>(id, name) );
       current_selected_source = get_iterator(id);
       source_successfully_created = true;
@@ -161,15 +161,14 @@ int SSR::Scene::get_id_of_selected_source() const
   return current_selected_source->get_id();
 }
 
-void SSR::Scene::set_x_position_absolute_of_selected_source(const float new_position)
+void SSR::Scene::set_x_position_discrete_of_selected_source(const float position)
 {
-  current_selected_source->set_x_position_absolute(new_position);
+  current_selected_source->set_x_position_absolute(position);
 }
 
-
-void SSR::Scene::set_x_position_relative_of_selected_source(const float new_position)
+void SSR::Scene::set_x_position_continuous_of_selected_source(const float position)
 {
-  current_selected_source->set_x_position_relative(new_position);
+  current_selected_source->set_x_position_relative(position);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_x_position_of_selected_source() const
@@ -177,14 +176,14 @@ SSR::Parameter<float, float> SSR::Scene::get_x_position_of_selected_source() con
   return current_selected_source->get_x_position();
 }
 
-void SSR::Scene::set_y_position_absolute_of_selected_source(const float new_position)
+void SSR::Scene::set_y_position_discrete_of_selected_source(const float position)
 {
-  current_selected_source->set_y_position_absolute(new_position);
+  current_selected_source->set_y_position_absolute(position);
 }
 
-void SSR::Scene::set_y_position_relative_of_selected_source(const float new_position)
+void SSR::Scene::set_y_position_continuous_of_selected_source(const float position)
 {
-  current_selected_source->set_y_position_relative(new_position);
+  current_selected_source->set_y_position_relative(position);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_y_position_of_selected_source() const
@@ -192,14 +191,14 @@ SSR::Parameter<float, float> SSR::Scene::get_y_position_of_selected_source() con
   return current_selected_source->get_y_position();
 }
 
-void SSR::Scene::set_gain_absolute_of_selected_source(const float value, const bool linear)
+void SSR::Scene::set_gain_discrete_of_selected_source(const float gain, const bool linear)
 {
-  current_selected_source->set_absolute_gain(value, linear);
+  current_selected_source->set_absolute_gain(gain, linear);
 }
 
-void SSR::Scene::set_gain_relative_of_selected_source(const float new_gain)
+void SSR::Scene::set_gain_continuous_of_selected_source(const float gain)
 {
-  current_selected_source->set_relative_gain(new_gain);
+  current_selected_source->set_relative_gain(gain);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_gain_of_selected_source() const
@@ -207,14 +206,14 @@ SSR::Parameter<float, float> SSR::Scene::get_gain_of_selected_source() const
   return current_selected_source->get_gain();
 }
 
-void SSR::Scene::set_orientation_absolute_of_selected_source(const float value)
+void SSR::Scene::set_orientation_discrete_of_selected_source(const float orientation)
 {
-  current_selected_source->set_absolute_orientation(value);
+  current_selected_source->set_absolute_orientation(orientation);
 }
 
-void SSR::Scene::set_orientation_relative_of_selected_source(const float value)
+void SSR::Scene::set_orientation_continuous_of_selected_source(const float orientation)
 {
-  current_selected_source->set_relative_orientation(value);
+  current_selected_source->set_relative_orientation(orientation);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_orientation_of_selected_source() const
@@ -222,14 +221,14 @@ SSR::Parameter<float, float> SSR::Scene::get_orientation_of_selected_source() co
   return current_selected_source->get_orientation();
 }
 
-void SSR::Scene::set_mute_absolute_of_selected_source(const bool value)
+void SSR::Scene::set_mute_discrete_of_selected_source(const bool mute)
 {
-  current_selected_source->set_absolute_mute(value);
+  current_selected_source->set_absolute_mute(mute);
 }
 
-void SSR::Scene::set_mute_relative_of_selected_source(const float value)
+void SSR::Scene::set_mute_continuous_of_selected_source(const float mute)
 {
-  current_selected_source->set_relative_mute(value);
+  current_selected_source->set_relative_mute(mute);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_mute_of_selected_source() const
