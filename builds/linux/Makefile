@@ -69,7 +69,6 @@ OBJECTS := \
   $(OBJDIR)/network_gui_component.o \
   $(OBJDIR)/network_config.o \
   $(OBJDIR)/config.o \
-  $(OBJDIR)/debug.o \
   $(OBJDIR)/helper.o \
   $(OBJDIR)/jack_client.o \
   $(OBJDIR)/ssr_requester.o \
@@ -213,11 +212,6 @@ $(OBJDIR)/network_config.o: $(SSREMOTE_VST)/src/config/network_config.cpp
 $(OBJDIR)/config.o: $(SSREMOTE_VST)/src/config/config.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling config.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-	
-$(OBJDIR)/debug.o: $(SSREMOTE_VST)/src/utils/debug.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling debug.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/helper.o: $(SSREMOTE_VST)/src/utils/helper.cpp
