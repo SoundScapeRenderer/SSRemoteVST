@@ -89,7 +89,7 @@ void Main_GUI_component::timerCallback()
       source_frame->set_orientation_text_editor_text(String(source.get_orientation().get_discrete_value()));
 
       //Be carefull: When setting the new value, the parameter_source_gain has first to be converted from linear to dB!
-      source_frame->set_gain_slider_value(SSR::Helper::linear_to_dB(source.get_gain().get_discrete_value()));
+      source_frame->set_gain_slider_value(SSR::helper::linear_to_dB(source.get_gain().get_discrete_value()));
       source_frame->set_mute_button_toggle_state(source.get_mute().get_discrete_value());
       source_frame->set_fixed_button_toggle_state(source.get_fixed().get_discrete_value());
 

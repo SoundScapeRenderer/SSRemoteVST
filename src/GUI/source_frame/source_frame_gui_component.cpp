@@ -24,7 +24,7 @@ SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* processo
 , source_pad_and_controls(new SSR::Source_pad_and_controls_gui_component(processor))
 , source_parameters(new SSR::Source_parameters_gui_component(processor))
 , ssr_image_component(new juce::ImageComponent())
-, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::Helper::get_environment_variable("SSR_SCENE_AUTOMATION_VST_PLUGIN") + "/Source/images/ssr_logo_large.png"))))
+, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSR_SCENE_AUTOMATION_VST_PLUGIN") + "/Source/images/ssr_logo_large.png"))))
 {
   addAndMakeVisible(*source_parameters);
   source_parameters->setBounds(25, 50, source_parameters->getWidth(), source_parameters->getHeight());

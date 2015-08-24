@@ -159,7 +159,7 @@ void SSR::Source::set_absolute_gain(const float value, const bool linear)
   if (linear) {
       gain.set_discrete_value(value);
   } else {
-      float linear_value = SSR::Helper::dB_to_linear(value);
+      float linear_value = SSR::helper::dB_to_linear(value);
       gain.set_discrete_value(linear_value);
   }
 

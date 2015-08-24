@@ -562,7 +562,7 @@ void Controller::update_ssr(SSR::Update_specificator specificator)
           SSR::request::source_gain,
           std::placeholders::_1,
           scene->get_id_of_selected_source(),
-          SSR::Helper::linear_to_dB(scene->get_gain_of_selected_source().get_discrete_value())
+          SSR::helper::linear_to_dB(scene->get_gain_of_selected_source().get_discrete_value())
       ));
       break;
 
@@ -722,9 +722,9 @@ boost::filesystem::path Controller::get_config_file_path()
 
   //Try to get env var SSREMOTE_CONFIG for config file path, else get HOME path
   try {
-      config_file_location = SSR::Helper::get_environment_variable("SSREMOTE_VST");
+      config_file_location = SSR::helper::get_environment_variable("SSREMOTE_VST");
   } catch (std::invalid_argument& iae) {
-      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, "Environemnt variable SSREMOTE_CONFIG is not set!", LOG_TO_FILE);
+      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, iae.what(), LOG_TO_FILE);
   }
 
   if (!bfs::is_directory(config_file_location)) {
