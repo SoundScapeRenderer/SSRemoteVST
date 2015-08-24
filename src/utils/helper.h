@@ -16,10 +16,9 @@
 namespace SSR 
 {
 
-class Helper 
+namespace helper
 {
 
-public:
 	/**
 	* This function calculates the transfered linear_value to dB. This is done
 	* with the formula: `20 * log10(linear_value)`
@@ -28,7 +27,7 @@ public:
 	*									to dB.
 	* @return  		the linear value converted to dB.
 	**/
-	static float linear_to_dB(const float linear_value);
+	float linear_to_dB(const float linear_value);
 
 	/**
 	* This function calculates the transfered dB_value to linear. This is done
@@ -42,11 +41,26 @@ public:
 	*									linear. 
 	* @return 		the dB value converted to linear.
 	**/
-	static float dB_to_linear(const float dB_value);
+	float dB_to_linear(const float dB_value);
 
-	//TODO: Documentation
-	static std::string get_environment_variable(const std::string& key);
-};
+	/**
+	 * Returns the content of the transferred environment variable
+	 * (env_variable_name).
+	 *
+	 * If there is no such environment variable, a invalid_argument
+	 * exception is thrown.
+	 *
+	 * @param               env_variable_name               The name of the
+	 *                                                      environment
+	 *                                                      variable which
+	 *                                                      content shall
+	 *                                                      be returned.
+	 *
+	 * @return the content of the transferred environment variable.
+	 */
+	std::string get_environment_variable(const std::string& env_variable_name);
+
+}
 
 }
 

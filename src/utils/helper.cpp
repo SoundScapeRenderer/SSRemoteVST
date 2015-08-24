@@ -10,7 +10,7 @@
  * For more detailed information, please read the license.txt in the root directory.
  */
 
-//C** Libs
+//C++ Libs
 #include <cmath>
 #include <string>
 #include <algorithm>
@@ -19,21 +19,18 @@
 //Own Libs
 #include <src/utils/helper.h>
 
-float SSR::Helper::linear_to_dB(const float linear_value) { return 20.0f * std::log10(linear_value); }
-float SSR::Helper::dB_to_linear(const float dB_value) { return std::pow(10.0f, dB_value / 20.0f); }
+float SSR::helper::linear_to_dB(const float linear_value) { return 20.0f * std::log10(linear_value); }
 
-std::string SSR::Helper::get_environment_variable(const std::string& key) {
+float SSR::helper::dB_to_linear(const float dB_value) { return std::pow(10.0f, dB_value / 20.0f); }
 
-  //key must be a string with '\0' termination
-  char* val = std::getenv(key.c_str());
+std::string SSR::helper::get_environment_variable(const std::string& env_variable_name) {
 
-  std::string environment_variable_content = "";
+  //environment variable name must be a string with '\0' termination
+  char* val = std::getenv(env_variable_name.c_str());
 
-  if (val != NULL) {
-      environment_variable_content = val;
-  } else {
-      throw std::invalid_argument("ERROR: The Environment Variable is not known!");
+  if (val == NULL) {
+      throw std::invalid_argument("The Environment Variable " + env_variable_name + " is not known!");
   }
 
-  return environment_variable_content;
+  return val;
 }
