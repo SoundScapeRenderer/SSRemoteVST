@@ -57,6 +57,10 @@ namespace helper
 	 *                                                      be returned.
 	 *
 	 * @return the content of the transferred environment variable.
+	 *
+	 * @throws              invalid_argument                If there is no
+	 *                                                      such environment
+	 *                                                      variable.
 	 */
 	std::string get_environment_variable(const std::string& env_variable_name);
 
