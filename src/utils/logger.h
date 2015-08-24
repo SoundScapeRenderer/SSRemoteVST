@@ -29,7 +29,6 @@ namespace SSR
    * a file or to the std::cerr. This class was design regarding the
    * singelton design pattern.
    *
-   * @author Florian Willich
    * @since 2015-06-30
    */
   class Logger
