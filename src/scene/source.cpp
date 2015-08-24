@@ -23,17 +23,17 @@
 #include <src/parameter/parameter.h>
 #include <src/scene/parameter_translation_functions.h>
 
-SSR::Source::Source(const unsigned int id, const std::string name)
+SSR::Source::Source(const unsigned int id, const std::string name, float scene_range)
 : id(id)
 , x_position(   0.0f,
                 0.0f,
-                std::bind(SSR::translations::x_position_discrete_to_continuous, std::placeholders::_1, 2000.0f),
-                std::bind(SSR::translations::x_position_continuous_to_discrete, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::x_position_discrete_to_continuous, std::placeholders::_1, scene_range),
+                std::bind(SSR::translations::x_position_continuous_to_discrete, std::placeholders::_1, scene_range),
                 "X Position")
 , y_position(   0.0f,
                 0.0f,
-                std::bind(SSR::translations::y_position_discrete_to_continuous, std::placeholders::_1, 2000.0f),
-                std::bind(SSR::translations::y_position_continuous_to_discrete, std::placeholders::_1, 2000.0f),
+                std::bind(SSR::translations::y_position_discrete_to_continuous, std::placeholders::_1, scene_range),
+                std::bind(SSR::translations::y_position_continuous_to_discrete, std::placeholders::_1, scene_range),
                 "Y Position")
 , gain(         1.0f,
                 1.0f,
@@ -68,6 +68,12 @@ SSR::Source::Source(const unsigned int id, const std::string name)
   auto random_machine = SSR::Random_machine::get_instance();
   x_position.set_discrete_value(random_machine->generate_float(-1.0f, 1.0f));
   y_position.set_discrete_value(random_machine->generate_float(-1.0f, 1.0f));
+}
+
+SSR::Source::Source(const unsigned int id, const std::string name, float scene_range, const std::string jackport)
+: Source(id, name, scene_range)
+{
+  this->jackport = jackport;
 }
 
 SSR::Source::Source(const SSR::Source& source)
@@ -110,12 +116,6 @@ void SSR::Source::swap(SSR::Source& first, SSR::Source& second)
   std::swap(first.name,                 second.name);
   std::swap(first.properties_file,      second.properties_file);
   std::swap(first.jackport,             second.jackport);
-}
-
-SSR::Source::Source(const unsigned int id, const std::string name, const std::string jackport)
-: Source(id, name)
-{
-  this->jackport = jackport;
 }
 
 SSR::Source::~Source()

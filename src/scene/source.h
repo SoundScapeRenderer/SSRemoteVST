@@ -27,9 +27,9 @@ namespace SSR
   {
 
   public:
-    explicit Source(const unsigned int id, const std::string name);
+    explicit Source(const unsigned int id, const std::string name, float scene_range);
 
-    explicit Source(const unsigned int id, const std::string name, const std::string jackport);
+    explicit Source(const unsigned int id, const std::string name, float scene_range, const std::string jackport);
 
     Source(const Source& source);
 

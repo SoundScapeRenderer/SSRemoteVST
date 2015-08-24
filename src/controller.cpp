@@ -61,7 +61,7 @@ Controller::Controller()
 , jack_client(new SSR::Jack_client())
 , requester(new SSR::SSR_requester())
 , config(nullptr)
-, scene(new SSR::Scene())
+, scene(new SSR::Scene(20.0f))
 {
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Constructor of Controller was called!", false);
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 3", false);
