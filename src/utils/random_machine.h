@@ -25,7 +25,6 @@ namespace SSR {
    * The class was designed regarding the singleton design pattern.
    *
    * @since 2015-06-23
-   * @author Florian Willich
    */
   class Random_machine {
 
@@ -36,8 +35,6 @@ namespace SSR {
        * the whole runtime.
        *
        * @return a Random_machine instance.
-       *
-       * @author Florian Willich
        */
       static std::shared_ptr<Random_machine> get_instance()
       {
@@ -49,8 +46,6 @@ namespace SSR {
        * Returns a random value between get_minimum() and get_maximum() which
        * is in general the minimum value of unsigned int (0) and the maximum
        * value of unsigned int (4294967295).
-       *
-       * @author Florian Willich
        */
       unsigned int operator()() const;
 
@@ -58,8 +53,6 @@ namespace SSR {
        * Returns a random value between get_minimum() and get_maximum() which
        * is in general the minimum value of unsigned int (0) and the maximum
        * value of unsigned int (4294967295).
-       *
-       * @author Florian Willich
        */
       unsigned int generate() const;
 
@@ -74,8 +67,6 @@ namespace SSR {
        *
        * @return a random value of type unsigned int between lower_bound and
        * upper_bound (including).
-       *
-       * @author Florian Willich
        */
       unsigned int generate_unsigned_int(const unsigned int lower_bound, const unsigned int upper_bound) const;
 
@@ -88,8 +79,6 @@ namespace SSR {
        *                                character.
        *
        * @return a random char between lower_bound and upper_bound (including).
-       *
-       * @author Florian Willich
        */
       char generate_char(const char lower_bound, const char upper_bound) const;
 
@@ -104,8 +93,6 @@ namespace SSR {
        *
        * @return a random string which has the transferred length and includes characters
        * defined by the transferred lower_bound and upper_bound (including).
-       *
-       * @author Florian Willich
        */
       std::string generate_string(const std::size_t length, const char lower_bound, const char upper_bound) const;
 
@@ -117,8 +104,6 @@ namespace SSR {
        * @param         upper_bound     The value that determines the including upper bound of the
        *                                generated value.
        * @return a random value of type int between lower_bound and upper_bound (including).
-       *
-       * @author Florian Willich
        */
       int generate_int(const int lower_bound, const int upper_bound) const;
 
@@ -132,8 +117,6 @@ namespace SSR {
        *                                generated value.
        *
        * @return a random value of type float between lower_bound and upper_bound (including).
-       *
-       * @author Florian Willich
        */
       float generate_float(const float lower_bound, const float upper_bound) const;
 
@@ -146,24 +129,18 @@ namespace SSR {
        * @param         upper_bound     The value that determines the including upper bound of the
        *                                generated value.
        * @return a random value of type double between lower_bound and upper_bound (including).
-       *
-       * @author Florian Willich
        */
       double generate_double(const double lower_bound, const double upper_bound) const;
 
       /**
        * Returns the minimum value of the computed random values an instance
        * of this class can produce.
-       *
-       * @author Florian Willich
        */
       unsigned int get_minimum() const;
 
       /**
        * Returns the maximum value of the computed random values an instance
        * of this class can produce when calling generate().
-       *
-       * @author Florian Willich
        */
       unsigned int get_maximum() const;
 
