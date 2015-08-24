@@ -29,7 +29,6 @@
 #include <src/utils/tcp_connection.h>
 #include <src/utils/ssr_requester.h>
 #include <src/utils/helper.h>
-#include <src/utils/debug.h>
 #include <src/utils/update_specificator.h>
 #include <src/config/config.h>
 #include <src/GUI/main_gui_component.h>

@@ -24,7 +24,6 @@
 //Own Libs
 #include <src/utils/jack_client.h>
 #include <src/utils/helper.h>
-#include <src/utils/debug.h>
 #include <src/parameter/parameter.h>
 #include <src/GUI/source_frame/source_frame_gui_component.h>
 #include <src/GUI/head_frame/head_frame_gui_component.h>
