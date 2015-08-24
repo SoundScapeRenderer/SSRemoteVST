@@ -28,67 +28,91 @@
 namespace SSR 
 {
 
-//Exceptions
-struct jack_server_not_running_exception : public std::exception {
+/**
+ * Exception predicating that the jack server is currently not running.
+ */
+struct jack_server_not_running_exception : public std::exception
+{
 
-	const char * what () const throw () {
-		return "Could not connect to Jack Server.";
-	}
+  const char * what () const throw () {
+    return "Could not connect to Jack Server.";
+  }
 
 };
 
-struct no_jack_ports_available_exception : public std::exception {
+/**
+ * Exception predicating that there are not jack ports available.
+ */
+struct no_jack_ports_available_exception : public std::exception
+{
 
-	const char * what () const throw () {
-		return "Could not get any Jackports.";
-	}
+  const char * what () const throw () {
+    return "Could not get any Jackports.";
+  }
 
 };
 
 /**
  * This is a client wrapper class for the jack audio server.
- *
- * @author Florian Willich
- * @version 0.5
  **/
 class Jack_client
 {
 
 public:
-	Jack_client();
-	~Jack_client();
+  /**
+   * Constructor initializing the status member with JackFailure flag.
+   */
+  Jack_client();
 
-	/**
-	 * This method registers this Jack client to the Jack Server with the
-	 * transfered jack_client_name.
-	 *
-	 * @param    jack_client_name    The name which identifies this client on the
-	 *                               Jack server.
-	 **/
-	void register_client(const char* jack_client_name);
+  /**
+   * Destructor deregistering this jack client from the jack server (if
+   * the client has been registered before).
+   */
+  ~Jack_client();
 
-	/**
-	 * This method looks for all Jack Ports that match the flags parameter and
-	 * returns them.
-	 *
-	 * @param  flags     See JackPortFlags (jack/types.h) for all flags you can
-	 *                   set.
-	 *
-	 * @throws   no_jack_ports_available_exception     If there are no Jack Ports
-	 *                                                 available matching the
-	 *                                                 transfered flags.
-	 *
-	 * @throws   jack_server_not_running_exception     If this jack client is not
-	 *                                                 connected to the Jack
-	 *                                                 server.
-	 *
-	 * @return   all Jack Ports that matched the flags.
-	 **/
-	std::vector<std::string> look_up_jack_ports(unsigned long flags);
+  /**
+   * Registers this Jack client to the Jack Server with the transfered
+   * jack_client_name.
+   *
+   * @param    jack_client_name   The name which identifies this client
+   *                              on the Jack server.
+   *
+   * @throws   jack_server_not_running_exception  If the jack server
+   *                                              is currently not
+   *                                              running.
+   **/
+  void register_client(const char* jack_client_name);
+
+  /**
+   * This method looks for all Jack Ports that match the flags parameter and
+   * returns them.
+   *
+   * @param  flags     See JackPortFlags (jack/types.h) for all flags you can
+   *                   set.
+   *
+   * @throws   no_jack_ports_available_exception     If there are no Jack Ports
+   *                                                 available matching the
+   *                                                 transfered flags.
+   *
+   * @throws   jack_server_not_running_exception     If this jack client is not
+   *                                                 connected to the Jack
+   *                                                 server.
+   *
+   * @return   all Jack Ports that matched the flags.
+   **/
+  std::vector<std::string> look_up_jack_ports(unsigned long flags);
 
 private:
-	jack_client_t* client;
-	jack_status_t status;
+
+  /**
+   * Identifier for the jack client.
+   */
+  jack_client_t* client;
+
+  /**
+   * Status type for retrieving status information of the jack server.
+   */
+  jack_status_t status;
 
 };
 
