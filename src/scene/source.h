@@ -23,27 +23,18 @@
 namespace SSR
 {
 
+  /**
+   * This class represents a source. Since this VST Plugin remotely controls
+   * the SSR, this class is the equivalent to a audio source in the SSR.
+   */
   class Source
   {
 
   public:
-    explicit Source(const unsigned int id, const std::string name, float scene_range);
-
-    explicit Source(const unsigned int id, const std::string name, float scene_range, const std::string jackport);
-
-    Source(const Source& source);
-
-    Source& operator=(const Source& other);
-
-    void swap(SSR::Source& first, SSR::Source& second);
-
-    ~Source();
 
     /**
      * Enum representing all parameters as integer values beginning with 0
      * and the last elemt represents the quantity of parameters.
-     *
-     * @author Florian Willich
      */
     enum parameter  {
       x_position_idx = 0,
@@ -57,62 +48,163 @@ namespace SSR
     };
 
     /**
-     * Setter for the source x position parameter.
+     * Constructor setting the source id, name and the scene_range to the
+     * transferred parameters.
      *
-     * This method automatically computes the sources relative x position.
+     * The Parameter member will be set as follows:
      *
-     * @param           new_position    The new position to which the source x
-     *                                  position will be set.
-     * @param           scene_range     The scenes range.
+     * x_position:
+     * translate_to_continuous function = SSR::translations::x_position_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::x_position_continuous_to_discrete
+     * name = "X Position"
      *
-     * @author          Florian Willich
+     * y_position:
+     * translate_to_continuous function = SSR::translations::y_position_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::y_position_continuous_to_discrete
+     * name = "Y Position"
+     *
+     * gain:
+     * translate_to_continuous function = SSR::translations::gain_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::gain_continuous_to_discrete
+     * name = "Gain"
+     *
+     * orientation:
+     * translate_to_continuous function = SSR::translations::orientation_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::orientation_continuous_to_discrete
+     * name = "Orientation"
+     *
+     * mute:
+     * translate_to_continuous function = SSR::translations::mute_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::mute_continuous_to_discrete
+     * name = "Mute"
+     *
+     * model_point:
+     * translate_to_continuous function = SSR::translations::model_point_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::model_point_continuous_to_discrete
+     * name = "Model"
+     * 
+     * fixed:
+     * translate_to_continuous function = SSR::translations::fixed_discrete_to_continuous
+     * translate_to_discrete function = SSR::translations::fixed_continuous_to_discrete
+     * name = "Fixed"
+     * 
+     * @see parameter_translation_functions.h
+     *
+     * All parameters will be set to default values.
+     *
+     * @see set_all_parameters_on_default()
+     *
+     * The X and Y position of the source will be set to a random position
+     * in the range -1.0 and 1.0.
+     *
+     * @param           id              The ID this source shall have.
+     *
+     * @param           name            The name this source shall have.
+     *
+     * @param           scene_range     The range of the scene.
      */
-    void set_x_position_absolute(const float new_position);
+    explicit Source(const unsigned int id, const std::string name, float scene_range);
 
+    /**
+     * Constructor setting the id, name, scene_range and jackport to the
+     * transferred parameters.
+     *
+     * This constructor calls another constructor for initialization,
+     * for more information read the documentation of the following
+     * constructor:
+     *
+     * Source(const unsigned int id, const std::string name, float scene_range)
+     *
+     * @see Source(const unsigned int id, const std::string name, float scene_range)
+     *
+     * @param           id              The ID this source shall have.
+     *
+     * @param           name            The name this source shall have.
+     *
+     * @param           scene_range     The range of the scene.
+     *
+     * @param           jackport        The jackport this source shall connect
+     *                                  to.
+     */
+    explicit Source(const unsigned int id, const std::string name, float scene_range, const std::string jackport);
+
+    /**
+     * Copy constructor.
+     *
+     * @param           other           The other source which shall be
+     *                                  copied.
+     */
+    Source(const Source& other);
+
+    /**
+     * Copy assignment constructor.
+     *
+     * @param           other           The other source which shall be
+     *                                  copied.
+     */
+    Source& operator=(const Source& other);
+
+    /**
+     * Swaps all the data of the first with the second source.
+     *
+     * @param           first           Source which data shall be swapped
+     *                                  with the second source.
+     *
+     * @param           second          Source which data shall be swapped
+     *                                  with the first souce.
+     */
+    void swap(SSR::Source& first, SSR::Source& second);
+
+    /**
+     * Destructor.
+     */
+    ~Source();
+
+    /**
+     * Setter for the source discrete X position parameter.
+     *
+     * @param           position        The new position to which the source x
+     *                                  position will be set.
+     */
+    void set_x_position_discrete(const float position);
+
+    /**
+     * Returns the source x position.
+     *
+     * @return the source x position.
+     */
     SSR::Parameter<float, float> get_x_position() const;
 
     /**
-     * Setter for the source x relative position.
+     * Setter for the source continuous X position.
      *
-     * This method automatically computes the sources absolute x position.
-     *
-     * @param           new_relative_position    The new relative position to which the source x
-     *                                           position will be set relatively.
-     * @param           scene_range              The scenes range.
-     *
-     * @author          Florian Willich
-     *
+     * @param           position        The new relative position to which the source x
+     *                                  position will be set relatively.
      */
-    void set_x_position_relative(const float new_relative_position);
+    void set_x_position_continuous(const float position);
 
     /**
-     * Setter for the source y position parameter.
+     * Setter for the source discrete Y position parameter.
      *
-     * This method automatically computes the sources relative y position.
-     *
-     * @param           new_position    The new position to which the source y
-     *                                  position will be set.
-     * @param           scene_range     The scenes range.
-     *
-     * @author          Florian Willich
+     * @param           position        The new discrete position to which the
+     *                                  source Y position will be set.
      */
-    void set_y_position_absolute(const float new_position);
+    void set_y_position_discrete(const float position);
 
+    /**
+     * Returns the the source Y position.
+     *
+     * @return the the source Y position.
+     */
     SSR::Parameter<float, float> get_y_position() const;
 
     /**
-     * Setter for the source y relative position.
+     * Setter for the source continuous Y position.
      *
-     * This method automatically computes the sources absolute y position.
-     *
-     * @param           new_relative_position    The new relative position to which the source y
-     *                                           position will be set relatively.
-     * @param           scene_range              The scenes range.
-     *
-     * @author          Florian Willich
-     *
+     * @param           position        The new continuous position to which
+     *                                  the source Y position will be set to.
      */
-    void set_y_position_relative(const float new_relative_position);
+    void set_y_position_continuous(const float position);
 
     /**
      * Setter for the source gain. The transfered parameter
@@ -126,28 +218,34 @@ namespace SSR
      *
      * @see Helper::dB_to_linear
      *
-     * @param           value                   The value on which the gain will
-     *                                          be set. If the value is less linear
-     *                                          and less than 0.0, the gain will be
-     *                                          set on 0.0.
-     * @param           linear                  Defines if the transfered gain value
-     *                                          is linear.
+     * @param           gain_value              The value to which the gain will
+     *                                          be set.
      *
-     * @author          Florian Willich
+     * @param           linear                  Defines if the transfered gain value
+     *                                          is linear (true) or not (false).
      */
-    void set_absolute_gain(const float value, const bool linear);
+    void set_discrete_gain(const float gain_value, const bool linear);
 
-    void set_relative_gain(const float value);
+    /**
+     * Setter for the continuous source gain .
+     *
+     * @param           gain_value              The continuous gain value the gain
+     *                                          shall be set to.
+     */
+    void set_continuous_gain(const float gain_value);
 
+    /**
+     * Returns the gain parameter of the source.
+     *
+     * @return the gain parameter of the source.
+     */
     SSR::Parameter<float, float> get_gain() const;
 
     /**
      * Setter for the source ID.
      *
-     * @param           value           The value on which the source ID will
-     *                                  be set.
-     *
-     * @author          Florian Willich
+     * @param           new_id       The ID to which the source ID will
+     *                               be set.
      */
     void set_id(const unsigned int new_id);
 
@@ -155,107 +253,151 @@ namespace SSR
      * Getter for the source ID parameter.
      *
      * @return the source ID.
-     *
-     * @author          Florian Willich
      */
     unsigned int get_id() const;
 
     /**
-     * Setter for the source orientation parameter.
+     * Setter for the source discrete orientation.
      *
-     * @param           value           The value on which the source orientation
-     *                                  will be set.
-     *
-     * @author          Florian Willich
+     * @param           discrete_orientation    The value to which the source
+     *                                          orientation will be set.
      */
-    void set_absolute_orientation(const float new_absolute_orientation);
+    void set_discrete_orientation(const float discrete_orientation);
 
-    void set_relative_orientation(const float new_relative_orientation);
+    /**
+     * Setter for the source continuous orientation.
+     *
+     * @param           continuous_orientation  The value to which the source
+     *                                          orientation will be set.
+     */
+    void set_continuous_orientation(const float continuous_orientation);
 
+    /**
+     * Returns the source orientation parameter.
+     *
+     * @return the source orientation parameter.
+     */
     SSR::Parameter<float, float> get_orientation() const;
 
     /**
-     * Setter for the source mute parameter.
+     * Setter for the source mute parameter - true mutes the source.
      *
-     * @param           value               The value on which the source mute
-     *                                      parameter will be set.
-     *
-     * @author          Florian Willich
+     * @param           discrete_mute       The value on which the source mute
+     *                                      parameter will be set:
+     *                                      true -> mute
+     *                                      false -> unmute
      */
-    void set_absolute_mute(const bool value);
+    void set_discrete_mute(const bool discrete_mute);
 
-    void set_relative_mute(const float value);
+    /**
+     * Setter for the source mute parameter - 1.0 mutes the source and 0.0
+     * unmutes it.
+     *
+     * @param           continuous_mute     The value to which the source mute
+     *                                      parameter will be set:
+     *                                      1.0 -> mute
+     *                                      0.0 -> unmute
+     */
+    void set_continuous_mute(const float continuous_mute);
 
+    /**
+     * Returns the source mute parameter.
+     *
+     * @return the source mute parameter.
+     */
     SSR::Parameter<bool, float> get_mute() const;
 
     /**
-     * Setter for the source model parameter. If the transfered parameter is true,
-     * the source model is point, otherwise its a plane model.
+     * Sets the discrete source model point parameter where the
+     * transferred parameter point determines whether it is a point source
+     * (true) or a plane source (false).
      *
-     * @param           value               True if the source model is point or
-     *                                      false if it is a plane model.
-     *
-     * @author          Florian Willich
+     * @param           point           Determines whether the source is point
+     *                                  (true) or plane (false).
      */
-    void set_absolute_model_point(const bool value);
+    void set_discrete_model_point(const bool point);
 
-    void set_relative_model_point(const float value);
+    /**
+     * Sets the continuous source model where the transferred parameter point
+     * determines whether it is a point source (1.0) or a plane source (0.0).
+     *
+     * @param           point           Determines whether the source is point
+     *                                  (1.0) or plane (0.0).
+     */
+    void set_continuous_model_point(const float point);
 
+    /**
+     * Returns the source model parameter.
+     *
+     * @return the source model parameter.
+     */
     SSR::Parameter<bool, float> get_model_point() const;
 
     /**
-     * Setter for the source fixed parameter. If the transfered parameter is true,
-     * the source model is fixed otherwise it's changeable.
+     * Sets the discrete source fixed state, where the transferred parameter
+     * fixed_value determines whether the source is fixed (true) or movable (false).
      *
-     * @param           value               True if the source model is fixed,
-     *                                      otherwise false.
-     *
-     * @author          Florian Willich
+     * @param           fixed_value     Determines whether the source shall
+     *                                  be fixed (true) or movable (false).
      */
-    void set_absolute_fixed(const bool value);
+    void set_discrete_fixed(const bool fixed_value);
 
-    void set_relative_fixed(const float new_relative_fixed_value);
+    /**
+     * Sets the continuous source fixed state, where the transferred parameter
+     * fixed_value determines whether the source is fixed (1.0) or movable (0.0).
+     *
+     * @param           fixed_value     Determines whether the source shall
+     *                                  be fixed (1.0) or movable (0.0).
+     */
+    void set_continuous_fixed(const float fixed_value);
 
+    /**
+     * Returns the source fixed parameter.
+     *
+     * @return the source fixed parameter.
+     */
     SSR::Parameter<bool, float> get_fixed() const;
 
     /**
      * Setter for the source name parameter.
      *
-     * @param           value               The name on which to set the source.
-     *
-     * @author          Florian Willich
+     * @param           new_name        The name to which the source shall be set.
      */
-    void set_name(const std::string value);
+    void set_name(const std::string new_name);
 
     /**
      * Getter for the source name.
      *
      * @return the source name.
-     *
-     * @author Florian Willich
      */
     std::string get_name() const;
 
     /**
      * Setter for the source properties file.
      *
-     * @param           value               The name of the source properties file.
-     *
-     * @author          Florian Willich
+     * @param           name            The name of the source properties file.
      */
-    void set_properties_file(const std::string value);
+    void set_properties_file(const std::string name);
 
+    /**
+     * Returns the name of the properties file.
+     *
+     * @return the name of the properties file.
+     */
     std::string get_properties_file() const;
 
     /**
      * Setter for the source jackport.
      *
-     * @param           value               The name of the source jackport.
-     *
-     * @author          Florian Willich
+     * @param           name               The name of the source jackport.
      */
-    void set_jackport(const std::string value);
+    void set_jackport(const std::string name);
 
+    /**
+     * Returns the name of the jackport this source is connected to.
+     *
+     * @return the name of the jackport this source is connected to.
+     */
     std::string get_jackport() const;
 
     /**
@@ -281,10 +423,6 @@ namespace SSR
      * - Model
      * - Port
      * - Properties File
-     *
-     * @param           scene_range             The scene range.
-     *
-     * @author Florian Willich
      */
     void set_all_parameters_on_default();
 
@@ -350,13 +488,44 @@ namespace SSR
 
 }
 
-bool operator==(const SSR::Source& rhs, const SSR::Source& lhs);
-bool operator!=(const SSR::Source& rhs, const SSR::Source& lhs);
+/**
+ * Equal operator returning true if the lhs source is equal to the rhs source,
+ * false otherwise.
+ *
+ * @param       lhs             The left hand side source.
+ *
+ * @param       rhs             The right hand side source.
+ *
+ * @return true if the lhs source is equal to the rhs source, false otherwise.
+ */
+bool operator==(const SSR::Source& lhs, const SSR::Source& rhs);
 
-namespace std {
+/**
+ * Unequal operator returning true if the lhs source is unequal to the rhs source,
+ * false otherwise.
+ *
+ * @param       lhs             The left hand side source.
+ *
+ * @param       rhs             The right hand side source.
+ *
+ * @return true if the lhs source is unequal to the rhs source, false otherwise.
+ */
+bool operator!=(const SSR::Source& lhs, const SSR::Source& rhs);
+
+namespace std
+{
+
+  /**
+   * Swaps the data of the first source with the date of the second source.
+   *
+   * @param     first           The source which data shall be swapped with the
+   *                            second source.
+   *
+   * @param     second          The source which data shall be swapped with the
+   *                            first source.
+   */
   void swap(SSR::Source& first, SSR::Source& second);
-}
 
-//std::ostream& operator<<(std::ostream& os, SSR::Source& source);
+}
 
 #endif
