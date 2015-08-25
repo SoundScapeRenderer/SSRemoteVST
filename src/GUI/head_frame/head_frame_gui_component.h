@@ -28,8 +28,6 @@ namespace SSR
   /**
   * This class represents the head frame GUI component including the
   * 'Network GUI component' and a 'New Source Button'.
-  *
-  * @author Florian Willich
   */
   class Head_frame_GUI_component
   : public juce::AudioProcessorEditor
@@ -60,8 +58,6 @@ namespace SSR
      *
      * @param           graphics       the graphics context that must be used
      *                                 to do the drawing operations.
-     *
-     * @author Florian Willich
      */
     void paint(juce::Graphics& graphics) override;
 
@@ -80,8 +76,6 @@ namespace SSR
      * @see http://www.juce.com/api/classButton_1_1Listener.html#a81499cef24b7189cd0d1581fd9dc9e14
      *
      * @param           buttonThatWasClicked            The button that was clicked.
-     *
-     * @author          Florian Willich
      */
     void buttonClicked(juce::Button* buttonThatWasClicked) override;
 
@@ -90,8 +84,6 @@ namespace SSR
      *
      * @return          the current status of the network GUI component,
      *                  true means connected, false not.
-     *
-     * @author  Florian Willich
      */
     bool get_connected() const;
 
@@ -101,8 +93,6 @@ namespace SSR
      * @param   new_state       The new state on which the network GUI
      *                          component shall be set: true means connected,
      *                          false means not.
-     *
-     * @author  Florian Willich
      */
     void set_connected(const bool new_state);
 
