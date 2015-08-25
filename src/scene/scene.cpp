@@ -236,14 +236,14 @@ SSR::Parameter<bool, float> SSR::Scene::get_mute_of_selected_source() const
   return current_selected_source->get_mute();
 }
 
-void SSR::Scene::set_model_point_absolute_of_selected_source(const bool value)
+void SSR::Scene::set_model_point_discrete_of_selected_source(const bool point)
 {
-  current_selected_source->set_absolute_model_point(value);
+  current_selected_source->set_absolute_model_point(point);
 }
 
-void SSR::Scene::set_model_point_relative_of_selected_source(const float value)
+void SSR::Scene::set_model_point_continuous_of_selected_source(const float point)
 {
-  current_selected_source->set_relative_model_point(value);
+  current_selected_source->set_relative_model_point(point);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_model_point_of_selected_source() const
@@ -251,14 +251,14 @@ SSR::Parameter<bool, float> SSR::Scene::get_model_point_of_selected_source() con
   return current_selected_source->get_model_point();
 }
 
-void SSR::Scene::set_fixed_absolute_of_selected_source(const bool value)
+void SSR::Scene::set_fixed_discrete_of_selected_source(const bool fixed)
 {
-  current_selected_source->set_absolute_fixed(value);
+  current_selected_source->set_absolute_fixed(fixed);
 }
 
-void SSR::Scene::set_fixed_relative_of_selected_source(const float value)
+void SSR::Scene::set_fixed_continuous_of_selected_source(const float fixed)
 {
-  current_selected_source->set_relative_fixed(value);
+  current_selected_source->set_relative_fixed(fixed);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_fixed_of_selected_source() const
@@ -266,9 +266,9 @@ SSR::Parameter<bool, float> SSR::Scene::get_fixed_of_selected_source() const
   return current_selected_source->get_fixed();
 }
 
-void SSR::Scene::set_name_of_selected_source(const std::string value)
+void SSR::Scene::set_name_of_selected_source(const std::string name)
 {
-  set_name_of_source(current_selected_source->get_id(), value);
+  set_name_of_source(current_selected_source->get_id(), name);
 }
 
 std::string SSR::Scene::get_name_of_selected_source() const
@@ -276,9 +276,9 @@ std::string SSR::Scene::get_name_of_selected_source() const
   return current_selected_source->get_name();
 }
 
-void SSR::Scene::set_properties_file_of_selected_source(const std::string value)
+void SSR::Scene::set_properties_file_of_selected_source(const std::string prop_file)
 {
-  current_selected_source->set_properties_file(value);
+  current_selected_source->set_properties_file(prop_file);
 }
 
 std::string SSR::Scene::get_properties_file_of_selected_source() const
@@ -325,6 +325,33 @@ const source_iterator SSR::Scene::get_iterator(unsigned int id)
     throw std::runtime_error("Source does not exist!");
   }
 
+}
+
+void SSR::Scene::set_name_of_source(const unsigned int id, const std::string name)
+{
+  auto source = get_iterator(id);
+  source->set_name(name);
+  std::for_each(begin(*ids_and_names), end(*ids_and_names), [&id, &name](std::pair<unsigned int, std::string> p) {
+
+    if (p.first == id) {
+        p.second = name;
+    }
+
+  });
+
+}
+
+void SSR::Scene::set_id_of_source(const unsigned int old_id, const unsigned int new_id)
+{
+  auto source = get_iterator(old_id);
+  source->set_id(new_id);
+  std::for_each(begin(*ids_and_names), end(*ids_and_names), [&old_id, &new_id](std::pair<unsigned int, std::string> p) {
+
+    if (p.first == old_id) {
+        p.first = new_id;
+    }
+
+  });
 }
 
 void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::XmlElement* element)
@@ -391,31 +418,4 @@ void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::X
 
   }
 
-}
-
-void SSR::Scene::set_name_of_source(const unsigned int id, const std::string name)
-{
-  auto source = get_iterator(id);
-  source->set_name(name);
-  std::for_each(begin(*ids_and_names), end(*ids_and_names), [&id, &name](std::pair<unsigned int, std::string> p) {
-
-    if (p.first == id) {
-        p.second = name;
-    }
-
-  });
-
-}
-
-void SSR::Scene::set_id_of_source(const unsigned int id, const unsigned int new_id)
-{
-  auto source = get_iterator(id);
-  source->set_id(new_id);
-  std::for_each(begin(*ids_and_names), end(*ids_and_names), [&id, &new_id](std::pair<unsigned int, std::string> p) {
-
-    if (p.first == id) {
-        p.first = new_id;
-    }
-
-  });
 }
