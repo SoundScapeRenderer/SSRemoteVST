@@ -37,8 +37,6 @@
 * The 'Source' part includes the source selection GUI element, all the source
 * properties (Name, Jackport, Model, Properties File, Azimuth, Mute, Fixed and
 * Gain) and also a pad representing the sources spatial position.
-* 
-* @author Florian Willich
 **/
 class Main_GUI_component
     : public AudioProcessorEditor
@@ -46,47 +44,52 @@ class Main_GUI_component
 {
     
 public:
-    Main_GUI_component(Controller* ownerFilter);
-    ~Main_GUI_component();
 
-    /**
-    * Inherited from the JUCE Timer Class.
-    *
-    * Like the JUCE documentation say: "The user-defined callback routine that
-    * actually gets called periodically."
-    * 
-    * Currently, this method calls the processors method to read the incoming 
-    * messages and then sets all the UI elements to the new values held by the 
-    * processor if there have been any changes.
-    *
-    * @author Florian Willich
-    **/
-    virtual void timerCallback() override;
+  /**
+   * Constructor creating a window with the size of 900 to 600 pixels
+   * and starting an updating timer with 10 ms for the updating interval.
+   *
+   * @param      controller             The controller of this application.
+   */
+  Main_GUI_component(Controller* controller);
 
-    /**
-    * This method returns the processor to do stuff with it.
-    *
-    * @return   the processor which is the controller of this software.
-    *
-    * @author   Florian Willich
-    **/
-    Controller* getProcessor() const {
-      return static_cast<Controller*>(getAudioProcessor());
-    }
+  /**
+   * Destructor.
+   */
+  ~Main_GUI_component();
 
-    /**
-     * Like the JUCE documentation say:
-     * "The paint() method gets called when a region of a component needs
-     * redrawing, either because the component's repaint() method has been
-     * called, or because something has happened on the screen that means a
-     * section of a window needs to be redrawn."
-     *
-     * @param           g       the graphics context that must be used to
-     *                          do the drawing operations.
-     *
-     * @author Florian Willich
-     */
-    virtual void paint(juce::Graphics& g) override;
+  /**
+   * Inherited from the JUCE Timer Class.
+   *
+   * Like the JUCE documentation say: "The user-defined callback routine that
+   * actually gets called periodically."
+   *
+   * Currently, this method calls the processors method to read the incoming
+   * messages and then sets all the UI elements to the new values held by the
+   * processor if there have been any changes.
+   **/
+  virtual void timerCallback() override;
+
+  /**
+   * This method returns the processor to do stuff with it.
+   *
+   * @return   the processor which is the controller of this software.
+   **/
+  Controller* getProcessor() const {
+    return static_cast<Controller*>(getAudioProcessor());
+  }
+
+  /**
+   * Like the JUCE documentation say:
+   * "The paint() method gets called when a region of a component needs
+   * redrawing, either because the component's repaint() method has been
+   * called, or because something has happened on the screen that means a
+   * section of a window needs to be redrawn."
+   *
+   * @param           graphics          The graphics context that must be used
+   *                                    to do the drawing operations.
+   */
+  virtual void paint(juce::Graphics& graphics) override;
 
 private:
     
@@ -102,7 +105,11 @@ private:
      */
     juce::ScopedPointer<SSR::Source_frame_gui_component> source_frame;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Main_GUI_component)
+    /**
+     * This class is declared non copy able.
+     */
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Main_GUI_component);
+
 };
 
 #endif
