@@ -153,14 +153,14 @@ void Controller::set_parameter_source_mute(const bool value)
 
 void Controller::set_parameter_source_model_point(const bool value)
 {
-  scene->set_model_point_absolute_of_selected_source(value);
+  scene->set_model_point_discrete_of_selected_source(value);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::model));
   ui_update_flag = true;
 }
 
 void Controller::set_parameter_source_fixed(const bool value)
 {
-  scene->set_fixed_absolute_of_selected_source(value);
+  scene->set_fixed_discrete_of_selected_source(value);
   update_ssr(SSR::Update_specificator(SSR::Update_specificator::fixed));
   ui_update_flag = true;
 }
@@ -276,12 +276,12 @@ void Controller::setParameter(int parameterIndex, float newValue)
       break;
 
     case source_parameter::model_point_idx:
-      scene->set_model_point_relative_of_selected_source(newValue);
+      scene->set_model_point_continuous_of_selected_source(newValue);
       specificator = update_specificators::model;
       break;
 
     case source_parameter::fixed_idx:
-      scene->set_fixed_relative_of_selected_source(newValue);
+      scene->set_fixed_continuous_of_selected_source(newValue);
       specificator = update_specificators::fixed;
       break;
 
