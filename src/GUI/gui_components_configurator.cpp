@@ -13,7 +13,7 @@
 #include <src/GUI/gui_components_configurator.h>
 #include <src/config/ssr_colour.h>
 
-void SSR::configure_text_editor(juce::TextEditor& text_editor, const bool read_only, const bool caret_visible, const int max_length, const juce::String& initial_text)
+void SSR::configure_text_editor(juce::TextEditor& text_editor, const bool read_only, const bool caret_visible, const juce::String& initial_text)
 {
   text_editor.setMultiLine(false);
   text_editor.setReturnKeyStartsNewLine(false);
@@ -29,20 +29,10 @@ void SSR::configure_text_editor(juce::TextEditor& text_editor, const bool read_o
 
 void SSR::configure_text_editor(juce::TextEditor& text_editor, const bool read_only, const bool caret_visible, const int max_length, const juce::String& input_restrictions, const juce::String& initial_text)
 {
-  text_editor.setMultiLine(false);
-  text_editor.setReturnKeyStartsNewLine(false);
-  text_editor.setReadOnly(read_only);
-  text_editor.setScrollbarsShown(true);
-  text_editor.setCaretVisible(caret_visible);
-  text_editor.setPopupMenuEnabled(true);
+  configure_text_editor(text_editor, read_only, caret_visible, initial_text);
+
   text_editor.setInputRestrictions(max_length, input_restrictions);
-  text_editor.setText(initial_text);
-
-  juce::Colour inner_colour = read_only ? SSR::colour::get_colour(SSR::colour::Colours::foreground_grey) : SSR::colour::get_colour(SSR::colour::Colours::white);
-  text_editor.setColour(TextEditor::backgroundColourId, inner_colour);
 }
-
-
 
 void SSR::configure_text_button(juce::TextButton& text_button, const juce::String& text)
 {
@@ -55,11 +45,9 @@ void SSR::configure_text_button(juce::TextButton& text_button, const juce::Strin
   text_button.setTriggeredOnMouseDown(true);
 }
 
-
-
 void SSR::configure_label(juce::Label& label, juce::Colour& background_colour)
 {
-  label.setFont(juce::Font(15.00f, Font::bold));
+  label.setFont(juce::Font(15.0f, Font::bold));
   label.setJustificationType(Justification::centredRight);
   label.setEditable(false, false, false);
   label.setColour(Label::textColourId, SSR::colour::get_colour(SSR::colour::Colours::black));
