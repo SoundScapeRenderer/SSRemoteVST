@@ -163,12 +163,12 @@ int SSR::Scene::get_id_of_selected_source() const
 
 void SSR::Scene::set_x_position_discrete_of_selected_source(const float position)
 {
-  current_selected_source->set_x_position_absolute(position);
+  current_selected_source->set_x_position_discrete(position);
 }
 
 void SSR::Scene::set_x_position_continuous_of_selected_source(const float position)
 {
-  current_selected_source->set_x_position_relative(position);
+  current_selected_source->set_x_position_continuous(position);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_x_position_of_selected_source() const
@@ -178,12 +178,12 @@ SSR::Parameter<float, float> SSR::Scene::get_x_position_of_selected_source() con
 
 void SSR::Scene::set_y_position_discrete_of_selected_source(const float position)
 {
-  current_selected_source->set_y_position_absolute(position);
+  current_selected_source->set_y_position_discrete(position);
 }
 
 void SSR::Scene::set_y_position_continuous_of_selected_source(const float position)
 {
-  current_selected_source->set_y_position_relative(position);
+  current_selected_source->set_y_position_continuous(position);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_y_position_of_selected_source() const
@@ -193,12 +193,12 @@ SSR::Parameter<float, float> SSR::Scene::get_y_position_of_selected_source() con
 
 void SSR::Scene::set_gain_discrete_of_selected_source(const float gain, const bool linear)
 {
-  current_selected_source->set_absolute_gain(gain, linear);
+  current_selected_source->set_discrete_gain(gain, linear);
 }
 
 void SSR::Scene::set_gain_continuous_of_selected_source(const float gain)
 {
-  current_selected_source->set_relative_gain(gain);
+  current_selected_source->set_continuous_gain(gain);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_gain_of_selected_source() const
@@ -208,12 +208,12 @@ SSR::Parameter<float, float> SSR::Scene::get_gain_of_selected_source() const
 
 void SSR::Scene::set_orientation_discrete_of_selected_source(const float orientation)
 {
-  current_selected_source->set_absolute_orientation(orientation);
+  current_selected_source->set_discrete_orientation(orientation);
 }
 
 void SSR::Scene::set_orientation_continuous_of_selected_source(const float orientation)
 {
-  current_selected_source->set_relative_orientation(orientation);
+  current_selected_source->set_continuous_orientation(orientation);
 }
 
 SSR::Parameter<float, float> SSR::Scene::get_orientation_of_selected_source() const
@@ -223,12 +223,12 @@ SSR::Parameter<float, float> SSR::Scene::get_orientation_of_selected_source() co
 
 void SSR::Scene::set_mute_discrete_of_selected_source(const bool mute)
 {
-  current_selected_source->set_absolute_mute(mute);
+  current_selected_source->set_discrete_mute(mute);
 }
 
 void SSR::Scene::set_mute_continuous_of_selected_source(const float mute)
 {
-  current_selected_source->set_relative_mute(mute);
+  current_selected_source->set_continuous_mute(mute);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_mute_of_selected_source() const
@@ -238,12 +238,12 @@ SSR::Parameter<bool, float> SSR::Scene::get_mute_of_selected_source() const
 
 void SSR::Scene::set_model_point_discrete_of_selected_source(const bool point)
 {
-  current_selected_source->set_absolute_model_point(point);
+  current_selected_source->set_discrete_model_point(point);
 }
 
 void SSR::Scene::set_model_point_continuous_of_selected_source(const float point)
 {
-  current_selected_source->set_relative_model_point(point);
+  current_selected_source->set_continuous_model_point(point);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_model_point_of_selected_source() const
@@ -253,12 +253,12 @@ SSR::Parameter<bool, float> SSR::Scene::get_model_point_of_selected_source() con
 
 void SSR::Scene::set_fixed_discrete_of_selected_source(const bool fixed)
 {
-  current_selected_source->set_absolute_fixed(fixed);
+  current_selected_source->set_discrete_fixed(fixed);
 }
 
 void SSR::Scene::set_fixed_continuous_of_selected_source(const float fixed)
 {
-  current_selected_source->set_relative_fixed(fixed);
+  current_selected_source->set_continuous_fixed(fixed);
 }
 
 SSR::Parameter<bool, float> SSR::Scene::get_fixed_of_selected_source() const
@@ -358,7 +358,7 @@ void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::X
 {
 
   if (element->hasAttribute("volume")) {
-      source_to_manipulate->set_absolute_gain(static_cast<float>(element->getDoubleAttribute("volume")), false);
+      source_to_manipulate->set_discrete_gain(static_cast<float>(element->getDoubleAttribute("volume")), false);
   }
 
   if (element->hasAttribute("name")) {
@@ -367,11 +367,11 @@ void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::X
   }
 
   if (element->hasAttribute("mute")) {
-      source_to_manipulate->set_absolute_mute(element->getBoolAttribute("mute"));
+      source_to_manipulate->set_discrete_mute(element->getBoolAttribute("mute"));
   }
 
   if (element->hasAttribute("model")) {
-      source_to_manipulate->set_absolute_model_point(element->getStringAttribute("model").toStdString() == "point");
+      source_to_manipulate->set_discrete_model_point(element->getStringAttribute("model").toStdString() == "point");
   }
 
   if (element->hasAttribute("properties_file")) {
@@ -383,17 +383,17 @@ void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::X
     if (f->hasTagName("position")) {
 
         if (f->hasAttribute("x")) {
-            source_to_manipulate->set_x_position_absolute(static_cast<float>(f->getDoubleAttribute("x")));
+            source_to_manipulate->set_x_position_discrete(static_cast<float>(f->getDoubleAttribute("x")));
         }
 
         if (f->hasAttribute("y")) {
-            source_to_manipulate->set_y_position_absolute(static_cast<float>(f->getDoubleAttribute("y")));
+            source_to_manipulate->set_y_position_discrete(static_cast<float>(f->getDoubleAttribute("y")));
         }
 
         if (f->hasAttribute("fixed")) {
-            source_to_manipulate->set_absolute_fixed(f->getBoolAttribute("fixed"));
+            source_to_manipulate->set_discrete_fixed(f->getBoolAttribute("fixed"));
         } else {
-            source_to_manipulate->set_absolute_fixed(false);
+            source_to_manipulate->set_discrete_fixed(false);
         }
 
     } else {
@@ -401,7 +401,7 @@ void SSR::Scene::manipulate_source(source_iterator source_to_manipulate, juce::X
         if (f->hasTagName("orientation")) {
 
             if (f->hasAttribute("azimuth")) {
-                source_to_manipulate->set_absolute_orientation(static_cast<float>(f->getDoubleAttribute("azimuth")));
+                source_to_manipulate->set_discrete_orientation(static_cast<float>(f->getDoubleAttribute("azimuth")));
             }
 
         } else {
