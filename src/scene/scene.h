@@ -291,31 +291,113 @@ namespace SSR
      */
     SSR::Parameter<bool, float> get_mute_of_selected_source() const;
 
-    void set_model_point_absolute_of_selected_source(const bool value);
+    /**
+     * Sets the discrete source model of the current selected source where the
+     * transferred parameter point determines whether it is a point source
+     * (true) or a plane source (false).
+     *
+     * @param           point           Determines whether the source is point
+     *                                  (true) or plane (false).
+     */
+    void set_model_point_discrete_of_selected_source(const bool point);
 
-    void set_model_point_relative_of_selected_source(const float value);
+    /**
+     * Sets the continuous source model of the current selected source where the
+     * transferred parameter point determines whether it is a point source
+     * (1.0) or a plane source (0.0).
+     *
+     * @param           point           Determines whether the source is point
+     *                                  (1.0) or plane (0.0).
+     */
+    void set_model_point_continuous_of_selected_source(const float point);
 
+    /**
+     * Returns the source model of the current selected source.
+     *
+     * @return the source model of the current selected source.
+     */
     SSR::Parameter<bool, float> get_model_point_of_selected_source() const;
 
-    void set_fixed_absolute_of_selected_source(const bool value);
+    /**
+     * Sets the discrete value of the current selected source where the
+     * transferred parameter fixed determines whether the source is
+     * fixed (true) or movable (false).
+     *
+     * @param           fixed           Determines whether the source shall
+     *                                  be fixed (true) or movable (false).
+     */
+    void set_fixed_discrete_of_selected_source(const bool fixed);
 
-    void set_fixed_relative_of_selected_source(const float value);
+    /**
+     * Sets the continuous value of the current selected source where the
+     * transferred parameter fixed determines whether the source is
+     * fixed (1.0) or movable (0.0).
+     *
+     * @param           fixed           Determines whether the source shall
+     *                                  be fixed (1.0) or movable (0.0).
+     */
+    void set_fixed_continuous_of_selected_source(const float fixed);
 
+    /**
+     * Returns the fixed parameter of the current selected source.
+     *
+     * @return the fixed parameter of the current selected source.
+     */
     SSR::Parameter<bool, float> get_fixed_of_selected_source() const;
 
-    void set_name_of_selected_source(const std::string value);
+    /**
+     * Sets the name of the current selected source to the transferred
+     * parameter name.
+     *
+     * @param           name            The name the current selected source
+     *                                  shall be set to.
+     */
+    void set_name_of_selected_source(const std::string name);
 
+    /**
+     * Returns the name of the current selected source.
+     *
+     * @return the name of the current selected source.
+     */
     std::string get_name_of_selected_source() const;
 
-    void set_properties_file_of_selected_source(const std::string value);
+    /**
+     * Sets the properties file of the current selected source to the
+     * transferred parameter prop_file.
+     *
+     * @param           prop_file       The properties file the current
+     *                                  selected source shall be set to.
+     */
+    void set_properties_file_of_selected_source(const std::string prop_file);
 
+    /**
+     * Returns the properties file of the current selected source.
+     *
+     * @return the properties file of the current selected source.
+     */
     std::string get_properties_file_of_selected_source() const;
 
-    void set_jackport_of_selected_source(const std::string value);
+    /**
+     * Sets the jackport of the current selected source to the transferred
+     * parameter jackport.
+     *
+     * @param           jackport        The jackport the current selected
+     *                                  source shall be set to.
+     */
+    void set_jackport_of_selected_source(const std::string jackport);
 
+    /**
+     * Returns the jackport of the current selected source.
+     *
+     * @return the jackport of the current selected source.
+     */
     std::string get_jackport_of_selected_source() const;
 
   private:
+
+    /**
+     * Type definition for the source iterator.
+     */
     typedef std::vector<SSR::Source>::iterator source_iterator;
 
     /**
@@ -334,18 +416,75 @@ namespace SSR
      */
     float scene_range;
 
+    /**
+     * The IDs and names of all related sources of this scene.
+     */
     std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > ids_and_names;
 
+    /**
+     * Checks whether the transferred id_to_check is already in use and returns
+     * true if so - false otherwise.
+     *
+     * @param           id_to_check     The ID which shall be checked if it is
+     *                                  already in use.
+     *
+     * @return true if the ID is already in use, false otherwise.
+     */
     bool id_already_in_use(unsigned int id_to_check);
 
+    /**
+     * Computes and returns the next and not already in use ID.
+     *
+     * @return the next and not already in use ID
+     */
     unsigned int get_next_id();
 
+    /**
+     * Returns the source iterator for the source having the transferred id.
+     *
+     * @param           id              The ID of the source which iterator
+     *                                  shall be returned.
+     *
+     * @return the source iterator for the source having the transferred id.
+     *
+     * @throws          runtime_error   If no source has the transferred id,
+     *                                  a runtime_error exception will be
+     *                                  thrown.
+     */
     const source_iterator get_iterator(unsigned int id);
 
+    /**
+     * Sets the name of the source with the transferred id to the transferred
+     * parameter name.
+     *
+     * @param           id              The ID of the source which name shall
+     *                                  be set to.
+     *
+     * @param           name            The name the source shall be set to.
+     */
     void set_name_of_source(const unsigned int id, const std::string name);
 
-    void set_id_of_source(const unsigned int id, const unsigned int new_id);
+    /**
+     * Sets the id of the source which has the transferred old_id to the
+     * transferred new_id.
+     *
+     * @param           old_id          The current id of the source which
+     *                                  id shall be reset.
+     *
+     * @param           new_id          The new_id the source shall be set to.
+     */
+    void set_id_of_source(const unsigned int old_id, const unsigned int new_id);
 
+    /**
+     * Manipulates the transferred source_to_manipulate by interpreting the
+     * transferred element (XML message).
+     *
+     * @param           source_to_manipulate    The source that shall be
+     *                                          manipulated.
+     *
+     * @param           element                 The XML message that shall be
+     *                                          interpreted.
+     */
     void manipulate_source(source_iterator source_to_manipulate, juce::XmlElement* element);
 
   };
