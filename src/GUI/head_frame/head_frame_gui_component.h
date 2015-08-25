@@ -43,7 +43,7 @@ namespace SSR
     Head_frame_GUI_component(Controller* processor);
 
     /**
-     * Deconstructor.
+     * Destructor.
      */
     ~Head_frame_GUI_component();
 
@@ -97,6 +97,7 @@ namespace SSR
     void set_connected(const bool new_state);
 
   private:
+
     /**
      * Configures the new source button.
      */
