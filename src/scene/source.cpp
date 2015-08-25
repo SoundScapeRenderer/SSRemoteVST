@@ -76,18 +76,18 @@ SSR::Source::Source(const unsigned int id, const std::string name, float scene_r
   this->jackport = jackport;
 }
 
-SSR::Source::Source(const SSR::Source& source)
-: id(source.id)
-, x_position(source.x_position)
-, y_position(source.y_position)
-, gain(source.gain)
-, orientation(source.orientation)
-, mute(source.mute)
-, model_point(source.model_point)
-, fixed(source.fixed)
-, name(source.name)
-, properties_file(source.properties_file)
-, jackport(source.jackport)
+SSR::Source::Source(const SSR::Source& other)
+: id(other.id)
+, x_position(other.x_position)
+, y_position(other.y_position)
+, gain(other.gain)
+, orientation(other.orientation)
+, mute(other.mute)
+, model_point(other.model_point)
+, fixed(other.fixed)
+, name(other.name)
+, properties_file(other.properties_file)
+, jackport(other.jackport)
 {
 
 }
@@ -123,9 +123,9 @@ SSR::Source::~Source()
 
 }
 
-void SSR::Source::set_x_position_absolute(const float value)
+void SSR::Source::set_x_position_discrete(const float position)
 {
-  x_position.set_discrete_value(value);
+  x_position.set_discrete_value(position);
 }
 
 SSR::Parameter<float, float> SSR::Source::get_x_position() const
@@ -133,14 +133,14 @@ SSR::Parameter<float, float> SSR::Source::get_x_position() const
   return x_position;
 }
 
-void SSR::Source::set_x_position_relative(const float new_relative_position)
+void SSR::Source::set_x_position_continuous(const float position)
 {
-  x_position.set_continuous_value(new_relative_position);
+  x_position.set_continuous_value(position);
 }
 
-void SSR::Source::set_y_position_absolute(const float new_position)
+void SSR::Source::set_y_position_discrete(const float position)
 {
-  y_position.set_discrete_value(new_position);
+  y_position.set_discrete_value(position);
 }
 
 SSR::Parameter<float, float> SSR::Source::get_y_position() const
@@ -148,26 +148,26 @@ SSR::Parameter<float, float> SSR::Source::get_y_position() const
   return y_position;
 }
 
-void SSR::Source::set_y_position_relative(const float new_relative_position)
+void SSR::Source::set_y_position_continuous(const float new_relative_position)
 {
   y_position.set_continuous_value(new_relative_position);
 }
 
-void SSR::Source::set_absolute_gain(const float value, const bool linear)
+void SSR::Source::set_discrete_gain(const float gain_value, const bool linear)
 {
 
   if (linear) {
-      gain.set_discrete_value(value);
+      gain.set_discrete_value(gain_value);
   } else {
-      float linear_value = SSR::helper::dB_to_linear(value);
+      float linear_value = SSR::helper::dB_to_linear(gain_value);
       gain.set_discrete_value(linear_value);
   }
 
 }
 
-void SSR::Source::set_relative_gain(const float value)
+void SSR::Source::set_continuous_gain(const float gain_value)
 {
-  gain.set_continuous_value(value);
+  gain.set_continuous_value(gain_value);
 }
 
 SSR::Parameter<float, float> SSR::Source::get_gain() const
@@ -185,29 +185,29 @@ unsigned int SSR::Source::get_id() const
   return id;
 }
 
+void SSR::Source::set_discrete_orientation(const float discrete_orientation)
+{
+  orientation.set_discrete_value(discrete_orientation);
+}
+
+void SSR::Source::set_continuous_orientation(const float continuous_orientation)
+{
+  orientation.set_continuous_value(continuous_orientation);
+}
+
 SSR::Parameter<float, float> SSR::Source::get_orientation() const
 {
   return orientation;
 }
 
-void SSR::Source::set_absolute_orientation(const float new_absolute_orientation)
+void SSR::Source::set_discrete_mute(const bool discrete_mute)
 {
-  orientation.set_discrete_value(new_absolute_orientation);
+  mute.set_discrete_value(discrete_mute);
 }
 
-void SSR::Source::set_relative_orientation(const float new_relative_orientation)
+void SSR::Source::set_continuous_mute(const float continuous_mute)
 {
-  orientation.set_continuous_value(new_relative_orientation);
-}
-
-void SSR::Source::set_absolute_mute(const bool value)
-{
-  mute.set_discrete_value(value);
-}
-
-void SSR::Source::set_relative_mute(const float value)
-{
-  mute.set_continuous_value(value);
+  mute.set_continuous_value(continuous_mute);
 }
 
 SSR::Parameter<bool, float> SSR::Source::get_mute() const
@@ -215,14 +215,14 @@ SSR::Parameter<bool, float> SSR::Source::get_mute() const
   return mute;
 }
 
-void SSR::Source::set_absolute_model_point(const bool value)
+void SSR::Source::set_discrete_model_point(const bool point)
 {
-  model_point.set_discrete_value(value);
+  model_point.set_discrete_value(point);
 }
 
-void SSR::Source::set_relative_model_point(const float value)
+void SSR::Source::set_continuous_model_point(const float point)
 {
-  model_point.set_continuous_value(value);
+  model_point.set_continuous_value(point);
 }
 
 SSR::Parameter<bool, float> SSR::Source::get_model_point() const
@@ -230,14 +230,14 @@ SSR::Parameter<bool, float> SSR::Source::get_model_point() const
   return model_point;
 }
 
-void SSR::Source::set_absolute_fixed(const bool value)
+void SSR::Source::set_discrete_fixed(const bool fixed_value)
 {
-  fixed.set_discrete_value(value);
+  fixed.set_discrete_value(fixed_value);
 }
 
-void SSR::Source::set_relative_fixed(const float new_relative_fixed_value)
+void SSR::Source::set_continuous_fixed(const float fixed_value)
 {
-  fixed.set_continuous_value(new_relative_fixed_value);
+  fixed.set_continuous_value(fixed_value);
 }
 
 SSR::Parameter<bool, float> SSR::Source::get_fixed() const
@@ -245,9 +245,9 @@ SSR::Parameter<bool, float> SSR::Source::get_fixed() const
   return fixed;
 }
 
-void SSR::Source::set_name(const std::string value)
+void SSR::Source::set_name(const std::string new_name)
 {
-  name = value;
+  name = new_name;
 }
 
 std::string SSR::Source::get_name() const
@@ -255,9 +255,9 @@ std::string SSR::Source::get_name() const
   return name;
 }
 
-void SSR::Source::set_properties_file(const std::string value)
+void SSR::Source::set_properties_file(const std::string name)
 {
-  properties_file = value;
+  properties_file = name;
 }
 
 std::string SSR::Source::get_properties_file() const
@@ -265,9 +265,9 @@ std::string SSR::Source::get_properties_file() const
   return properties_file;
 }
 
-void SSR::Source::set_jackport(const std::string value)
+void SSR::Source::set_jackport(const std::string name)
 {
-  jackport = value;
+  jackport = name;
 }
 
 std::string SSR::Source::get_jackport() const
@@ -286,28 +286,28 @@ void SSR::Source::set_all_parameters_on_default()
   fixed.set_to_default();
 }
 
-bool operator==(const SSR::Source& rhs, const SSR::Source& lhs)
+bool operator==(const SSR::Source& lhs, const SSR::Source& rhs)
 {
   bool is_equal = true;
 
-  is_equal = is_equal ? rhs.get_x_position()            == lhs.get_x_position()         : false;
-  is_equal = is_equal ? rhs.get_y_position()            == lhs.get_y_position()         : false;
-  is_equal = is_equal ? rhs.get_gain()                  == lhs.get_gain()               : false;
-  is_equal = is_equal ? rhs.get_orientation()           == lhs.get_orientation()        : false;
-  is_equal = is_equal ? rhs.get_mute()                  == lhs.get_mute()               : false;
-  is_equal = is_equal ? rhs.get_model_point()           == lhs.get_model_point()        : false;
-  is_equal = is_equal ? rhs.get_fixed()                 == lhs.get_fixed()              : false;
-  is_equal = is_equal ? rhs.get_id()                    == lhs.get_id()                 : false;
-  is_equal = is_equal ? rhs.get_name()                  == lhs.get_name()               : false;
-  is_equal = is_equal ? rhs.get_jackport()              == lhs.get_jackport()           : false;
-  is_equal = is_equal ? rhs.get_properties_file()       == lhs.get_properties_file()    : false;
+  is_equal = is_equal ? lhs.get_x_position()            == rhs.get_x_position()         : false;
+  is_equal = is_equal ? lhs.get_y_position()            == rhs.get_y_position()         : false;
+  is_equal = is_equal ? lhs.get_gain()                  == rhs.get_gain()               : false;
+  is_equal = is_equal ? lhs.get_orientation()           == rhs.get_orientation()        : false;
+  is_equal = is_equal ? lhs.get_mute()                  == rhs.get_mute()               : false;
+  is_equal = is_equal ? lhs.get_model_point()           == rhs.get_model_point()        : false;
+  is_equal = is_equal ? lhs.get_fixed()                 == rhs.get_fixed()              : false;
+  is_equal = is_equal ? lhs.get_id()                    == rhs.get_id()                 : false;
+  is_equal = is_equal ? lhs.get_name()                  == rhs.get_name()               : false;
+  is_equal = is_equal ? lhs.get_jackport()              == rhs.get_jackport()           : false;
+  is_equal = is_equal ? lhs.get_properties_file()       == rhs.get_properties_file()    : false;
 
   return is_equal;
 }
 
-bool operator!=(const SSR::Source& rhs, const SSR::Source& lhs)
+bool operator!=(const SSR::Source& lhs, const SSR::Source& rhs)
 {
-  return !(rhs == lhs);
+  return !(lhs == rhs);
 }
 
 void std::swap(SSR::Source& first, SSR::Source& second)
