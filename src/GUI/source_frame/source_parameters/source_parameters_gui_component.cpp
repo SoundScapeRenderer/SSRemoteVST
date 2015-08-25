@@ -288,10 +288,10 @@ void SSR::Source_parameters_gui_component::configure_all_components()
 
 void SSR::Source_parameters_gui_component::configure_text_editors()
 {
-  SSR::configure_text_editor(*name_text_editor, false, true, 30, juce::String("Default Source Name"));
+  SSR::configure_text_editor(*name_text_editor, false, true, 30, juce::String(""), juce::String("Default Source Name"));
   name_text_editor->addListener(this);
 
-  SSR::configure_text_editor(*orientation_text_editor, true, false, 8, juce::String("0.0"));
+  SSR::configure_text_editor(*orientation_text_editor, true, false, 8, juce::String(""), juce::String("0.0"));
   orientation_text_editor->addListener(this);
   orientation_text_editor->setColour(TextEditor::backgroundColourId, SSR::colour::get_colour(SSR::colour::Colours::foreground_grey));
 }
