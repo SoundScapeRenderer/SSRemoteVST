@@ -29,10 +29,10 @@
 #include <src/GUI/head_frame/head_frame_gui_component.h>
 #include <src/config/ssr_colour.h>
 
-Main_GUI_component::Main_GUI_component(Controller* ownerFilter) 
-: AudioProcessorEditor(ownerFilter)
-, head_frame(new SSR::Head_frame_GUI_component(ownerFilter))
-, source_frame(new SSR::Source_frame_gui_component(ownerFilter))
+Main_GUI_component::Main_GUI_component(Controller* controller) 
+: AudioProcessorEditor(controller)
+, head_frame(new SSR::Head_frame_GUI_component(controller))
+, source_frame(new SSR::Source_frame_gui_component(controller))
 {
   // Need to have a processor to get data (for example of the connection)
   Controller* processor = getProcessor();
@@ -51,7 +51,6 @@ Main_GUI_component::Main_GUI_component(Controller* ownerFilter)
 
   processor->read_ssr_incoming_message();
 
-  //processor->ui_request_update();// UI update must be done each time a new editor is constructed
   startTimer(10);//starts timer with interval of 50mS
 }
 
@@ -63,10 +62,10 @@ Main_GUI_component::~Main_GUI_component()
 }
 
 //==============================================================================
-void Main_GUI_component::paint (Graphics& g)
+void Main_GUI_component::paint(Graphics& graphics)
 {
-  g.fillAll(SSR::colour::get_colour(SSR::colour::Colours::white));
-  g.setColour(SSR::colour::get_colour(SSR::colour::Colours::black));
+  graphics.fillAll(SSR::colour::get_colour(SSR::colour::Colours::white));
+  graphics.setColour(SSR::colour::get_colour(SSR::colour::Colours::black));
 }
 
 void Main_GUI_component::timerCallback()
