@@ -19,12 +19,12 @@
 #include <src/config/ssr_colour.h>
 #include <src/utils/helper.h>
 
-SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* processor)
-: AudioProcessorEditor(processor)
-, source_pad_and_controls(new SSR::Source_pad_and_controls_gui_component(processor))
-, source_parameters(new SSR::Source_parameters_gui_component(processor))
+SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* controller)
+: AudioProcessorEditor(controller)
+, source_pad_and_controls(new SSR::Source_pad_and_controls_gui_component(controller))
+, source_parameters(new SSR::Source_parameters_gui_component(controller))
 , ssr_image_component(new juce::ImageComponent())
-, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSR_SCENE_AUTOMATION_VST_PLUGIN") + "/Source/images/ssr_logo_large.png"))))
+, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSREMOTE_VST") + "/Source/images/ssr_logo_large.png"))))
 {
   addAndMakeVisible(*source_parameters);
   source_parameters->setBounds(25, 50, source_parameters->getWidth(), source_parameters->getHeight());
@@ -43,10 +43,6 @@ SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* processo
 SSR::Source_frame_gui_component::~Source_frame_gui_component()
 {
   removeAllChildren();
-  source_pad_and_controls       = nullptr;
-  source_parameters             = nullptr;
-  ssr_image_component           = nullptr;
-  ssr_image                     = nullptr;
 }
 
 void SSR::Source_frame_gui_component::paint(juce::Graphics& graphics)
