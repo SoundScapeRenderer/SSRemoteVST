@@ -29,8 +29,6 @@ namespace SSR
    *
    * - paint method for drawing the component
    * - get_rect method returning the rectangle defining the grids dimensions
-   *
-   * @author Florian Willich
    */
   class Grid_gui_component : public juce::Component
   {
@@ -43,8 +41,6 @@ namespace SSR
      *
      * @param           width           The width of the component.
      * @param           height          The height of the component.
-     *
-     * @author Florian Willich
      */
     Grid_gui_component(unsigned int width, unsigned int height);
 
@@ -69,8 +65,6 @@ namespace SSR
      *
      * @param           graphics        the graphics context that must be used to
      *                                  do the drawing operations.
-     *
-     * @author Florian Willich
      */
     virtual void paint(Graphics& graphics) override;
 
@@ -88,8 +82,6 @@ namespace SSR
      *
      * @param           graphics        the graphics context that must be used to
      *                                  do the drawing operations.
-     *
-     * @author Florian Willich
      */
     void draw_background(Graphics& graphics);
 
@@ -98,8 +90,6 @@ namespace SSR
      *
      * @param           graphics        the graphics context that must be used to
      *                                  do the drawing operations.
-     *
-     * @author Florian Willich
      */
     void draw_border(Graphics& graphics);
 
@@ -108,8 +98,6 @@ namespace SSR
      *
      * @param           graphics        the graphics context that must be used to
      *                                  do the drawing operations.
-     *
-     * @author Florian Willich
      */
     void draw_axes(Graphics& graphics);
 
