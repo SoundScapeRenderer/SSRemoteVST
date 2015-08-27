@@ -200,40 +200,162 @@ namespace SSR
      */
     void set_fixed_button_toggle_state(const bool state);
 
+    /**
+     * Sets the text of the name_text_editor to the transferred text.
+     *
+     * @param   text            The text the name_text_editor shall be set to.
+     */
     void set_name_text_editor_text(const juce::String& text);
 
-    void fill_jackport_dropdown();
+    /**
+     * Clears all the data of the jackport_dropdown and the
+     * jackport_dropdown_menu_entries and fills the jackport_dropdown and the
+     * jackport_dropdown_menu_entries with all available jackports.
+     *
+     * For more information on which jackports are inserted and how, please
+     * read the documentation of Controller::get_all_jack_ports(...)
+     *
+     * The transferred jack flag to receiving all output jackports: JackPortIsOutput
+     *
+     * @see controller.h
+     */
+    void reload_jackport_dropdown();
 
+    /**
+     * Clears all the data of source_dropdown and fills it with the current
+     * available sources and sets the selected source to the current selected
+     * source of the controller.
+     */
     void reload_source_dropdown();
+
   private:
+
+    /**
+     * Calls addAndMakeVisible(...) for all GUI components of this class.
+     */
     void make_all_visible();
+
+    /**
+     * Configures all components of this class.
+     */
     void configure_all_components();
+
+    /**
+     * Configures all text editors of this class.
+     */
     void configure_text_editors();
+
+    /**
+     * Configures all text buttons of this class.
+     */
     void configure_text_buttons();
+
+    /**
+     * Configures all labels of this class.
+     */
     void configure_labels();
+
+    /**
+     * Configures all dropdowns of this class.
+     */
     void configure_dropdowns();
+
+    /**
+     * Configures all sliders of this class.
+     */
     void configure_sliders();
+
+    /**
+     * If is_changing is false, the transferred texteditor text will be set
+     * to the transferred text.
+     *
+     * @param   texteditor      The texteditor which text shall be set.
+     *
+     * @param   text            The text that shall be set.
+     *
+     * @param   is_changing     True if the texteditors text is currently
+     *                          changing, false otherwise.
+     *                          If true, the method will not have any effect on
+     *                          the transferred texteditor.
+     */
     void set_text_editor_text(juce::TextEditor& texteditor, const juce::String& text, bool is_changing);
+
+    /**
+     * Sets the bounds of all GUI components of this class.
+     */
     void set_bounds();
 
   private:
-    std::unique_ptr<juce::Label> source_label;
-    std::unique_ptr<juce::Label> name_label;
-    std::unique_ptr<juce::Label> orientation_label;
-    std::unique_ptr<juce::Label> jackport_label;
-    std::unique_ptr<juce::Label> model_label;
-    std::unique_ptr<juce::Label> gain_label;
 
-    std::unique_ptr<juce::TextButton> fixed_button;
-    std::unique_ptr<juce::TextButton> mute_button;
+    /**
+     * The label for the source dropdown.
+     */
+    std::unique_ptr<juce::Label> source_label;
+
+    /**
+     * The source dropdown.
+     */
+    std::unique_ptr<juce::ComboBox> sources_dropdown;
+
+    /**
+     * The label for the source name
+     */
+    std::unique_ptr<juce::Label> name_label;
+
+    /**
+     * The text editor for the sources name.
+     */
     std::unique_ptr<juce::TextEditor> name_text_editor;
+
+    /**
+     * The label for the orientation text editor.
+     */
+    std::unique_ptr<juce::Label> orientation_label;
+
+    /**
+     * The text editor for the source orientation.
+     */
     std::unique_ptr<juce::TextEditor> orientation_text_editor;
 
+    /**
+     * The label for the jackport dropdown.
+     */
+    std::unique_ptr<juce::Label> jackport_label;
+
+    /**
+     * The jackport dropdown.
+     */
+    std::unique_ptr<juce::ComboBox> jackport_dropdown;
+
+    /**
+     * The label for the source model.
+     */
+    std::unique_ptr<juce::Label> model_label;
+
+    /**
+     * The source model dropdown.
+     */
+    std::unique_ptr<juce::ComboBox> model_dropdown;
+
+    /**
+     * The label for the gain slider.
+     */
+    std::unique_ptr<juce::Label> gain_label;
+
+    /**
+     * The gain slider.
+     */
     std::unique_ptr<juce::Slider> gain_slider;
 
-    std::unique_ptr<juce::ComboBox> sources_dropwdown;
-    std::unique_ptr<juce::ComboBox> jackport_dropdown;
-    std::unique_ptr<juce::ComboBox> model_dropdown;
+    /**
+     * The button for fixing the sources position.
+     */
+    std::unique_ptr<juce::TextButton> fixed_button;
+
+    /**
+     * The button to mute the source.
+     */
+    std::unique_ptr<juce::TextButton> mute_button;
 
     /**
      * This vector is needed to store all ids that have been put in
