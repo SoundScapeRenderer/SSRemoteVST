@@ -26,9 +26,10 @@ SSR::Zoom_GUI_component::Zoom_GUI_component()
 : zoom_in_button(new juce::TextButton("zoom_in_button"))
 , zoom_out_button(new juce::TextButton("zoom_out_button"))
 , zoom_factor(3)
-, current_range(10)
 , zoom_look_up_table({ 0.4, 1, 3, 5, 10, 20, 50, 200, 500, 2000 })
 {
+  current_range = look_up_range(zoom_factor);
+
   addAndMakeVisible(*zoom_in_button);
   zoom_in_button->setBounds(0, 0, 25, 25);
   zoom_in_button->setToggleState(false, juce::sendNotificationAsync);
