@@ -27,6 +27,9 @@
 namespace SSR
 {
 
+  /**
+   * This class represents the Source pad GUI component.
+   */
   class Source_pad_gui_component
       : public juce::Component
   {
