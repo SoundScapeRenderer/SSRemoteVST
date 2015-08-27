@@ -16,23 +16,20 @@
 #include <src/config/ssr_colour.h>
 
 SSR::Source_gui_component::Source_gui_component()
-: location(new juce::Point<float>(0.0f, 0.0f))
-, radius(0.0f)
+: radius(20.0f)
 {
-  radius = 40.0f / 2.0f;
   setSize(40.0f, 40.0f);
 }
 
 SSR::Source_gui_component::Source_gui_component(const unsigned int width_and_height)
-: location(new juce::Point<float>(0.0f, 0.0f))
-, radius(width_and_height / 2.0f)
+: radius(width_and_height / 2.0f)
 {
   setSize(width_and_height, width_and_height);
 }
 
 SSR::Source_gui_component::~Source_gui_component()
 {
-  location = nullptr;
+
 }
 
 float SSR::Source_gui_component::get_radius() const
