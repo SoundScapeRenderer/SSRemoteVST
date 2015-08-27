@@ -36,11 +36,14 @@ namespace SSR
 
   public:
     /**
-     * Constructor which takes a processor object.
+     * Constructor instantiates and configures the 'New Source' button and the
+     * 'Network Component'.
+     *
+     * Sets the size of the frame to 900x100 pixels.
      * 
-     * @param   processor     The processor.
+     * @param   controller      Controller needed to r/w data.
      */
-    Head_frame_GUI_component(Controller* processor);
+    Head_frame_GUI_component(Controller* controller);
 
     /**
      * Destructor.
@@ -71,7 +74,7 @@ namespace SSR
     }
 
     /**
-     * JUCE Doc.: Called when the button is clicked.
+     * JUCE Doc.: Called when a button is clicked.
      *
      * @see http://www.juce.com/api/classButton_1_1Listener.html#a81499cef24b7189cd0d1581fd9dc9e14
      *
@@ -80,10 +83,11 @@ namespace SSR
     void buttonClicked(juce::Button* buttonThatWasClicked) override;
 
     /**
-     * Returns the current status of the network GUI component.
+     * Returns the current status of the network GUI component (whether it
+     * is connected (true) or not (false).
      *
-     * @return          the current status of the network GUI component,
-     *                  true means connected, false not.
+     * @return  the current status of the network GUI component, true means
+     *          connected, false not.
      */
     bool get_connected() const;
 
