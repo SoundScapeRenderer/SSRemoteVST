@@ -17,6 +17,7 @@
 
 //C++ Lib
 #include <cmath>
+#include <array>
 
 //Own Libs
 #include <src/GUI/gui_components_configurator.h>
@@ -47,8 +48,6 @@ SSR::Zoom_GUI_component::Zoom_GUI_component()
 SSR::Zoom_GUI_component::~Zoom_GUI_component()
 {
   removeAllChildren();
-  zoom_in_button                = nullptr;
-  zoom_out_button               = nullptr;
 }
 
 void SSR::Zoom_GUI_component::buttonClicked(juce::Button* textButton)
