@@ -27,6 +27,7 @@ SSR::Zoom_GUI_component::Zoom_GUI_component()
 , zoom_out_button(new juce::TextButton("zoom_out_button"))
 , zoom_factor(3)
 , current_range(10)
+, zoom_look_up_table({ 0.4, 1, 3, 5, 10, 20, 50, 200, 500, 2000 })
 {
   addAndMakeVisible(*zoom_in_button);
   zoom_in_button->setBounds(0, 0, 25, 25);
@@ -71,9 +72,7 @@ double SSR::Zoom_GUI_component::get_current_range() const
 
 double SSR::Zoom_GUI_component::look_up_range(const unsigned int zoom_factor)
 {
-  unsigned int index = zoom_factor < 10 && zoom_factor >= 0 ? zoom_factor : 0;
+  unsigned int index = zoom_factor < 10 ? zoom_factor : 9;
 
-  std::array<double, 10> look_up_array { 0.4, 1, 3, 5, 10, 20, 50, 200, 500, 2000 };
-
-  return look_up_array[index];
+  return zoom_look_up_table[index];
 }
