@@ -26,9 +26,6 @@
 SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller* controller)
 : AudioProcessorEditor(controller)
 , name_text_editor_is_changing(false)
-, source_orientation_text_editor_is_changing(false)
-, id_text_editor_is_changing(false)
-, properties_file_text_editor_is_changing(false)
 , fixed_button(new juce::TextButton("fixed_button"))
 , mute_button(new juce::TextButton("mute_button"))
 , source_label(new juce::Label("id_label", TRANS("Source")))
@@ -46,7 +43,7 @@ SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller
 {
   make_all_visible();
   configure_all_components();
-  fill_jackport_dropdown();
+  reload_jackport_dropdown();
   set_bounds();
   setSize(450, 400);
 }
@@ -95,7 +92,7 @@ void SSR::Source_parameters_gui_component::comboBoxChanged(juce::ComboBox* combo
 void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor& textEditorThatWasChanged)
 {
 
-  if (textEditorThatWasChanged == name_text_editor.get()) {
+  if (textEditorThatWasChanged.getName() == name_text_editor->getName()) {
       getProcessor()->set_parameter_source_name(name_text_editor->getText().toStdString());
       name_text_editor_is_changing = false;
   }
@@ -105,7 +102,7 @@ void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor
 void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& text_editor_thats_changing)
 {
 
-  if (text_editor_thats_changing == name_text_editor.get()) {
+  if (text_editor_thats_changing.getName() == name_text_editor->getName()) {
       name_text_editor_is_changing = true;
   }
 
@@ -114,7 +111,7 @@ void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& tex
 void SSR::Source_parameters_gui_component::textEditorFocusLost(TextEditor& text_editor_focus_lost)
 {
 
-  if (text_editor_focus_lost == name_text_editor.get()) {
+  if (text_editor_focus_lost.getName() == name_text_editor->getName()) {
       name_text_editor_is_changing = false;
   }
 

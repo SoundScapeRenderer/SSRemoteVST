@@ -96,19 +96,9 @@ void SSR::Source_frame_gui_component::set_fixed_button_toggle_state(const bool s
   source_parameters->set_fixed_button_toggle_state(state);
 }
 
-void SSR::Source_frame_gui_component::set_id_text_editor_text(const juce::String& text)
-{
-  source_parameters->set_id_text_editor_text(text);
-}
-
 void SSR::Source_frame_gui_component::set_name_text_editor_text(const juce::String& text)
 {
   source_parameters->set_name_text_editor_text(text);
-}
-
-void SSR::Source_frame_gui_component::set_orientation_text_editor_text(const juce::String& text)
-{
-  source_parameters->set_orientation_text_editor_text(text);
 }
 
 void SSR::Source_frame_gui_component::reload_source_dropdown()
