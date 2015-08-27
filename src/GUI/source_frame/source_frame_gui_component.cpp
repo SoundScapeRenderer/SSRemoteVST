@@ -24,7 +24,7 @@ SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* controll
 , source_pad_and_controls(new SSR::Source_pad_and_controls_gui_component(controller))
 , source_parameters(new SSR::Source_parameters_gui_component(controller))
 , ssr_image_component(new juce::ImageComponent())
-, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSREMOTE_VST") + "/Source/images/ssr_logo_large.png"))))
+, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSREMOTE_VST") + "/src/images/ssr_logo_large.png"))))
 {
   addAndMakeVisible(*source_parameters);
   source_parameters->setBounds(25, 50, source_parameters->getWidth(), source_parameters->getHeight());
