@@ -32,7 +32,7 @@ SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller
 , fixed_button(new juce::TextButton("fixed_button"))
 , mute_button(new juce::TextButton("mute_button"))
 , source_label(new juce::Label("id_label", TRANS("Source")))
-, sources_dropwdown(new juce::ComboBox("sources_dropwdown"))
+, sources_dropdown(new juce::ComboBox("sources_dropwdown"))
 , name_label(new juce::Label("name_label", TRANS("Name")))
 , name_text_editor(new juce::TextEditor("name_text_editor"))
 , orientation_label(new juce::Label("orientation_label", TRANS("Azimuth")))
@@ -85,8 +85,8 @@ void SSR::Source_parameters_gui_component::comboBoxChanged(juce::ComboBox* combo
   } else if (comboBoxThatHasChanged == model_dropdown.get()) {
       int set_id = model_dropdown->getSelectedId();
       getProcessor()->set_parameter_source_model_point(set_id == 1);
-  } else if (comboBoxThatHasChanged == sources_dropwdown.get()) {
-      int id = sources_dropwdown->getSelectedId();
+  } else if (comboBoxThatHasChanged == sources_dropdown.get()) {
+      int id = sources_dropdown->getSelectedId();
       getProcessor()->reset_source(id);
   }
 
@@ -170,60 +170,14 @@ void SSR::Source_parameters_gui_component::set_name_text_editor_text(const juce:
   set_text_editor_text(*name_text_editor, text, name_text_editor_is_changing);
 }
 
-void SSR::Source_parameters_gui_component::set_text_editor_text(juce::TextEditor& texteditor, const juce::String& text, bool is_changing)
-{
-  if (!is_changing) {
-      texteditor.setText(text, false);
-  }
-}
-
-void SSR::Source_parameters_gui_component::set_bounds()
-{
-  int middle_line = 120;
-  int standard_width = 138;
-  int standard_label_width = 100;
-  int standard_heigth = 25;
-  int gap_standard = 12;
-  int current_y = 0;
-
-  source_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  sources_dropwdown->setBounds(middle_line, 0, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  name_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  name_text_editor->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  jackport_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  jackport_dropdown->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  model_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  model_dropdown->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  orientation_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  orientation_text_editor->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  mute_button->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  fixed_button->setBounds(middle_line, current_y, standard_width, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-  gain_label->setBounds(0, current_y, standard_label_width, standard_heigth);
-  gain_slider->setBounds(middle_line, current_y, standard_width + 80, standard_heigth);
-  current_y += standard_heigth + gap_standard;
-
-}
-
-void SSR::Source_parameters_gui_component::fill_jackport_dropdown()
+void SSR::Source_parameters_gui_component::reload_jackport_dropdown()
 {
   //Fills the Dropdown with all jack ports
   std::vector<std::string> all_jack_ports = getProcessor()->get_all_jack_ports(JackPortIsOutput);
 
+  //Clearing the jackport_dropdown and the map jackport_dropdown_menu_entries
   jackport_dropdown->clear(juce::dontSendNotification);
+  jackport_dropdown_menu_entries.clear();
 
   int item_index = 10;
   for (std::vector<std::string>::iterator it = all_jack_ports.begin(); it != all_jack_ports.end(); it++) {
@@ -234,6 +188,38 @@ void SSR::Source_parameters_gui_component::fill_jackport_dropdown()
 
   }
 
+}
+
+void SSR::Source_parameters_gui_component::reload_source_dropdown()
+{
+  Controller* controller = getProcessor();
+  std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > ids_and_names = controller->get_source_ids_and_names();
+
+  sources_dropdown->clear(juce::dontSendNotification);
+
+  std::for_each(begin(*ids_and_names), end(*ids_and_names), [=](std::pair<unsigned int, std::string> p) {
+    sources_dropdown->addItem(p.second, p.first);
+  });
+
+  sources_dropdown->setSelectedId(controller->get_source().get_id(), juce::dontSendNotification);
+}
+
+void SSR::Source_parameters_gui_component::make_all_visible()
+{
+  addAndMakeVisible(*fixed_button);
+  addAndMakeVisible(*mute_button);
+  addAndMakeVisible(*source_label);
+  addAndMakeVisible(*name_label);
+  addAndMakeVisible(*name_text_editor);
+  addAndMakeVisible(*orientation_label);
+  addAndMakeVisible(*orientation_text_editor);
+  addAndMakeVisible(*jackport_label);
+  addAndMakeVisible(*jackport_dropdown);
+  addAndMakeVisible(*gain_slider);
+  addAndMakeVisible(*model_label);
+  addAndMakeVisible(*model_dropdown);
+  addAndMakeVisible(*sources_dropdown);
+  addAndMakeVisible(*gain_label);
 }
 
 void SSR::Source_parameters_gui_component::configure_all_components()
@@ -286,13 +272,13 @@ void SSR::Source_parameters_gui_component::configure_dropdowns()
   model_dropdown->addItem("plain wave", 2);
   model_dropdown->addListener(this);
 
-  SSR::configure_dropdown(*sources_dropwdown, juce::String("N/A"));
+  SSR::configure_dropdown(*sources_dropdown, juce::String("N/A"));
 
   reload_source_dropdown();
 
-  sources_dropwdown->addListener(this);
+  sources_dropdown->addListener(this);
 
-  sources_dropwdown->setSelectedId(1, juce::dontSendNotification);
+  sources_dropdown->setSelectedId(1, juce::dontSendNotification);
 }
 
 void SSR::Source_parameters_gui_component::configure_sliders()
@@ -302,34 +288,50 @@ void SSR::Source_parameters_gui_component::configure_sliders()
   gain_slider->addListener(this);
 }
 
-void SSR::Source_parameters_gui_component::reload_source_dropdown()
+void SSR::Source_parameters_gui_component::set_text_editor_text(juce::TextEditor& texteditor, const juce::String& text, bool is_changing)
 {
-  Controller* processor = getProcessor();
-  std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > ids_and_names = processor->get_source_ids_and_names();
-
-  sources_dropwdown->clear(juce::dontSendNotification);
-
-  std::for_each(begin(*ids_and_names), end(*ids_and_names), [=](std::pair<unsigned int, std::string> p) {
-    sources_dropwdown->addItem(p.second, p.first);
-  });
-
-  sources_dropwdown->setSelectedId(processor->get_source().get_id(), juce::dontSendNotification);
+  if (!is_changing) {
+      texteditor.setText(text, false);
+  }
 }
 
-void SSR::Source_parameters_gui_component::make_all_visible()
+void SSR::Source_parameters_gui_component::set_bounds()
 {
-  addAndMakeVisible(*fixed_button);
-  addAndMakeVisible(*mute_button);
-  addAndMakeVisible(*source_label);
-  addAndMakeVisible(*name_label);
-  addAndMakeVisible(*name_text_editor);
-  addAndMakeVisible(*orientation_label);
-  addAndMakeVisible(*orientation_text_editor);
-  addAndMakeVisible(*jackport_label);
-  addAndMakeVisible(*jackport_dropdown);
-  addAndMakeVisible(*gain_slider);
-  addAndMakeVisible(*model_label);
-  addAndMakeVisible(*model_dropdown);
-  addAndMakeVisible(*sources_dropwdown);
-  addAndMakeVisible(*gain_label);
+  int middle_line = 120;
+  int standard_width = 138;
+  int standard_label_width = 100;
+  int standard_heigth = 25;
+  int gap_standard = 12;
+  int current_y = 0;
+
+  source_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  sources_dropdown->setBounds(middle_line, 0, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  name_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  name_text_editor->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  jackport_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  jackport_dropdown->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  model_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  model_dropdown->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  orientation_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  orientation_text_editor->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  mute_button->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  fixed_button->setBounds(middle_line, current_y, standard_width, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
+  gain_label->setBounds(0, current_y, standard_label_width, standard_heigth);
+  gain_slider->setBounds(middle_line, current_y, standard_width + 80, standard_heigth);
+  current_y += standard_heigth + gap_standard;
+
 }
