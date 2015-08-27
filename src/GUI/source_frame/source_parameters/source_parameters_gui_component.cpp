@@ -155,26 +155,6 @@ void SSR::Source_parameters_gui_component::set_jackport_selected_entry(const std
 
 }
 
-void SSR::Source_parameters_gui_component::fill_jackport_dropdown()
-{
-  Controller* processor = getProcessor();
-
-  //Fills the Dropdown with all jack ports
-  std::vector<std::string> all_jack_ports = processor->get_all_jack_ports(JackPortIsOutput);
-
-  jackport_dropdown->clear(juce::dontSendNotification);
-
-  int item_index = 10;
-  for (std::vector<std::string>::iterator it = all_jack_ports.begin(); it != all_jack_ports.end(); it++) {
-
-      jackport_dropdown->addItem(String(*it), item_index);
-      jackport_dropdown_menu_entries.insert(std::pair<int, std::string>(item_index, *it));
-      item_index++;
-
-  }
-
-}
-
 void SSR::Source_parameters_gui_component::set_mute_button_toggle_state(const bool state)
 {
   mute_button->setToggleState(state, juce::dontSendNotification);
@@ -246,6 +226,24 @@ void SSR::Source_parameters_gui_component::set_bounds()
   gain_label->setBounds(0, current_y, standard_label_width, standard_heigth);
   gain_slider->setBounds(middle_line, current_y, standard_width + 80, standard_heigth);
   current_y += standard_heigth + gap_standard;
+
+}
+
+void SSR::Source_parameters_gui_component::fill_jackport_dropdown()
+{
+  //Fills the Dropdown with all jack ports
+  std::vector<std::string> all_jack_ports = getProcessor()->get_all_jack_ports(JackPortIsOutput);
+
+  jackport_dropdown->clear(juce::dontSendNotification);
+
+  int item_index = 10;
+  for (std::vector<std::string>::iterator it = all_jack_ports.begin(); it != all_jack_ports.end(); it++) {
+
+      jackport_dropdown->addItem(String(*it), item_index);
+      jackport_dropdown_menu_entries.insert(std::pair<int, std::string>(item_index, *it));
+      item_index++;
+
+  }
 
 }
 
