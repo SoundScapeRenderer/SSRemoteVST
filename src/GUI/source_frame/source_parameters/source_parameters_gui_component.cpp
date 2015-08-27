@@ -165,20 +165,9 @@ void SSR::Source_parameters_gui_component::set_fixed_button_toggle_state(const b
   fixed_button->setToggleState(state, juce::dontSendNotification);
 }
 
-void SSR::Source_parameters_gui_component::set_id_text_editor_text(const juce::String& text)
-{
-  //TODO: Replace this method
-  //set_text_editor_text(*id_text_editor, text, id_text_editor_is_changing);
-}
-
 void SSR::Source_parameters_gui_component::set_name_text_editor_text(const juce::String& text)
 {
   set_text_editor_text(*name_text_editor, text, name_text_editor_is_changing);
-}
-
-void SSR::Source_parameters_gui_component::set_orientation_text_editor_text(const juce::String& text)
-{
-  set_text_editor_text(*orientation_text_editor, text, false);
 }
 
 void SSR::Source_parameters_gui_component::set_text_editor_text(juce::TextEditor& texteditor, const juce::String& text, bool is_changing)

@@ -200,12 +200,7 @@ namespace SSR
      */
     void set_fixed_button_toggle_state(const bool state);
 
-    // HIERHEIRHIERHIE!!!
-    void set_id_text_editor_text(const juce::String& text);
-
     void set_name_text_editor_text(const juce::String& text);
-
-    void set_orientation_text_editor_text(const juce::String& text);
 
     void fill_jackport_dropdown();
 
