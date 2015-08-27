@@ -169,8 +169,6 @@ namespace SSR
     std::unique_ptr<juce::ComboBox> jackport_dropdown;
     std::unique_ptr<juce::ComboBox> model_dropdown;
 
-
-
     /**
      * This vector is needed to store all ids that have been put in
      **/
