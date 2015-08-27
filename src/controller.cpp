@@ -64,7 +64,7 @@ Controller::Controller()
 , scene(new SSR::Scene(20.0f))
 {
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Constructor of Controller was called!", false);
-  SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 4", false);
+  SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 5", false);
 
   boost::filesystem::path config_file = get_config_file_path();
   config = std::unique_ptr<SSR::Config>(new SSR::Config(config_file));
