@@ -18,10 +18,11 @@
 #include <src/GUI/head_frame/network_gui_component.h>
 #include <src/config/ssr_colour.h>
 #include <src/controller.h>
+#include <src/GUI/gui_components_configurator.h>
 
-SSR::Head_frame_GUI_component::Head_frame_GUI_component(Controller* processor)
-: AudioProcessorEditor(processor)
-, network_component(new SSR::Network_gui_component(processor))
+SSR::Head_frame_GUI_component::Head_frame_GUI_component(Controller* controller)
+: AudioProcessorEditor(controller)
+, network_component(new SSR::Network_gui_component(controller))
 , new_source_button(new juce::TextButton("new_source_button"))
 {
   addAndMakeVisible(*network_component);
@@ -38,8 +39,6 @@ SSR::Head_frame_GUI_component::Head_frame_GUI_component(Controller* processor)
 SSR::Head_frame_GUI_component::~Head_frame_GUI_component()
 {
   removeAllChildren();
-  network_component             = nullptr;
-  new_source_button             = nullptr;
 }
 
 void SSR::Head_frame_GUI_component::paint(juce::Graphics& graphics)
@@ -78,11 +77,7 @@ void SSR::Head_frame_GUI_component::set_connected(const bool new_state)
 
 void SSR::Head_frame_GUI_component::configure_new_source_button()
 {
-  new_source_button->setButtonText (TRANS("New Source"));
+  SSR::configure_text_button(new_source_button.get(), "New Source");
+
   new_source_button->addListener(this);
-  new_source_button->setColour(TextButton::buttonColourId, SSR::colour::get_colour(SSR::colour::Colours::white));
-  new_source_button->setColour(TextButton::textColourOnId, SSR::colour::get_colour(SSR::colour::Colours::white));
-  new_source_button->setColour(TextButton::textColourOffId, SSR::colour::get_colour(SSR::colour::Colours::black));
-  new_source_button->setClickingTogglesState(true);
-  new_source_button->setTriggeredOnMouseDown(true);
 }
