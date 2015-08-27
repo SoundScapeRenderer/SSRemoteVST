@@ -22,6 +22,12 @@
 namespace SSR
 {
 
+  /**
+   * This class represents the Zoom GUI Component.
+   *
+   * This component enables the user to zoom in and zoom out of the source
+   * grid.
+   */
   class Zoom_GUI_component
       : public juce::Component
       , public juce::TextButton::Listener
@@ -30,6 +36,9 @@ namespace SSR
 
   public:
 
+    /**
+     *
+     */
     Zoom_GUI_component();
 
     ~Zoom_GUI_component();
@@ -69,8 +78,6 @@ namespace SSR
      * @return    the above written values for the above written zoom factors.
      *            If the zoom_factor is not between 0 and 9, the method returns
      *            the value for zoom factor 0!
-     *
-     * @author    Florian Willich
      */
     double look_up_range(const unsigned int zoom_factor);
 
