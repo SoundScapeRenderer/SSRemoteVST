@@ -23,8 +23,8 @@
 #include <src/controller.h>
 #include <src/utils/logger.h>
 
-SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller* processor)
-: AudioProcessorEditor(processor)
+SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller* controller)
+: AudioProcessorEditor(controller)
 , name_text_editor_is_changing(false)
 , source_orientation_text_editor_is_changing(false)
 , id_text_editor_is_changing(false)
@@ -51,50 +51,73 @@ SSR::Source_parameters_gui_component::Source_parameters_gui_component(Controller
   setSize(450, 400);
 }
 
-
-
 SSR::Source_parameters_gui_component::~Source_parameters_gui_component()
 {
   removeAllChildren();
 }
 
-void SSR::Source_parameters_gui_component::make_all_visible()
-{
-  addAndMakeVisible(*fixed_button);
-  addAndMakeVisible(*mute_button);
-  addAndMakeVisible(*source_label);
-  addAndMakeVisible(*name_label);
-  addAndMakeVisible(*name_text_editor);
-  addAndMakeVisible(*orientation_label);
-  addAndMakeVisible(*orientation_text_editor);
-  addAndMakeVisible(*jackport_label);
-  addAndMakeVisible(*jackport_dropdown);
-  addAndMakeVisible(*gain_slider);
-  addAndMakeVisible(*model_label);
-  addAndMakeVisible(*model_dropdown);
-  addAndMakeVisible(*sources_dropwdown);
-  addAndMakeVisible(*gain_label);
-
-}
-
 void SSR::Source_parameters_gui_component::buttonClicked(juce::Button* buttonThatWasClicked)
 {
-  Controller* processor = getProcessor();
 
-  if (buttonThatWasClicked->getName() == mute_button->getName()) {
-      processor->set_parameter_source_mute(mute_button->getToggleState());
-  } else if (buttonThatWasClicked->getName() == fixed_button->getName()) {
-      processor->set_parameter_source_fixed(fixed_button->getToggleState());
+  if (buttonThatWasClicked == mute_button.get()) {
+      getProcessor()->set_parameter_source_mute(mute_button->getToggleState());
+  } else if (buttonThatWasClicked == fixed_button.get()) {
+      getProcessor()->set_parameter_source_fixed(fixed_button->getToggleState());
   }
 
 }
 
 void SSR::Source_parameters_gui_component::sliderValueChanged(juce::Slider* sliderThatWasMoved)
 {
-  Controller* processor = getProcessor();
 
-  if (sliderThatWasMoved->getName() == gain_slider->getName()) {
-      processor->set_parameter_source_gain(gain_slider->getValue(), false);
+  if (sliderThatWasMoved == gain_slider.get()) {
+      getProcessor()->set_parameter_source_gain(gain_slider->getValue(), false);
+  }
+
+}
+
+void SSR::Source_parameters_gui_component::comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged)
+{
+
+  if (comboBoxThatHasChanged == jackport_dropdown.get()) {
+      std::string selected_port = jackport_dropdown->getText().toStdString();
+      getProcessor()->set_parameter_source_port(selected_port);
+  } else if (comboBoxThatHasChanged == model_dropdown.get()) {
+      int set_id = model_dropdown->getSelectedId();
+      getProcessor()->set_parameter_source_model_point(set_id == 1);
+  } else if (comboBoxThatHasChanged == sources_dropwdown.get()) {
+      int id = sources_dropwdown->getSelectedId();
+      getProcessor()->reset_source(id);
+  }
+
+}
+
+void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor& textEditorThatWasChanged)
+{
+
+  if (textEditorThatWasChanged == name_text_editor.get()) {
+      getProcessor()->set_parameter_source_name(name_text_editor->getText().toStdString());
+  }
+
+  name_text_editor_is_changing = false;
+  id_text_editor_is_changing = false;
+  properties_file_text_editor_is_changing = false;
+}
+
+void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& text_editor_thats_changing)
+{
+
+  if (text_editor_thats_changing == name_text_editor.get()) {
+      name_text_editor_is_changing = true;
+  }
+
+}
+
+void SSR::Source_parameters_gui_component::textEditorFocusLost(TextEditor& text_editor_focus_lost)
+{
+  //TODO: Maybe just assign them all to false?!
+  if (text_editor_focus_lost == name_text_editor.get()) {
+      name_text_editor_is_changing = false;
   }
 
 }
@@ -102,24 +125,6 @@ void SSR::Source_parameters_gui_component::sliderValueChanged(juce::Slider* slid
 void SSR::Source_parameters_gui_component::set_gain_slider_value(const float value)
 {
   gain_slider->setValue(value, juce::dontSendNotification);
-}
-
-void SSR::Source_parameters_gui_component::comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged)
-{
-
-  Controller* processor = getProcessor();
-
-  if (comboBoxThatHasChanged == jackport_dropdown.get()) {
-      std::string selected_port = jackport_dropdown->getText().toStdString();
-      processor->set_parameter_source_port(selected_port);
-  } else if (comboBoxThatHasChanged == model_dropdown.get()) {
-      int set_id = model_dropdown->getSelectedId();
-      processor->set_parameter_source_model_point(set_id == 1);
-  } else if (comboBoxThatHasChanged == sources_dropwdown.get()) {
-      int id = sources_dropwdown->getSelectedId();
-      processor->reset_source(id);
-  }
-
 }
 
 void SSR::Source_parameters_gui_component::set_model_selected_id(const int id)
@@ -168,37 +173,6 @@ void SSR::Source_parameters_gui_component::fill_jackport_dropdown()
       jackport_dropdown_menu_entries.insert(std::pair<int, std::string>(item_index, *it));
       item_index++;
 
-  }
-
-}
-
-void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor& textEditorThatWasChanged)
-{
-  Controller* processor = getProcessor();
-
-  if (textEditorThatWasChanged.getName() == name_text_editor->getName()) {
-      processor->set_parameter_source_name(name_text_editor->getText().toStdString());
-  }
-
-  name_text_editor_is_changing = false;
-  id_text_editor_is_changing = false;
-  properties_file_text_editor_is_changing = false;
-}
-
-void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& text_editor_thats_changing)
-{
-
-  if (text_editor_thats_changing.getName() == name_text_editor->getName()) {
-      name_text_editor_is_changing = true;
-  }
-
-}
-
-void SSR::Source_parameters_gui_component::textEditorFocusLost(TextEditor& text_editor_focus_lost)
-{
-  //TODO: Maybe just assign them all to false?!
-  if (text_editor_focus_lost.getName() == name_text_editor->getName()) {
-      name_text_editor_is_changing = false;
   }
 
 }
@@ -355,4 +329,22 @@ void SSR::Source_parameters_gui_component::reload_source_dropdown()
   });
 
   sources_dropwdown->setSelectedId(processor->get_source().get_id(), juce::dontSendNotification);
+}
+
+void SSR::Source_parameters_gui_component::make_all_visible()
+{
+  addAndMakeVisible(*fixed_button);
+  addAndMakeVisible(*mute_button);
+  addAndMakeVisible(*source_label);
+  addAndMakeVisible(*name_label);
+  addAndMakeVisible(*name_text_editor);
+  addAndMakeVisible(*orientation_label);
+  addAndMakeVisible(*orientation_text_editor);
+  addAndMakeVisible(*jackport_label);
+  addAndMakeVisible(*jackport_dropdown);
+  addAndMakeVisible(*gain_slider);
+  addAndMakeVisible(*model_label);
+  addAndMakeVisible(*model_dropdown);
+  addAndMakeVisible(*sources_dropwdown);
+  addAndMakeVisible(*gain_label);
 }
