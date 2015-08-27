@@ -19,32 +19,30 @@
 //Own Libs
 #include <src/GUI/head_frame/network_gui_component.h>
 #include <src/controller.h>
+#include <src/GUI/gui_components_configurator.h>
 
-SSR::Network_gui_component::Network_gui_component(Controller* processor)
-: AudioProcessorEditor(processor)
+SSR::Network_gui_component::Network_gui_component(Controller* controller)
+: AudioProcessorEditor(controller)
 , connected_button(new juce::TextButton("connected_button"))
 , is_connected(false)
 {
-
   addAndMakeVisible(*connected_button);
 
+  SSR::configure_text_button(*connected_button, "Connected");
   connected_button->addListener(this);
   connected_button->setBounds(0, 0, 138, 25);
-  connected_button->setButtonText(TRANS("Connected"));
 
   setSize(138, 26);
 }
 
 SSR::Network_gui_component::~Network_gui_component()
 {
-  //This unregisters all children from the component
   removeAllChildren();
-  connected_button = nullptr;
 }
 
-void SSR::Network_gui_component::set_connected(const bool new_state)
+void SSR::Network_gui_component::set_connected(const bool connected)
 {
-  is_connected = new_state;
+  is_connected = connected;
   connected_button->setToggleState(is_connected, juce::dontSendNotification);
 }
 
