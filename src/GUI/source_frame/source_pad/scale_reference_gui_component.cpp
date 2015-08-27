@@ -25,7 +25,7 @@ SSR::Scale_reference_GUI_component::Scale_reference_GUI_component(unsigned int r
 , reference_range(reference_range)
 , reference_bar_size(30.0f)
 , current_reference(0.0f)
-, oss(new std::ostringstream())
+, ss(new std::stringstream())
 {
   compute_current_reference();
 
@@ -44,10 +44,10 @@ void SSR::Scale_reference_GUI_component::paint(Graphics& graphics)
   graphics.drawVerticalLine(reference_bar_size, 0, getHeight() - 1.0f);
   graphics.drawHorizontalLine(getHeight() - 1, 0, reference_bar_size);
 
-  oss->str();
-  (*oss) << std::fixed << std::setprecision(2) << current_reference << " m";
+  ss->str("");
+  (*ss) << std::fixed << std::setprecision(2) << current_reference << " m";
 
-  graphics.drawSingleLineText(oss->str(), reference_bar_size + 5.0f, getHeight() - 1.0f);
+  graphics.drawSingleLineText(ss->str(), reference_bar_size + 5.0f, getHeight() - 1.0f);
 }
 
 void SSR::Scale_reference_GUI_component::set_reference_range(const double new_reference_range)

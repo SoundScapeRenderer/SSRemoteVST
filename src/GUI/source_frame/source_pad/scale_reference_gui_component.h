@@ -113,7 +113,7 @@ namespace SSR
     /**
      * Stringstream object.
      */
-    std::unique_ptr<std::ostringstream> oss;
+    std::unique_ptr<std::stringstream> ss;
 
   };
 
