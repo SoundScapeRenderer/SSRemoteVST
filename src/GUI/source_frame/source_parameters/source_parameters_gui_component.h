@@ -26,16 +26,43 @@
 namespace SSR
 {
 
-  class Source_parameters_gui_component : public juce::AudioProcessorEditor
-  , public juce::Button::Listener
-  , public juce::ComboBox::Listener
-  , public juce::TextEditor::Listener
-  , public juce::Slider::Listener
+  /**
+   * This class represents the 'Source Parameters GUI Component' including
+   * GUI components relating the parameters to control the sources including
+   * the following parameters (r = readable, w = writeable):
+   *
+   * - Fixed (r/w)
+   * - Mute (r/w)
+   * - Name (r/w)
+   * - Orientation (r)
+   * - Gain (r/w)
+   * - Source Dropdown (for choosing which source to manipulate) (r/w)
+   * - Jackport Dropdown (for chossing the jackport the source shall connect to) (r/w)
+   * - Model (r/w)
+   *
+   */
+  class Source_parameters_gui_component
+      : public juce::AudioProcessorEditor
+      , public juce::Button::Listener
+      , public juce::ComboBox::Listener
+      , public juce::TextEditor::Listener
+      , public juce::Slider::Listener
   {
 
   public:
-    Source_parameters_gui_component(Controller* processor);
 
+    /**
+     * Constructor initialising and configuring all GUI components.
+     *
+     * Sets the size of this GUI component to 450x400 pixels.
+     *
+     * @param   controller      Controller needed to r/w data.
+     */
+    Source_parameters_gui_component(Controller* controller);
+
+    /**
+     * Destructor.
+     */
     ~Source_parameters_gui_component();
 
     /**
@@ -43,9 +70,13 @@ namespace SSR
      *
      * @see http://www.juce.com/api/classButton_1_1Listener.html#a81499cef24b7189cd0d1581fd9dc9e14
      *
-     * @param           buttonThatWasClicked            The button that was clicked.
+     * If the button that was clicked is the mute_button: The controller will be
+     * noticed.
      *
-     * @author          Florian Willich
+     * If the button that was clicked is the fixed_button: The controller will be
+     * noticed.
+     *
+     * @param           buttonThatWasClicked            The button that was clicked.
      */
     void buttonClicked(juce::Button* buttonThatWasClicked) override;
 
@@ -54,15 +85,14 @@ namespace SSR
      *                  This may be caused by dragging it, or by typing in its text
      *                  entry box, or by a call to Slider::setValue().
      *
-     * You can find out the new value using Slider::getValue().
-     *
      * @see http://www.juce.com/api/classSlider_1_1Listener.html#a127bfe68835dc3e584cf3c2a427a27e5
      * @see http://www.juce.com/api/classSlider.html#a430a5c4e56b39dd622f5800f787e0822
      * @see http://www.juce.com/api/classSlider.html#ace4fffe8ad4e2b2c4cd2cda06dedc848
      *
-     * @param           sliderThatWasMoved      The slider that was moved.
+     * If the slider that was moved is the gain_slider: The controller will be
+     * noticed.
      *
-     * @author Florian Willich
+     * @param           sliderThatWasMoved      The slider that was moved.
      */
     void sliderValueChanged(juce::Slider* sliderThatWasMoved) override;
 
@@ -74,9 +104,16 @@ namespace SSR
      * @see http://www.juce.com/api/classComboBox.html
      * @see http://www.juce.com/api/classFileBrowserComponent.html#a8e55a512b35b04dce0a9c16ef5028487
      *
-     * @param   comboBoxThatHasChanged          The combobox that has changed.
+     * If the selected item of the jackport_dropdown has changed: The controller
+     * will be noticed.
      *
-     * @author  Florian Willich
+     * If the selected item of the model_dropdown has changed: The controller
+     * will be noticed.
+     *
+     * If the selected item of the sources_dropwdown has changed: The controller
+     * will be noticed.
+     *
+     * @param   comboBoxThatHasChanged          The combobox that has changed.
      */
     void comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged) override;
 
