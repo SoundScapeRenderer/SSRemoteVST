@@ -28,9 +28,9 @@ namespace SSR
 {
 
   class Source_pad_and_controls_gui_component
-  : public juce::AudioProcessorEditor
-  , public juce::Slider::Listener
-  , public juce::ChangeListener
+      : public juce::AudioProcessorEditor
+      , public juce::Slider::Listener
+      , public juce::ChangeListener
   {
 
   public:
