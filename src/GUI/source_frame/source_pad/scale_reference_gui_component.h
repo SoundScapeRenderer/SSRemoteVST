@@ -25,6 +25,9 @@ namespace SSR
   /**
    * This class represents the scale reference GUI component for illustrating
    * the ratio of the grid where the source GUI component moves on.
+   *
+   * This is done by computing the meters per pixel represented in the GUI (grid)
+   * and displaying a bar with its represented length shown in meters.
    */
   class Scale_reference_GUI_component
       : public juce::Component
@@ -71,7 +74,7 @@ namespace SSR
 
     /**
      * Sets the reference_range to the new_reference_range, computes the new
-     * current_reference and repaints the component.
+     * current_reference (meter per pixel) and repaints the component.
      *
      * @param           new_reference_range     The new reference range in meters.
      */
