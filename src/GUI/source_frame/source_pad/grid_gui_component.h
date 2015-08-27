@@ -45,11 +45,13 @@ namespace SSR
     Grid_gui_component(unsigned int width, unsigned int height);
 
     /**
-     * Deconstructor.
+     * Destructor.
      */
     ~Grid_gui_component();
 
     /**
+     * Draws the grid.
+     *
      * JUCE Dok:
      *
      * <i>[...]
@@ -80,7 +82,7 @@ namespace SSR
     /**
      * This method draws the background of the grid GUI component.
      *
-     * @param           graphics        the graphics context that must be used to
+     * @param           graphics        The graphics context that must be used to
      *                                  do the drawing operations.
      */
     void draw_background(Graphics& graphics);
@@ -88,7 +90,7 @@ namespace SSR
     /**
      * This method draws the borders of the grid GUI component.
      *
-     * @param           graphics        the graphics context that must be used to
+     * @param           graphics        The graphics context that must be used to
      *                                  do the drawing operations.
      */
     void draw_border(Graphics& graphics);
@@ -96,7 +98,7 @@ namespace SSR
     /**
      * This method draws the axes of the grid GUI component.
      *
-     * @param           graphics        the graphics context that must be used to
+     * @param           graphics        The graphics context that must be used to
      *                                  do the drawing operations.
      */
     void draw_axes(Graphics& graphics);
@@ -113,6 +115,9 @@ namespace SSR
      */
     const unsigned int height;
 
+    /**
+     * Rectangle representing the grids dimensions.
+     */
     std::unique_ptr<const juce::Rectangle<int> > rect;
 
   };
