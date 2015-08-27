@@ -26,11 +26,35 @@
 namespace SSR
 {
 
-  class Source_frame_gui_component : public juce::AudioProcessorEditor
+  /**
+   * This class represents the 'Source Frame GUI Component' including all
+   * GUI components relating the Source.
+   *
+   *
+   */
+  class Source_frame_gui_component
+      : public juce::AudioProcessorEditor
   {
 
   public:
-    Source_frame_gui_component(Controller* processor);
+
+    /**
+     * Constructor configurating the related GUI components.
+     *
+     * Sets the size of this GUI frame to 900x500 pixels.
+     *
+     * Loads the ssr_logo_large.png from the following path:
+     * SSREMOTE_VST/src/images/ssr_logo_large.png
+     *
+     * Where SSREMOTE_VST is the environment variable.
+     *
+     * @param   controller      Controller needed to r/w data.
+     */
+    Source_frame_gui_component(Controller* controller);
+
+    /**
+     * Destructor.
+     */
     ~Source_frame_gui_component();
 
     /**
@@ -42,8 +66,28 @@ namespace SSR
       return static_cast<Controller*>(getAudioProcessor());
     }
 
+    /**
+     * Like the JUCE documentation say:
+     * "The paint() method gets called when a region of a component needs
+     * redrawing, either because the component's repaint() method has been
+     * called, or because something has happened on the screen that means a
+     * section of a window needs to be redrawn."
+     *
+     * @see             http://www.juce.com/api/classComponent.html#a7cf1862f4af5909ea72827898114a182
+     *
+     * Fills the background with white and creates a rounded rectangle with
+     * the background grey color.
+     *
+     * @see ssr_colour.h
+     *
+     * @param           graphics       the graphics context that must be used
+     *                                 to do the drawing operations.
+     */
     void paint(juce::Graphics& graphics) override;
 
+    /**
+     *
+     */
     void move_source(const float x, const float y);
 
     void set_x_axis_slider_value(const double value);
