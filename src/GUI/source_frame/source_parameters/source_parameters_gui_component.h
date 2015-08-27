@@ -70,11 +70,8 @@ namespace SSR
      *
      * @see http://www.juce.com/api/classButton_1_1Listener.html#a81499cef24b7189cd0d1581fd9dc9e14
      *
-     * If the button that was clicked is the mute_button: The controller will be
-     * noticed.
-     *
-     * If the button that was clicked is the fixed_button: The controller will be
-     * noticed.
+     * The controller will be noticed if the mute_button or fixed_button was
+     * clicked.
      *
      * @param           buttonThatWasClicked            The button that was clicked.
      */
@@ -89,8 +86,7 @@ namespace SSR
      * @see http://www.juce.com/api/classSlider.html#a430a5c4e56b39dd622f5800f787e0822
      * @see http://www.juce.com/api/classSlider.html#ace4fffe8ad4e2b2c4cd2cda06dedc848
      *
-     * If the slider that was moved is the gain_slider: The controller will be
-     * noticed.
+     * The controller will be noticed if the gain_slider was moved.
      *
      * @param           sliderThatWasMoved      The slider that was moved.
      */
@@ -104,14 +100,8 @@ namespace SSR
      * @see http://www.juce.com/api/classComboBox.html
      * @see http://www.juce.com/api/classFileBrowserComponent.html#a8e55a512b35b04dce0a9c16ef5028487
      *
-     * If the selected item of the jackport_dropdown has changed: The controller
-     * will be noticed.
-     *
-     * If the selected item of the model_dropdown has changed: The controller
-     * will be noticed.
-     *
-     * If the selected item of the sources_dropwdown has changed: The controller
-     * will be noticed.
+     * The controller will be noticed if the jackport_dropdown, the model_dropdown
+     * or the sources_dropwdown has been changed.
      *
      * @param   comboBoxThatHasChanged          The combobox that has changed.
      */
@@ -123,6 +113,11 @@ namespace SSR
      * This method is called when a TextEditor UI element was changed and the
      * return key was pressed.
      *
+     * The controller will be noticed if the return key was pressd in th
+     * name_text_editor  (which means that there is a new name for the source).
+     * Additionally, the name_text_editor_is_changing member will be set to
+     * false.
+     *
      * @param    textEditorThatWasChanged    The text Editor that was changed.
      **/
     void textEditorReturnKeyPressed(TextEditor &textEditorThatWasChanged) override;
@@ -131,6 +126,9 @@ namespace SSR
      * Inherited from JUCE TextEditorListener Class.
      *
      * This method is called when a TextEditor UI element is changing.
+     *
+     * The member name_text_editor_is_changing will be set to true if the
+     * text editor which text is changing is the name_text_editor.
      *
      * @param    text_editor_thats_changing      The text Editor that is
      *                                           currently changing.
@@ -143,6 +141,9 @@ namespace SSR
      * This method is called when the focus of a TextEditor element is lost. The
      * JUCE documentation says the folloging:
      * "Called when the text editor loses focus."
+     *
+     * The member name_text_editor_is_changing will be set to false if the
+     * text editor which lost the focus is the name_text_editor.
      *
      * @param    text_editor_focus_lost      The text editor which focus is lost.
      **/
@@ -157,16 +158,49 @@ namespace SSR
       return static_cast<Controller*>(getAudioProcessor());
     }
 
+    /**
+     * Sets the gain sliders value to the transferred value.
+     *
+     * @param   value           The value to which the gain slider shall be set.
+     */
     void set_gain_slider_value(const float value);
 
+    /**
+     * Sets the selected ID of the model_dropdown to the transferred id.
+     *
+     * @param   id              The ID to which the model_dropdown shall be set.
+     */
     void set_model_selected_id(const int id);
 
+    /**
+     * Sets the selected entry of the jackport_dropdown to the entry equal
+     * to the transferred entry.
+     *
+     * If the transferred entry is unequal to every entry existing in the
+     * jackport_dropdown, an error will be logged.
+     *
+     * @param   entry           The entry which shall be selected by in the
+     *                          jackport_dropdown.
+     */
     void set_jackport_selected_entry(const std::string& entry);
 
+    /**
+     * Sets the mute button toggle state to the transferred state.
+     *
+     * @param   state           The state to which the mute button shall be
+     *                          toggled.
+     */
     void set_mute_button_toggle_state(const bool state);
 
+    /**
+     * Sets the fixed button toggle state to the transferred state.
+     *
+     * @param   state           The state to which the fixed button shall be
+     *                          toggled.
+     */
     void set_fixed_button_toggle_state(const bool state);
 
+    // HIERHEIRHIERHIE!!!
     void set_id_text_editor_text(const juce::String& text);
 
     void set_name_text_editor_text(const juce::String& text);
