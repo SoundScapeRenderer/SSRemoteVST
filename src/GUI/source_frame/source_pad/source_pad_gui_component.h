@@ -27,7 +27,8 @@
 namespace SSR
 {
 
-  class Source_pad_gui_component : public juce::Component
+  class Source_pad_gui_component
+      : public juce::Component
   {
 
   public:
