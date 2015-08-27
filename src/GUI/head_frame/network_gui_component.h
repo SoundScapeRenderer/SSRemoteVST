@@ -25,13 +25,40 @@
 namespace SSR
 {
 
-  class Network_gui_component : public juce::AudioProcessorEditor,
-  public juce::ButtonListener,
-  public juce::ComponentListener
+  /**
+   * This class represents the Network GUI Component including a button which
+   * displays whether the SSRemote VST Plugin is connected to the SSR or not.
+   *
+   * The 'Connected' button also provides the functionality of connecting to the
+   * SSR if it is not and the user clicks on it. Please see issue #6 for more
+   * information on why this is currently not well implemented.
+   */
+  class Network_gui_component
+      : public juce::AudioProcessorEditor,
+        public juce::ButtonListener,
+        public juce::ComponentListener
   {
-  public:
-    Network_gui_component(Controller* processor);
 
+  public:
+
+    /**
+     * Constructor instantiating and configuring the connected_button and
+     * registering this class to be a 'Button Listener' - for more information
+     * please read the JUCE doc.:
+     *
+     * http://learn.juce.com/doc/classButton_1_1Listener.php
+     *
+     * Sets the size of the frame to 138x26 pixels.
+     *
+     * @param   controller      Controller needed to r/w data.
+     *
+     * @see http://learn.juce.com/doc/classButton_1_1Listener.php
+     */
+    Network_gui_component(Controller* controller);
+
+    /**
+     * Destructor.
+     */
     ~Network_gui_component();
 
     /**
@@ -43,16 +70,49 @@ namespace SSR
       return static_cast<Controller*>(getAudioProcessor());
     }
 
-    void set_connected(const bool new_state);
+    /**
+     * Setter for the connected_button.
+     *
+     * @param   connected       True means connected, false not.
+     */
+    void set_connected(const bool connected);
 
+    /**
+     * Returns the current status of the connected_button, true means connected,
+     * false not.
+     *
+     * @return  the current status of the connected_button, true means connected,
+     *          false not.
+     */
     bool get_connected() const;
 
-    void message_incoming(const bool is_incoming);
-
+    /**
+     * JUCE Doc.: Called when a button is clicked.
+     *
+     * @see http://www.juce.com/api/classButton_1_1Listener.html#a81499cef24b7189cd0d1581fd9dc9e14
+     *
+     * If the button that was clicked is the connected_button, this method
+     * checks whether is_connected is true and if not, the controllers connect()
+     * method is called. Afterwards, the method checks if the controller is
+     * connected and sets the status of the button.
+     *
+     * TODO: There is no functionality implemented to actually disconnect from
+     * the SSR - please see issue #6 for more information.
+     *
+     * @param           buttonThatWasClicked            The button that was clicked.
+     */
     virtual void buttonClicked(Button* button) override;
 
   private:
+
+    /**
+     * The connected button.
+     */
     std::unique_ptr<juce::TextButton> connected_button;
+
+    /**
+     * GUI status whether the Plugin is connected to the SSR (true) or not (false).
+     */
     bool is_connected;
 
   };
