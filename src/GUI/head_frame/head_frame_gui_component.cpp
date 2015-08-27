@@ -77,7 +77,7 @@ void SSR::Head_frame_GUI_component::set_connected(const bool new_state)
 
 void SSR::Head_frame_GUI_component::configure_new_source_button()
 {
-  SSR::configure_text_button(new_source_button.get(), "New Source");
+  SSR::configure_text_button(*new_source_button, "New Source");
 
   new_source_button->addListener(this);
 }
