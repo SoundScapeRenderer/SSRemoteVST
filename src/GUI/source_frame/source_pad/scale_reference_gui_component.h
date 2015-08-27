@@ -15,6 +15,7 @@
 
 //C++ Libs
 #include <sstream>
+#include <memory>
 
 //JUCE Include
 #include <JUCE/JuceHeader.h>
