@@ -97,11 +97,9 @@ void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor
 
   if (textEditorThatWasChanged == name_text_editor.get()) {
       getProcessor()->set_parameter_source_name(name_text_editor->getText().toStdString());
+      name_text_editor_is_changing = false;
   }
 
-  name_text_editor_is_changing = false;
-  id_text_editor_is_changing = false;
-  properties_file_text_editor_is_changing = false;
 }
 
 void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& text_editor_thats_changing)
@@ -115,7 +113,7 @@ void SSR::Source_parameters_gui_component::textEditorTextChanged(TextEditor& tex
 
 void SSR::Source_parameters_gui_component::textEditorFocusLost(TextEditor& text_editor_focus_lost)
 {
-  //TODO: Maybe just assign them all to false?!
+
   if (text_editor_focus_lost == name_text_editor.get()) {
       name_text_editor_is_changing = false;
   }

@@ -217,24 +217,6 @@ namespace SSR
      **/
     bool name_text_editor_is_changing;
 
-    /**
-     * Represents if the Source Orientation Text Editor UI element is currently
-     * changing.
-     **/
-    bool source_orientation_text_editor_is_changing;
-
-    /**
-     * Represents if the Source ID Text Editor UI element is currently
-     * changing.
-     **/
-    bool id_text_editor_is_changing;
-
-    /**
-     * Represents if the Source Properties File Text Editor UI element is
-     * currently changing.
-     **/
-    bool properties_file_text_editor_is_changing;
-
   };
 
 }
