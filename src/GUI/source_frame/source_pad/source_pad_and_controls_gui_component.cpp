@@ -23,8 +23,8 @@
 //C++ Libs
 #include <memory>
 
-SSR::Source_pad_and_controls_gui_component::Source_pad_and_controls_gui_component(Controller* processor)
-: AudioProcessorEditor(processor)
+SSR::Source_pad_and_controls_gui_component::Source_pad_and_controls_gui_component(Controller* controller)
+: AudioProcessorEditor(controller)
 , pad(new Source_pad_gui_component(350, 350))
 , x_axis_slider(new juce::Slider("x_axis_slider"))
 , y_axis_slider(new juce::Slider("y_axis_slider"))
@@ -59,25 +59,20 @@ SSR::Source_pad_and_controls_gui_component::Source_pad_and_controls_gui_componen
 SSR::Source_pad_and_controls_gui_component::~Source_pad_and_controls_gui_component()
 {
   removeAllChildren();
-  pad                           = nullptr;
-  x_axis_slider                 = nullptr;
-  y_axis_slider                 = nullptr;
-  zoom                          = nullptr;
 }
 
-void SSR::Source_pad_and_controls_gui_component::move_source(const float absolute_x_position, const float absolute_y_position)
+void SSR::Source_pad_and_controls_gui_component::move_source(const float discrete_x_position, const float discrete_y_position)
 {
-  pad->move_source(absolute_x_position, absolute_y_position, zoom->get_current_range());
+  pad->move_source(discrete_x_position, discrete_y_position, zoom->get_current_range());
 }
 
 void SSR::Source_pad_and_controls_gui_component::sliderValueChanged(juce::Slider* sliderThatWasMoved)
 {
-  Controller* processor = getProcessor();
 
   if (sliderThatWasMoved == x_axis_slider.get()) {
-      processor->set_parameter_source_x_position(x_axis_slider->getValue());
+      getProcessor()->set_parameter_source_x_position(x_axis_slider->getValue());
   } else if (sliderThatWasMoved == y_axis_slider.get()) {
-      processor->set_parameter_source_y_position(y_axis_slider->getValue());
+      getProcessor()->set_parameter_source_y_position(y_axis_slider->getValue());
   }
 
 }
