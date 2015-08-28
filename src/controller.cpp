@@ -52,16 +52,25 @@
 
 #endif
 
-//==============================================================================
+/**
+ * This creates new instances of the plugin..
+ *
+ * Called by that host!!
+ */
+AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+  return new Controller();
+}
+
 Controller::Controller()
-: ui_update_flag(true)
-, tcp_connection(nullptr)
-, message_to_ssr(new std::string(""))
-, message_from_ssr(new std::string(""))
-, jack_client(new SSR::Jack_client())
-, requester(new SSR::SSR_requester())
-, config(nullptr)
-, scene(new SSR::Scene(20.0f))
+  : ui_update_flag(true)
+  , tcp_connection(nullptr)
+  , message_to_ssr(new std::string(""))
+  , message_from_ssr(new std::string(""))
+  , jack_client(new SSR::Jack_client())
+  , requester(new SSR::SSR_requester())
+  , config(nullptr)
+  , scene(new SSR::Scene(20.0f))
 {
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Constructor of Controller was called!", false);
   SSR::Logger::get_instance()->log(SSR::Logger::Level::INFO, "Build: 5", false);
@@ -85,10 +94,227 @@ Controller::Controller()
   read_ssr_incoming_message();
 }
 
+Controller::~Controller()
+{
+
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// The following methods are derived from the AudioProcessor base class
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > Controller::get_source_ids_and_names()
 {
   return scene->get_source_ids_and_names();
 }
+
+const juce::String Controller::getName() const
+{
+  return JucePlugin_Name;
+}
+
+void Controller::prepareToPlay(double sampleRate, int estimatedSamplesPerBlock)
+{
+
+}
+
+void Controller::releaseResources()
+{
+
+}
+
+void Controller::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
+{
+
+}
+
+bool Controller::isInputChannelStereoPair(int index) const
+{
+  return true;
+}
+
+bool Controller::isOutputChannelStereoPair(int index) const
+{
+  return true;
+}
+
+bool Controller::silenceInProducesSilenceOut() const
+{
+  return false;
+}
+
+double Controller::getTailLengthSeconds() const
+{
+  return 0.0;
+}
+
+bool Controller::acceptsMidi() const
+{
+#if JucePlugin_WantsMidiInput
+  return true;
+#else
+  return false;
+#endif
+}
+
+bool Controller::producesMidi() const
+{
+#if JucePlugin_ProducesMidiOutput
+  return true;
+#else
+  return false;
+#endif
+}
+
+AudioProcessorEditor* Controller::createEditor()
+{
+  return new Main_GUI_component(this);
+}
+
+bool Controller::hasEditor() const
+{
+  return true;
+}
+
+int Controller::getNumParameters() {
+  return SSR::Source::parameter::parameter_count;
+}
+
+const juce::String Controller::getParameterName(int parameterIndex)
+{
+  typedef SSR::Source::parameter source_parameter;
+
+  std::string parameter_name = "No Name Specified";
+
+  switch (parameterIndex)
+  {
+    case source_parameter::x_position_idx:
+      parameter_name = scene->get_x_position_of_selected_source().get_name();
+      break;
+
+    case source_parameter::y_position_idx:
+      parameter_name = scene->get_y_position_of_selected_source().get_name();
+      break;
+
+    case source_parameter::gain_idx:
+      parameter_name = scene->get_gain_of_selected_source().get_name();
+      break;
+
+    case source_parameter::orientation_idx:
+      parameter_name = scene->get_orientation_of_selected_source().get_name();
+      break;
+
+    case source_parameter::mute_idx:
+      parameter_name = scene->get_mute_of_selected_source().get_name();
+      break;
+
+    case source_parameter::model_point_idx:
+      parameter_name = scene->get_model_point_of_selected_source().get_name();
+      break;
+
+    case source_parameter::fixed_idx:
+      parameter_name = scene->get_fixed_of_selected_source().get_name();
+      break;
+
+    default:
+      break;
+
+  }
+
+  return juce::String(parameter_name);
+}
+
+float Controller::getParameter(int index)
+{
+  typedef SSR::Source::parameter source_parameter;
+
+  float parameter_as_float = 0.0f;
+
+  switch (index)
+  {
+    case source_parameter::x_position_idx:
+      parameter_as_float = scene->get_x_position_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::y_position_idx:
+      parameter_as_float = scene->get_y_position_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::gain_idx:
+      parameter_as_float = scene->get_gain_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::orientation_idx:
+      parameter_as_float = scene->get_orientation_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::mute_idx:
+      parameter_as_float = scene->get_mute_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::model_point_idx:
+      parameter_as_float = scene->get_model_point_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::fixed_idx:
+      parameter_as_float = scene->get_fixed_of_selected_source().get_continuous_value();
+      break;
+
+    default:
+      break;
+
+  }
+
+  return parameter_as_float;
+}
+
+const juce::String Controller::getParameterText(int index)
+{
+  typedef SSR::Source::parameter source_parameter;
+
+  std::string parameter_text = "0.0";
+
+  switch (index)
+  {
+    case source_parameter::x_position_idx:
+      parameter_text = scene->get_x_position_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::y_position_idx:
+      parameter_text = scene->get_y_position_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::gain_idx:
+      parameter_text = scene->get_gain_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::orientation_idx:
+      parameter_text = scene->get_orientation_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::mute_idx:
+      parameter_text = scene->get_mute_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::model_point_idx:
+      parameter_text = scene->get_model_point_of_selected_source().get_continuous_value();
+      break;
+
+    case source_parameter::fixed_idx:
+      parameter_text = scene->get_fixed_of_selected_source().get_continuous_value();
+      break;
+
+    default:
+      break;
+
+  }
+
+  return juce::String(parameter_text);
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// The following methods are own implementations
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 void Controller::connect()
 {
@@ -101,21 +327,6 @@ void Controller::connect()
   tcp_connection = std::unique_ptr<SSR::TCP_connection>(new SSR::TCP_connection(hostname, port, timeout_in_ms, '\0'));
 
   tcp_connection->connect();
-}
-
-Controller::~Controller()
-{
-  //Nothing to do...
-}
-
-//==============================================================================
-const juce::String Controller::getName() const
-{
-  return JucePlugin_Name;
-}
-
-int Controller::getNumParameters() {
-  return SSR::Source::parameter::parameter_count;
 }
 
 SSR::Source Controller::get_source() const
@@ -200,49 +411,7 @@ void Controller::new_source()
 //==============================================================================
 
 
-float Controller::getParameter(int index)
-{
-  typedef SSR::Source::parameter source_parameter;
 
-  float parameter_as_float = 0.0f;
-
-  switch (index)
-  {
-    case source_parameter::x_position_idx:
-      parameter_as_float = scene->get_x_position_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::y_position_idx:
-      parameter_as_float = scene->get_y_position_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::gain_idx:
-      parameter_as_float = scene->get_gain_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::orientation_idx:
-      parameter_as_float = scene->get_orientation_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::mute_idx:
-      parameter_as_float = scene->get_mute_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::model_point_idx:
-      parameter_as_float = scene->get_model_point_of_selected_source().get_continuous_value();
-      break;
-
-    case source_parameter::fixed_idx:
-      parameter_as_float = scene->get_fixed_of_selected_source().get_continuous_value();
-      break;
-
-    default:
-      break;
-
-  }
-
-  return parameter_as_float;
-}
 
 void Controller::setParameter(int parameterIndex, float newValue)
 {
@@ -293,93 +462,9 @@ void Controller::setParameter(int parameterIndex, float newValue)
   update_ssr(specificator);
 }
 
-const juce::String Controller::getParameterText(int index)
-{
-  typedef SSR::Source::parameter source_parameter;
 
-  juce::String parameter_text = "Value Unknown";
 
-  switch (index)
-  {
-    case source_parameter::x_position_idx:
-      parameter_text = juce::String(scene->get_x_position_of_selected_source().get_continuous_value());
-      break;
 
-    case source_parameter::y_position_idx:
-      parameter_text = juce::String(scene->get_y_position_of_selected_source().get_continuous_value());
-      break;
-
-    case source_parameter::gain_idx:
-      parameter_text = juce::String(scene->get_gain_of_selected_source().get_continuous_value());
-      break;
-
-    case source_parameter::orientation_idx:
-      parameter_text = juce::String(scene->get_orientation_of_selected_source().get_continuous_value());
-      break;
-
-    case source_parameter::mute_idx:
-      parameter_text = juce::String(scene->get_mute_of_selected_source().get_continuous_value());
-      break;
-
-    case source_parameter::model_point_idx:
-      parameter_text = juce::String(scene->get_model_point_of_selected_source().get_continuous_value());
-      break;
-
-    case source_parameter::fixed_idx:
-      parameter_text = juce::String(scene->get_fixed_of_selected_source().get_continuous_value());
-      break;
-
-    default:
-      break;
-
-  }
-
-  return parameter_text;
-}
-
-const juce::String Controller::getParameterName(int parameterIndex)
-{
-  typedef SSR::Source::parameter source_parameter;
-
-  juce::String parameter_name = "No Name Specified";
-
-  switch (parameterIndex)
-  {
-    case source_parameter::x_position_idx:
-      parameter_name = juce::String(scene->get_x_position_of_selected_source().get_name());
-      break;
-
-    case source_parameter::y_position_idx:
-      parameter_name = juce::String(scene->get_y_position_of_selected_source().get_name());
-      break;
-
-    case source_parameter::gain_idx:
-      parameter_name = juce::String(scene->get_gain_of_selected_source().get_name());
-      break;
-
-    case source_parameter::orientation_idx:
-      parameter_name = juce::String(scene->get_orientation_of_selected_source().get_name());
-      break;
-
-    case source_parameter::mute_idx:
-      parameter_name = juce::String(scene->get_mute_of_selected_source().get_name());
-      break;
-
-    case source_parameter::model_point_idx:
-      parameter_name = juce::String(scene->get_model_point_of_selected_source().get_name());
-      break;
-
-    case source_parameter::fixed_idx:
-      parameter_name = juce::String(scene->get_fixed_of_selected_source().get_name());
-      break;
-
-    default:
-      break;
-
-  }
-
-  return parameter_name;
-}
 
 const juce::String Controller::getInputChannelName (int channelIndex) const
 {
@@ -391,43 +476,16 @@ const juce::String Controller::getOutputChannelName (int channelIndex) const
   return juce::String (channelIndex + 1);
 }
 
-bool Controller::isInputChannelStereoPair (int index) const
-{
-  return true;
-}
 
-bool Controller::isOutputChannelStereoPair (int index) const
-{
-  return true;
-}
 
-bool Controller::acceptsMidi() const
-{
-#if JucePlugin_WantsMidiInput
-  return true;
-#else
-  return false;
-#endif
-}
 
-bool Controller::producesMidi() const
-{
-#if JucePlugin_ProducesMidiOutput
-  return true;
-#else
-  return false;
-#endif
-}
 
-bool Controller::silenceInProducesSilenceOut() const
-{
-  return false;
-}
 
-double Controller::getTailLengthSeconds() const
-{
-  return 0.0;
-}
+
+
+
+
+
 
 int Controller::getNumPrograms()
 {
@@ -456,54 +514,11 @@ void Controller::changeProgramName (int index, const juce::String& newName)
 }
 
 //==============================================================================
-void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
-{
-  // Use this method as the place to do any pre-playback
-  // initialisation that you need..
-}
-
-void Controller::releaseResources()
-{
-  // When playback stops, you can use this as an opportunity to free up any
-  // spare memory, etc.
-}
-
-void Controller::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages) {
-
-  // This is the place where you'd normally do the guts of your plugin's
-  // audio processing...
-  if (getNumInputChannels() < 2) {
-      /*Nothing to do here - processing is in-place, so doing nothing is pass-through (for NumInputs=NumOutputs)*/
-  } else {
-
-      /**
-        float left_data = 0.0f;
-        float right_data = 0.0f;
-
-        for (int i = 0; i < buffer.getNumSamples(); i++) {   
-
-            left_data = buffer.getSample(0, i);
-            right_data = buffer.getSample(1, i);
-
-            mWidthControl.clockProcess(&left_data, &right_data);
-            volumeControl.clockProcess(&left_data, &right_data);
-
-        }**/
-
-  }
-
-}
 
 //==============================================================================
-bool Controller::hasEditor() const
-{
-  return true; // (change this to false if you choose to not supply an editor)
-}
 
-AudioProcessorEditor* Controller::createEditor()
-{
-  return new Main_GUI_component(this);
-}
+
+
 
 //==============================================================================
 void Controller::getStateInformation(MemoryBlock& destData)
@@ -740,14 +755,4 @@ boost::filesystem::path Controller::get_config_file_path()
   }
 
   return config_file_path;
-}
-
-/**
- * This creates new instances of the plugin..
- *
- * Called by that host!!
- */
-AudioProcessor* JUCE_CALLTYPE createPluginFilter()
-{
-  return new Controller();
 }
