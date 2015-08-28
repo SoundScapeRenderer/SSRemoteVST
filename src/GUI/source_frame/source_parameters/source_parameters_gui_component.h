@@ -39,7 +39,6 @@ namespace SSR
    * - Source Dropdown (for choosing which source to manipulate) (r/w)
    * - Jackport Dropdown (for chossing the jackport the source shall connect to) (r/w)
    * - Model (r/w)
-   *
    */
   class Source_parameters_gui_component
       : public juce::AudioProcessorEditor
