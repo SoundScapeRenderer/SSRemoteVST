@@ -50,7 +50,7 @@ namespace SSR
        */
       static std::shared_ptr<Logger> get_instance()
       {
-          static std::shared_ptr<Logger> instance(new Logger(SSR::helper::get_environment_variable(std::string("SSR_SCENE_AUTOMATION_VST_PLUGIN").c_str()) + "/log.txt"));
+          static std::shared_ptr<Logger> instance(new Logger(SSR::helper::get_environment_variable(std::string("SSREMOTE_VST").c_str()) + "/log.txt"));
           return instance;
       }
 
