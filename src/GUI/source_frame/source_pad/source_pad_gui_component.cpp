@@ -17,8 +17,8 @@ SSR::Source_pad_gui_component::Source_pad_gui_component(int width, int heigth)
 , grid(nullptr)
 , source(new SSR::Source_gui_component())
 , scale_reference(new SSR::Scale_reference_GUI_component(width, 5))
-, current_absolute_x_position(0.0f)
-, current_absolute_y_position(0.0f)
+, current_discrete_x_position(0.0f)
+, current_discrete_y_position(0.0f)
 {
   grid = std::unique_ptr<SSR::Grid_gui_component>(new SSR::Grid_gui_component(width, heigth));
 
@@ -37,21 +37,18 @@ SSR::Source_pad_gui_component::Source_pad_gui_component(int width, int heigth)
 SSR::Source_pad_gui_component::~Source_pad_gui_component()
 {
   removeAllChildren();
-  grid =                nullptr;
-  source =              nullptr;
-  scale_reference =     nullptr;
 }
 
-void SSR::Source_pad_gui_component::move_source(const float absolute_x_position, const float absolute_y_position, const double range)
+void SSR::Source_pad_gui_component::move_source(const float discrete_x_position, const float discrete_y_position, const double range)
 {
-  current_absolute_x_position = absolute_x_position;
-  current_absolute_y_position = absolute_y_position;
-  move_source_relative(compute_relative_position(true, absolute_x_position, range), compute_relative_position(false, absolute_y_position, range));
+  current_discrete_x_position = discrete_x_position;
+  current_discrete_y_position = discrete_y_position;
+  move_source_continuously(compute_continuous_position(true, discrete_x_position, range), compute_continuous_position(false, discrete_y_position, range));
 }
 
 void SSR::Source_pad_gui_component::update_range(const double range)
 {
-  move_source_relative(compute_relative_position(true, current_absolute_x_position, range), compute_relative_position(false, current_absolute_y_position, range));
+  move_source_continuously(compute_continuous_position(true, current_discrete_x_position, range), compute_continuous_position(false, current_discrete_y_position, range));
 }
 
 void SSR::Source_pad_gui_component::set_reference_range(const double new_reference_range)
@@ -63,34 +60,34 @@ void SSR::Source_pad_gui_component::set_reference_range(const double new_referen
  * PRIVATE
  */
 
-void SSR::Source_pad_gui_component::move_source_relative(const float absolute_x_position, const float absolute_y_position)
+void SSR::Source_pad_gui_component::move_source_continuously(const float continuous_x_position, const float continuous_y_position)
 {
-  float concrete_x = absolute_x_position * getWidth() - source->get_radius();
-  concrete_x = concrete_x < 0.0f ? 0.0f : concrete_x;
-  concrete_x = concrete_x > getWidth() - source->getWidth() ? getWidth() - source->getWidth() : concrete_x;
+  float source_discrete_x_position = continuous_x_position * getWidth() - source->get_radius();
+  source_discrete_x_position = source_discrete_x_position < 0.0f ? 0.0f : source_discrete_x_position;
+  source_discrete_x_position = source_discrete_x_position > getWidth() - source->getWidth() ? getWidth() - source->getWidth() : source_discrete_x_position;
 
-  float concrete_y = absolute_y_position * getWidth() - source->get_radius();
-  concrete_y = concrete_y < 0.0f ? 0.0f : concrete_y;
-  concrete_y = concrete_y > getHeight() - source->getHeight() ? getHeight() - source->getHeight() : concrete_y;
+  float source_discrete_y_position = continuous_y_position * getWidth() - source->get_radius();
+  source_discrete_y_position = source_discrete_y_position < 0.0f ? 0.0f : source_discrete_y_position;
+  source_discrete_y_position = source_discrete_y_position > getHeight() - source->getHeight() ? getHeight() - source->getHeight() : source_discrete_y_position;
 
-  source->setBounds(concrete_x, concrete_y, source->getWidth(), source->getHeight());
+  source->setBounds(source_discrete_x_position, source_discrete_y_position, source->getWidth(), source->getHeight());
   source->repaint();
 }
 
-float SSR::Source_pad_gui_component::compute_relative_position(const bool x_axis, float position, const double range)
+float SSR::Source_pad_gui_component::compute_continuous_position(const bool x_axis, float discrete_position, const double range)
 {
-  position = x_axis ? position : position * -1.0f;
+  discrete_position = x_axis ? discrete_position : discrete_position * -1.0f;
 
   float relative_position = 0.0f;
   float lower_bound = range / -2.0f;
   float upper_bound = range / 2.0f;
 
-  if (position <= lower_bound) {
+  if (discrete_position <= lower_bound) {
       relative_position = 0.0f;
-  } else if (position >= upper_bound) {
+  } else if (discrete_position >= upper_bound) {
       relative_position = 1.0f;
   } else {
-      relative_position = (0.5 / upper_bound) * position + 0.5;
+      relative_position = (0.5 / upper_bound) * discrete_position + 0.5;
   }
 
   return relative_position;
