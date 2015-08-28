@@ -23,8 +23,8 @@ SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* controll
 : AudioProcessorEditor(controller)
 , source_pad_and_controls(new SSR::Source_pad_and_controls_gui_component(controller))
 , source_parameters(new SSR::Source_parameters_gui_component(controller))
-, ssr_image_component(new juce::ImageComponent())
-, ssr_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSREMOTE_VST") + "/src/images/ssr_logo_large.png"))))
+, ssr_logo_gui_component(new juce::ImageComponent())
+, ssr_logo_image(new juce::Image(juce::ImageFileFormat::loadFrom(juce::File(SSR::helper::get_environment_variable("SSREMOTE_VST") + "/src/images/ssr_logo_large.png"))))
 {
   addAndMakeVisible(*source_parameters);
   source_parameters->setBounds(25, 50, source_parameters->getWidth(), source_parameters->getHeight());
@@ -32,9 +32,9 @@ SSR::Source_frame_gui_component::Source_frame_gui_component(Controller* controll
   addAndMakeVisible(*source_pad_and_controls);
   source_pad_and_controls->setBounds(394, 50, source_pad_and_controls->getWidth(), source_pad_and_controls->getHeight());
 
-  addAndMakeVisible(*ssr_image_component);
-  ssr_image_component->setBounds(32, 414, 84, 58);
-  ssr_image_component->setImage(*ssr_image);
+  addAndMakeVisible(*ssr_logo_gui_component);
+  ssr_logo_gui_component->setBounds(32, 414, 84, 58);
+  ssr_logo_gui_component->setImage(*ssr_logo_image);
 
   //All addAndMakeVisible objects have to be initialised before here!!
   setSize(900, 500);
@@ -56,9 +56,9 @@ void SSR::Source_frame_gui_component::paint(juce::Graphics& graphics)
   graphics.fillRoundedRectangle(10, 10, getWidth() - 20, getHeight() - 20, 10.0f);
 }
 
-void SSR::Source_frame_gui_component::move_source(const float x, const float y)
+void SSR::Source_frame_gui_component::move_source(const float discrete_x_position, const float discrete_y_position)
 {
-  source_pad_and_controls->move_source(x, y);
+  source_pad_and_controls->move_source(discrete_x_position, discrete_y_position);
 }
 
 void SSR::Source_frame_gui_component::set_x_axis_slider_value(const double value)
