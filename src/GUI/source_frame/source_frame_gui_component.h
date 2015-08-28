@@ -86,34 +86,132 @@ namespace SSR
     void paint(juce::Graphics& graphics) override;
 
     /**
+     * Moves the source to the transferred X (discrete_x_position) and
+     * Y (discrete_y_position) position.
      *
+     * @see source_pad_and_controls_gui_component.h
+     *
+     * @param   discrete_x_position     The discrete X position to which the
+     *                                  source shall be moved.
+     *
+     * @param   discrete_y_position     The discrete Y position to which the
+     *                                  source shall be moved.
      */
-    void move_source(const float x, const float y);
+    void move_source(const float discrete_x_position, const float discrete_y_position);
 
+    /**
+     * Sets the current value of the x_axis_slider slider to the transferred
+     * value.
+     *
+     * @see source_pad_and_controls_gui_component.h
+     *
+     * @param           value           The value the x_axis_slider shall be
+     *                                  set to.
+     */
     void set_x_axis_slider_value(const double value);
 
+    /**
+     * Sets the current value of the y_axis_slider slider to the transferred
+     * value.
+     *
+     * @see source_pad_and_controls_gui_component.h
+     *
+     * @param           value           The value the y_axis_slider shall be
+     *                                  set to.
+     */
     void set_y_axis_slider_value(const double value);
 
+    /**
+     * Sets the gain sliders value to the transferred value.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   value           The value to which the gain slider shall be set.
+     */
     void set_gain_slider_value(const float value);
 
+    /**
+     * Sets the selected ID of the model_dropdown to the transferred id.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   id              The ID to which the model_dropdown shall be set.
+     */
     void set_model_selected_id(const int id);
 
+    /**
+     * Sets the selected entry of the jackport_dropdown to the entry equal
+     * to the transferred entry.
+     *
+     * If the transferred entry is unequal to every entry existing in the
+     * jackport_dropdown, an error will be logged.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   entry           The entry which shall be selected by in the
+     *                          jackport_dropdown.
+     */
     void set_jackport_selected_entry(const std::string& entry);
 
+    /**
+     * Sets the mute button toggle state to the transferred state.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   state           The state to which the mute button shall be
+     *                          toggled.
+     */
     void set_mute_button_toggle_state(const bool state);
 
+    /**
+     * Sets the fixed button toggle state to the transferred state.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   state           The state to which the fixed button shall be
+     *                          toggled.
+     */
     void set_fixed_button_toggle_state(const bool state);
 
+    /**
+     * Sets the text of the name_text_editor to the transferred text.
+     *
+     * @see source_parameters_gui_component.h
+     *
+     * @param   text            The text the name_text_editor shall be set to.
+     */
     void set_name_text_editor_text(const juce::String& text);
 
+    /**
+     * Clears all the data of source_dropdown and fills it with the current
+     * available sources and sets the selected source to the current selected
+     * source of the controller.
+     *
+     * @see source_parameters_gui_component.h
+     */
     void reload_source_dropdown();
 
   private:
+
+    /**
+     * The source pad and controls GUI component.
+     */
     std::unique_ptr<SSR::Source_pad_and_controls_gui_component> source_pad_and_controls;
+
+    /**
+     * All source parameters.
+     */
     std::unique_ptr<SSR::Source_parameters_gui_component> source_parameters;
-    std::unique_ptr<juce::ImageComponent> ssr_image_component;
-    std::unique_ptr<juce::Image> ssr_image;
-    std::unique_ptr<juce::File> ssr_image_file;
+
+    /**
+     * The image GUI component for the SSR logo.
+     */
+    std::unique_ptr<juce::ImageComponent> ssr_logo_gui_component;
+
+    /**
+     * The SSR logo image.
+     */
+    std::unique_ptr<juce::Image> ssr_logo_image;
 
   };
 
