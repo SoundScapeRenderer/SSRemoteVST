@@ -78,8 +78,6 @@ namespace SSR
      * Returns the current selected source.
      *
      * @return the current selected source.
-     *
-     * @author Florian Willich
      */
     SSR::Source get_source() const;
 
