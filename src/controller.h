@@ -182,6 +182,47 @@ public:
   void processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages) override;
 
   /**
+   * Currently returns channelIndex + 1.
+   *
+   * JUCE Doc.:
+   *
+   * Returns the name of one of the processor's input channels.
+   *
+   * The processor might not supply very useful names for channels, and this
+   * might be something like "1", "2", "left", "right", etc.
+   *
+   * @see http://learn.juce.com/doc/classAudioProcessor.php#a7b08160f29557954c03fd27c07a7380c
+   *
+   * @param     channelIndex    The index of the channel which input name shall
+   *                            be returned.
+   *
+   * @return channelIndex + 1.
+   **/
+  const String getInputChannelName(int channelIndex) const override;
+
+  /**
+   * Currently returns channelIndex + 1.
+   *
+   * JUCE Doc.:
+   *
+   * Returns the name of one of the processor's output channels.
+   *
+   * The processor might not supply very useful names for channels, and this
+   * might be something like "1", "2", "left", "right", etc.
+   *
+   * Implemented in AudioProcessorGraph, and
+   * AudioProcessorGraph::AudioGraphIOProcessor.
+   *
+   * @see http://learn.juce.com/doc/classAudioProcessor.php#a13811b9a738bd6e807e186b1f9af7c2c
+   *
+   * @param     channelIndex    The index of the channel which output name shall
+   *                            be returned.
+   *
+   * @return channelIndex + 1
+   **/
+  const String getOutputChannelName(int channelIndex) const override;
+
+  /**
    * This method currently always returns true.
    *
    * JUCE Doc.:
@@ -413,111 +454,315 @@ public:
    **/
   const String getParameterText(int index) override;
 
-  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // The following methods are own declarations
-  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
-
-
-
-
-
-
-
-  virtual void setParameter(int parameterIndex, float newValue) override;
-
-
-
-
+  /**
+   * Sets the parameter indexed by the transferred parameter parameterIndex
+   * to the value of the transferred parameter newValue.
+   *
+   * The parameterIndex values will index the following parameters:
+   *
+   * 0 -> X Position
+   * 1 -> Y Position
+   * 2 -> Gain
+   * 3 -> Orientation !Warning! This parameter is currently only readable.
+   *      Calling this method to set this parameter will not change the
+   *      parameter.
+   * 4 -> Mute
+   * 5 -> Model Point
+   * 6 -> Fixed
+   *
+   * Please see the Source class for more detailed information on the
+   * parameters.
+   *
+   * @see source.h
+   *
+   * Furthermore, this method calls the update_ssr(...) method to update the
+   * SSR with the correlating update specificator.
+   *
+   * @see void update_ssr(SSR::Update_specificator specificator)
+   *
+   * JUCE Doc.:
+   *
+   * The host will call this method to change the value of one of the filter's
+   * parameters.
+   *
+   * The host may call this at any time, including during the audio processing
+   * callback, so the filter has to process this very fast and avoid blocking.
+   *
+   * If you want to set the value of a parameter internally, e.g. from your
+   * editor component, then don't call this directly - instead, use the
+   * setParameterNotifyingHost() method, which will also send a message to the
+   * host telling it about the change. If the message isn't sent, the host
+   * won't be able to automate your parameters properly.
+   *
+   * The value passed will be between 0 and 1.0.
+   *
+   * NOTE! This method will eventually be deprecated! It's recommended that you
+   * use AudioProcessorParameter::setValue() instead.
+   *
+   * @param     parameterIndex  Index of the parameter that shall be set to
+   *                            the newValue.
+   *
+   * @param     newValue        The new value to which the parameter shall be
+   *                            set to.
+   */
+  void setParameter(int parameterIndex, float newValue) override;
 
   /**
-   * Return the input channel name as a JUCE String.
-   **/
-  virtual const String getInputChannelName (int channelIndex) const override;
-
-  /**
-   * Returns the output channel name as a JUCE String.
-   **/
-  virtual const String getOutputChannelName (int channelIndex) const override;
-
-
-
-
-
-
-
-
-
-  /**
+   * Currently returns 1.
+   *
+   * JUCE Doc.:
+   *
    * Returns the number of preset programs the filter supports.
    * The value returned must be valid as soon as this object is created, and must
    * not change over its lifetime. This value shouldn't be less than 1.
    *
-   * @return the number of preset programs the filter supports.
+   * @return    the number of preset programs the filter supports which is
+   *            currently set to 1.
    *
    * @see http://www.juce.com/api/classAudioProcessor.html#a510123768a99f32ff4a23d0458e15e13
    */
-  virtual int getNumPrograms() override;
-
+  int getNumPrograms() override;
 
   /**
+   * Currently returns 0.
+   *
+   * JUCE Doc.:
+   *
    * Returns the number of the currently active program.
    *
-   * @return the number of the currently active program.
+   * @return    the number of the currently active program which is currently
+   *            always 0.
    *
    * @see http://www.juce.com/api/classAudioProcessor.html
    */
-  virtual int getCurrentProgram() override;
+  int getCurrentProgram() override;
 
   /**
-   * JUCE Doc: Called by the host to change the current program.
+   * Since we do no provide any program (only default), this method does not
+   * set the current program to the transferred value of index.
    *
-   * Since we do no provide any program, the set does not set anything...
+   * JUCE Doc:
+   *
+   * Called by the host to change the current program.
+   *
+   * @param     index   The index of the program to which the VST shall be set.
    *
    * @see http://www.juce.com/api/classAudioProcessor.html
    */
-  virtual void setCurrentProgram(int index) override;
+  void setCurrentProgram(int index) override;
 
   /**
-   * JUCE Doc: Must return the name of a given program.
+   * Since we do not provide any program (only default), this method returns
+   * "Default SSRemote VST Program".
    *
-   * Since there is no name of any program, we just return "SSR Scene Automation".
+   * JUCE Doc:
    *
-   * @param 	index 	The index of the program which name shall be returned.
+   * Must return the name of a given program.
    *
-   * @return the name of the given program.
+   * @param     index   The index of the program which name shall be returned.
+   *
+   * @return    the name of the given program by the transferred parameter which
+   *            will always be "Default SSRemote VST Program".
    *
    * @see http://www.juce.com/api/classAudioProcessor.html
    */
-  virtual const juce::String getProgramName(int index) override;
+  const juce::String getProgramName(int index) override;
 
   /**
-   * JUCE Doc: Called by the host to rename a program.
+   * Since we do not provide any program (only default), this method does not
+   * set any program name.
    *
-   * @param
+   * JUCE Doc.:
+   *
+   * Called by the host to rename a program.
+   *
+   * @see http://learn.juce.com/doc/classAudioProcessor.php#accd5bd7b594fbc1a385f7a8b31c7b3f3
+   *
+   * @param     index   The index of the program which name shall be changed.
+   *
+   * @param     newName The new name for the program.
    */
-  virtual void changeProgramName (int index, const String& newName) override;
+  void changeProgramName(int index, const String& newName) override;
 
-  void getStateInformation (MemoryBlock& destData);
-  void setStateInformation (const void* data, int sizeInBytes);
+  /**
+   * TODO: This method must be implemented see issue #10.
+   *
+   * JUCE Doc.:
+   *
+   * The host will call this method when it wants to save the filter's internal
+   * state.
+   *
+   * This must copy any info about the filter's state into the block of memory
+   * provided, so that the host can store this and later restore it using
+   * setStateInformation().
+   *
+   * Note that there's also a getCurrentProgramStateInformation() method, which
+   * only stores the current program, not the state of the entire filter.
+   *
+   * See also the helper function copyXmlToBinary() for storing settings as XML.
+   *
+   * @see getStateInformation Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#a5d79591b367a7c0516e4ef4d1d6c32b2
+   *
+   * @see getCurrentProgramStateInformation Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#aa8f9774ef205e4b19174f2de7664928f
+   *
+   * @see copyXmlToBinary Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#a6d0c1c945bebbc967d187c0f08b42c4b
+   *
+   * @see setStateInformation Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#a6154837fea67c594a9b35c487894df27
+   *
+   */
+  void getStateInformation(MemoryBlock& destData);
 
+  /**
+   * This method must be implemented see issue #11.
+   *
+   * JUCE Doc.:
+   *
+   * This must restore the filter's state from a block of data previously
+   * created using getStateInformation().
+   *
+   * Note that there's also a setCurrentProgramStateInformation() method, which
+   * tries to restore just the current program, not the state of the entire filter.
+   *
+   * See also the helper function getXmlFromBinary() for loading settings as XML.
+   *
+   * @see setStateInformation Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#a6154837fea67c594a9b35c487894df27
+   *
+   * @see setCurrentProgramStateInformation Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#ade2c2df3606218b0f9fa1a3a376440a5
+   *
+   * @see getXmlFromBinary Doc.
+   *      http://learn.juce.com/doc/classAudioProcessor.php#af314980ac708cb8802b48317037e5b5b
+   */
+  void setStateInformation(const void* data, int sizeInBytes);
 
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // The following methods are own declarations
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+  /**
+   * Returns the current selected source.
+   *
+   * @return the current selected source.
+   */
   SSR::Source get_source() const;
-  void set_parameter_source_x_position(const float value);
-  void set_parameter_source_y_position(const float value);
-  void set_parameter_source_gain(const float value, const bool linear);
-  void set_parameter_source_mute(const bool value);
-  void set_parameter_source_model_point(const bool value);
-  void set_parameter_source_fixed(const bool value);
-  void set_parameter_source_name(const std::string value);
-  void set_parameter_source_properties_file(const std::string value);
-  void set_parameter_source_port(const std::string value);
-  bool reset_source(const int source_id);
 
+  /**
+   * Sets the discrete X position of the current selected source to
+   * the transferred position and updates the SSR.
+   *
+   * @param           position        The new discrete X position the
+   *                                  current selected source shall be
+   *                                  set to.
+   */
+  void set_x_position_discrete_of_selected_source(const float position);
+
+  /**
+   * Sets the discrete Y position of the current selected source to
+   * the transferred position and updates the SSR.
+   *
+   * @param           position        The new discrete Y position the
+   *                                  current selected source shall be
+   *                                  set to.
+   */
+  void set_y_position_discrete_of_selected_source(const float position);
+
+  /**
+   * Sets the discrete gain value of the current selected source to the
+   * transferred gain and updates the SSR. The additional transferred
+   * linear value determines whether the gain value is linear (true) or not
+   * (false).
+   *
+   * @param           gain            The new discrete gain the current
+   *                                  selected source shall be set to.
+   *
+   * @param           linear          Determines if the transferred gain
+   *                                  value is linear (true) or not (false).
+   */
+  void set_gain_discrete_of_selected_source(const float gain, const bool linear);
+
+  /**
+   * Sets the discrete mute value of the current selected source to the
+   * transferred mute value and updates the SSR.
+   *
+   * @param           mute            The new value the current selected
+   *                                  source parameter mute shall be set to.
+   */
+  void set_mute_discrete_of_selected_source(const bool mute);
+
+  /**
+   * Sets the discrete source model of the current selected source where the
+   * transferred parameter point determines whether it is a point source
+   * (true) or a plane source (false) and updates the SSR.
+   *
+   * @param           point           Determines whether the source is point
+   *                                  (true) or plane (false).
+   */
+  void set_model_point_discrete_of_selected_source(const bool point);
+
+  /**
+   * Sets the discrete value of the current selected source where the
+   * transferred parameter fixed determines whether the source is
+   * fixed (true) or movable (false) and updates the SSR.
+   *
+   * @param           fixed           Determines whether the source shall
+   *                                  be fixed (true) or movable (false).
+   */
+  void set_fixed_discrete_of_selected_source(const bool fixed);
+
+  /**
+   * Sets the name of the current selected source to the transferred
+   * parameter name and updates the SSR.
+   *
+   * @param           name            The name the current selected source
+   *                                  shall be set to.
+   */
+  void set_name_of_selected_source(const std::string name);
+
+  /**
+   * Sets the properties file of the current selected source to the
+   * transferred parameter prop_file and updates the SSR.
+   *
+   * @param           prop_file       The properties file the current
+   *                                  selected source shall be set to.
+   */
+  void set_properties_file_of_selected_source(const std::string value);
+
+  /**
+   * Sets the jackport of the current selected source to the transferred
+   * parameter jackport and updates the SSR.
+   *
+   * @param           jackport        The jackport the current selected
+   *                                  source shall be set to.
+   */
+  void set_jackport_of_selected_source(const std::string jackport);
+
+  /**
+   * Changes the current selected source to the source with the transferred
+   * id and returns if the selection was successful.
+   *
+   * @param           id              The id of the source that shall be
+   *                                  selected.
+   *
+   * @return          true if the selection was successful, false otherwise.
+   */
+  bool select_source(const int id);
+
+  /**
+   * Creates a new source with a random generated name which will be composed
+   * as follows:
+   *
+   * SourceXXXXX
+   *
+   * X -> Any character from A to Z (capitalized).
+   *
+   * After creating the new source, the new source will be the current selected
+   * source and the SSR will be updated.
+   */
   void new_source();
 
   /**
@@ -529,48 +774,78 @@ public:
    **/
   bool read_ssr_incoming_message();
 
+  /**
+   * This method will try to connect to the SSR with the data given by the
+   * XML config file (which data will be loaded every time this method is
+   * called).
+   */
   void connect();
 
   /**
    * Returns true if the connection to SSR is established.
+   *
+   * @return true if the connection to SSR is established.
    **/
   bool is_connected_to_ssr() const;
 
   /**
    * Returns true if the UI needs update.
+   *
+   * @return true if the UI needs update.
    **/
   bool ui_needs_update() const;
 
   /**
-   * Sets the ui_update_flag on true for requesting update.
+   * Sets the ui_update_flag to true for requesting a UI update.
    **/
   void ui_request_update();
 
   /**
-   * Clears the ui_update_flag by setting it on false.
+   * Clears the ui_update_flag by setting it tp false.
    **/
   void ui_clear_update_flag();
 
   /**
-   * This method returns all Jack Ports specified by the flags.
+   * This method returns all Jack Ports specified by the flags. If there are no
+   * jackports available, the method will return a vector with one element
+   * which content is "No Jackport available.".
+   *
+   * Furthermore, the method will log an error an error occurs.
    *
    * @param    flags       Flags to specify which Jack Ports shall be returned.
+   *                       See JackPortFlags (jack/types.h) for all flags you can
+   *                       set.
    *
    * @return   all jackports specified by the flags.
    **/
   std::vector<std::string> get_all_jack_ports(const unsigned long flags);
 
+  /**
+   * This method will update the SSR by composing a string with all information
+   * needed for updating the parameters specified by the specificator.
+   *
+   * Finally, the method will send the new composed message to the SSR.
+   *
+   * @see update_specificator.h
+   * @see ssr_requester.h
+   *
+   * @param     specificator    The specificator specifying the parameters
+   *                            which shall be updated.
+   */
   void update_ssr(SSR::Update_specificator specificator);
 
+  /**
+   * Creates a vector with the sources ids and names and returns it.
+   *
+   * @return the sources ids and names.
+   */
   std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > get_source_ids_and_names();
 
 private:
 
-
-
-
   /**
-   * If message_from_ssr_complete = true, the message will be send to the ssr.
+   * Sends the message_to_ssr to the SSR and sets the message_to_ssr to empty
+   * string.
    **/
   void send_message_to_ssr();
 
@@ -591,12 +866,11 @@ private:
    */
   boost::filesystem::path get_config_file_path();
 
-  std::map<int, std::string> extract_source_names(std::string& message);
-
   /**
    * This class is declared non copy able.
    */
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Controller)
+
 private:
 
   /**
@@ -632,12 +906,15 @@ private:
    */
   std::unique_ptr<SSR::SSR_requester> requester;
 
-
+  /**
+   * The config for this VST Plugin.
+   */
   std::unique_ptr<SSR::Config> config;
 
+  /**
+   * The scene with all related sources and additional information.
+   */
   std::unique_ptr< SSR::Scene > scene;
-
-  //==============================================================================
 
 };
 
