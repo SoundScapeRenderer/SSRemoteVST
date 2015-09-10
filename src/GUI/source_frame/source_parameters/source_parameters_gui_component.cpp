@@ -57,9 +57,9 @@ void SSR::Source_parameters_gui_component::buttonClicked(juce::Button* buttonTha
 {
 
   if (buttonThatWasClicked == mute_button.get()) {
-      getProcessor()->set_parameter_source_mute(mute_button->getToggleState());
+      getProcessor()->set_mute_discrete_of_selected_source(mute_button->getToggleState());
   } else if (buttonThatWasClicked == fixed_button.get()) {
-      getProcessor()->set_parameter_source_fixed(fixed_button->getToggleState());
+      getProcessor()->set_fixed_discrete_of_selected_source(fixed_button->getToggleState());
   }
 
 }
@@ -68,7 +68,7 @@ void SSR::Source_parameters_gui_component::sliderValueChanged(juce::Slider* slid
 {
 
   if (sliderThatWasMoved == gain_slider.get()) {
-      getProcessor()->set_parameter_source_gain(gain_slider->getValue(), false);
+      getProcessor()->set_gain_discrete_of_selected_source(gain_slider->getValue(), false);
   }
 
 }
@@ -78,13 +78,13 @@ void SSR::Source_parameters_gui_component::comboBoxChanged(juce::ComboBox* combo
 
   if (comboBoxThatHasChanged == jackport_dropdown.get()) {
       std::string selected_port = jackport_dropdown->getText().toStdString();
-      getProcessor()->set_parameter_source_port(selected_port);
+      getProcessor()->set_jackport_of_selected_source(selected_port);
   } else if (comboBoxThatHasChanged == model_dropdown.get()) {
       int set_id = model_dropdown->getSelectedId();
-      getProcessor()->set_parameter_source_model_point(set_id == 1);
+      getProcessor()->set_model_point_discrete_of_selected_source(set_id == 1);
   } else if (comboBoxThatHasChanged == sources_dropdown.get()) {
       int id = sources_dropdown->getSelectedId();
-      getProcessor()->reset_source(id);
+      getProcessor()->select_source(id);
   }
 
 }
@@ -93,7 +93,7 @@ void SSR::Source_parameters_gui_component::textEditorReturnKeyPressed(TextEditor
 {
 
   if (textEditorThatWasChanged.getName() == name_text_editor->getName()) {
-      getProcessor()->set_parameter_source_name(name_text_editor->getText().toStdString());
+      getProcessor()->set_name_of_selected_source(name_text_editor->getText().toStdString());
       name_text_editor_is_changing = false;
   }
 

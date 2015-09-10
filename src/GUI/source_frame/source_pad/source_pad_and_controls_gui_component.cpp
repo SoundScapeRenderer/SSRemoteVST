@@ -70,9 +70,9 @@ void SSR::Source_pad_and_controls_gui_component::sliderValueChanged(juce::Slider
 {
 
   if (sliderThatWasMoved == x_axis_slider.get()) {
-      getProcessor()->set_parameter_source_x_position(x_axis_slider->getValue());
+      getProcessor()->set_x_position_discrete_of_selected_source(x_axis_slider->getValue());
   } else if (sliderThatWasMoved == y_axis_slider.get()) {
-      getProcessor()->set_parameter_source_y_position(y_axis_slider->getValue());
+      getProcessor()->set_y_position_discrete_of_selected_source(y_axis_slider->getValue());
   }
 
 }
