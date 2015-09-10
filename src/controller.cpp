@@ -103,11 +103,6 @@ Controller::~Controller()
 // The following methods are derived from the AudioProcessor base class
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > Controller::get_source_ids_and_names()
-{
-  return scene->get_source_ids_and_names();
-}
-
 const juce::String Controller::getName() const
 {
   return JucePlugin_Name;
@@ -126,6 +121,16 @@ void Controller::releaseResources()
 void Controller::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
 
+}
+
+const juce::String Controller::getInputChannelName(int channelIndex) const
+{
+  return juce::String(channelIndex + 1);
+}
+
+const juce::String Controller::getOutputChannelName(int channelIndex) const
+{
+  return juce::String(channelIndex + 1);
 }
 
 bool Controller::isInputChannelStereoPair(int index) const
@@ -312,107 +317,6 @@ const juce::String Controller::getParameterText(int index)
   return juce::String(parameter_text);
 }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// The following methods are own implementations
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-void Controller::connect()
-{
-  config->load_config_xml_file();
-
-  std::string hostname = config->get_network_config().get_hostname();
-  unsigned int port = config->get_network_config().get_port();
-  unsigned int timeout_in_ms = config->get_network_config().get_timeout();
-
-  tcp_connection = std::unique_ptr<SSR::TCP_connection>(new SSR::TCP_connection(hostname, port, timeout_in_ms, '\0'));
-
-  tcp_connection->connect();
-}
-
-SSR::Source Controller::get_source() const
-{
-  return scene->get_source();
-}
-
-void Controller::set_parameter_source_x_position(const float value)
-{
-  scene->set_x_position_discrete_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_y_position(const float value)
-{
-  scene->set_y_position_discrete_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_gain(const float value, const bool linear)
-{
-  scene->set_gain_discrete_of_selected_source(value, linear);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::gain));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_mute(const bool value)
-{
-  scene->set_mute_discrete_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::mute));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_model_point(const bool value)
-{
-  scene->set_model_point_discrete_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::model));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_fixed(const bool value)
-{
-  scene->set_fixed_discrete_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::fixed));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_name(const std::string value)
-{
-  scene->set_name_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::name));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_properties_file(const std::string value)
-{
-  scene->set_properties_file_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::properties_file));
-  ui_update_flag = true;
-}
-
-void Controller::set_parameter_source_port(const std::string value)
-{
-  scene->set_jackport_of_selected_source(value);
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::port));
-  ui_update_flag = true;
-}
-
-bool Controller::reset_source(const int source_id)
-{
-  return scene->select_source(source_id);
-}
-
-void Controller::new_source()
-{
-  unsigned int id = scene->new_source("Source" + SSR::Random_machine::get_instance()->generate_string(5, 'A', 'Z'));
-  update_ssr(SSR::Update_specificator(SSR::Update_specificator::new_source));
-}
-
-//==============================================================================
-
-
-
-
 void Controller::setParameter(int parameterIndex, float newValue)
 {
   typedef SSR::Source::parameter source_parameter;
@@ -462,31 +366,6 @@ void Controller::setParameter(int parameterIndex, float newValue)
   update_ssr(specificator);
 }
 
-
-
-
-
-const juce::String Controller::getInputChannelName (int channelIndex) const
-{
-  return juce::String(channelIndex + 1);
-}
-
-const juce::String Controller::getOutputChannelName (int channelIndex) const
-{
-  return juce::String (channelIndex + 1);
-}
-
-
-
-
-
-
-
-
-
-
-
-
 int Controller::getNumPrograms()
 {
   return 1;
@@ -497,10 +376,9 @@ int Controller::getCurrentProgram()
   return 0;
 }
 
-void Controller::setCurrentProgram (int index)
+void Controller::setCurrentProgram(int index)
 {
-  //TODO: Think about it...
-  //Since there is no program you can not set any...
+  //There is no program to set.
 }
 
 const juce::String Controller::getProgramName (int index)
@@ -508,23 +386,13 @@ const juce::String Controller::getProgramName (int index)
   return juce::String("Default SSRemote VST Program");
 }
 
-void Controller::changeProgramName (int index, const juce::String& newName)
+void Controller::changeProgramName(int index, const juce::String& newName)
 {
-  //Nothing to set....
+  //There is no program which name can be changed.
 }
 
-//==============================================================================
-
-//==============================================================================
-
-
-
-
-//==============================================================================
 void Controller::getStateInformation(MemoryBlock& destData)
 {
-  //TODO: Think about this method!
-
   /**
   XmlElement root("Root");
   std::unique_ptr<XmlElement> el(new XmlElement(""));
@@ -555,14 +423,153 @@ void Controller::getStateInformation(MemoryBlock& destData)
   **/
 }
 
-void Controller::setStateInformation (const void* data, int sizeInBytes)
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// The following methods are own implementations
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SSR::Source Controller::get_source() const
 {
-  //TODO: Implement this method!
+  return scene->get_source();
 }
 
-//==============================================================================
-// PUT YOUR OWN PUBLIC STUFF HERE! 
-//==============================================================================
+void Controller::set_x_position_discrete_of_selected_source(const float position)
+{
+  scene->set_x_position_discrete_of_selected_source(position);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
+  ui_update_flag = true;
+}
+
+void Controller::set_y_position_discrete_of_selected_source(const float position)
+{
+  scene->set_y_position_discrete_of_selected_source(position);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::position));
+  ui_update_flag = true;
+}
+
+void Controller::set_gain_discrete_of_selected_source(const float gain, const bool linear)
+{
+  scene->set_gain_discrete_of_selected_source(gain, linear);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::Specificators::gain));
+  ui_update_flag = true;
+}
+
+void Controller::set_mute_discrete_of_selected_source(const bool mute)
+{
+  scene->set_mute_discrete_of_selected_source(mute);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::mute));
+  ui_update_flag = true;
+}
+
+void Controller::set_model_point_discrete_of_selected_source(const bool point)
+{
+  scene->set_model_point_discrete_of_selected_source(point);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::model));
+  ui_update_flag = true;
+}
+
+void Controller::set_fixed_discrete_of_selected_source(const bool fixed)
+{
+  scene->set_fixed_discrete_of_selected_source(fixed);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::fixed));
+  ui_update_flag = true;
+}
+
+void Controller::set_name_of_selected_source(const std::string name)
+{
+  scene->set_name_of_selected_source(name);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::name));
+  ui_update_flag = true;
+}
+
+void Controller::set_properties_file_of_selected_source(const std::string value)
+{
+  scene->set_properties_file_of_selected_source(value);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::properties_file));
+  ui_update_flag = true;
+}
+
+void Controller::set_jackport_of_selected_source(const std::string jackport)
+{
+  scene->set_jackport_of_selected_source(jackport);
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::port));
+  ui_update_flag = true;
+}
+
+bool Controller::select_source(const int id)
+{
+  return scene->select_source(id);
+}
+
+void Controller::new_source()
+{
+  unsigned int id = scene->new_source("Source" + SSR::Random_machine::get_instance()->generate_string(5, 'A', 'Z'));
+  update_ssr(SSR::Update_specificator(SSR::Update_specificator::new_source));
+  ui_update_flag = true;
+}
+
+bool Controller::read_ssr_incoming_message()
+{
+  int wait_in_msec = 0;
+
+  bool message_incoming = false;
+
+  while (tcp_connection->get_message(message_from_ssr, &wait_in_msec)) {
+      scene->interpret_xml_message(*message_from_ssr);
+      ui_update_flag = true;
+      message_incoming = true;
+  }
+
+  return message_incoming;
+}
+
+void Controller::connect()
+{
+  config->load_config_xml_file();
+
+  std::string hostname = config->get_network_config().get_hostname();
+  unsigned int port = config->get_network_config().get_port();
+  unsigned int timeout_in_ms = config->get_network_config().get_timeout();
+
+  tcp_connection = std::unique_ptr<SSR::TCP_connection>(new SSR::TCP_connection(hostname, port, timeout_in_ms, '\0'));
+
+  tcp_connection->connect();
+}
+
+bool Controller::is_connected_to_ssr() const
+{
+  return tcp_connection->is_connected();
+}
+
+bool Controller::ui_needs_update() const
+{
+  return ui_update_flag;
+}
+
+void Controller::ui_request_update()
+{
+  ui_update_flag = true;
+}
+
+void Controller::ui_clear_update_flag()
+{
+  ui_update_flag = false;
+}
+
+std::vector<std::string> Controller::get_all_jack_ports(const unsigned long flags)
+{
+  std::vector<std::string> available_jack_ports;
+  available_jack_ports.push_back(std::string("No Jackport available."));
+
+  try {
+      available_jack_ports = jack_client->look_up_jack_ports(flags);
+  } catch (SSR::jack_server_not_running_exception& jsnre) {
+      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, jsnre.what(), LOG_TO_FILE);
+  } catch (std::exception& e) {
+      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, e.what(), LOG_TO_FILE);
+  }
+
+  return available_jack_ports;
+}
 
 void Controller::update_ssr(SSR::Update_specificator specificator)
 {
@@ -666,60 +673,13 @@ void Controller::update_ssr(SSR::Update_specificator specificator)
   send_message_to_ssr();
 }
 
-bool Controller::read_ssr_incoming_message()
+std::shared_ptr< std::vector< std::pair<unsigned int, std::string> > > Controller::get_source_ids_and_names()
 {
-  int wait_in_msec = 0;
-
-  bool message_incoming = false;
-
-  while (tcp_connection->get_message(message_from_ssr, &wait_in_msec)) {
-      scene->interpret_xml_message(*message_from_ssr);
-      ui_update_flag = true;
-      message_incoming = true;
-  }
-
-  return message_incoming;
-}
-
-
-bool Controller::is_connected_to_ssr() const 
-{
-  return tcp_connection->is_connected();
-}
-
-bool Controller::ui_needs_update() const 
-{
-  return ui_update_flag;
-};
-
-void Controller::ui_request_update() 
-{
-  ui_update_flag = true;
-};
-
-void Controller::ui_clear_update_flag() 
-{
-  ui_update_flag = false;
-};
-
-std::vector<std::string> Controller::get_all_jack_ports(const unsigned long flags)
-{
-  std::vector<std::string> available_jack_ports;
-  available_jack_ports.push_back(std::string("No Jackport available."));
-
-  try {
-      available_jack_ports = jack_client->look_up_jack_ports(flags);
-  } catch (SSR::jack_server_not_running_exception& jsnre) {
-      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, jsnre.what(), LOG_TO_FILE);
-  } catch (std::exception& e) {
-      SSR::Logger::get_instance()->log(SSR::Logger::Level::ERROR, e.what(), LOG_TO_FILE);
-  }
-
-  return available_jack_ports;
+  return scene->get_source_ids_and_names();
 }
 
 //==============================================================================
-// PUT YOUR OWN PRIVATE STUFF HERE! 
+// PRIVATE METHODS
 //==============================================================================
 
 void Controller::send_message_to_ssr()
@@ -735,7 +695,6 @@ boost::filesystem::path Controller::get_config_file_path()
   namespace bfs = boost::filesystem;
   bfs::path config_file_location;
 
-  //Try to get env var SSREMOTE_CONFIG for config file path, else get HOME path
   try {
       config_file_location = SSR::helper::get_environment_variable("SSREMOTE_VST");
   } catch (std::invalid_argument& iae) {
@@ -756,3 +715,30 @@ boost::filesystem::path Controller::get_config_file_path()
 
   return config_file_path;
 }
+
+
+void Controller::setStateInformation (const void* data, int sizeInBytes)
+{
+  //TODO: Implement this method!
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
