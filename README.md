@@ -2,6 +2,18 @@
 
 This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SSR)](http://spatialaudio.net/ssr/) scenes from a [Digital Audio Workstation (DAW)](https://en.wikipedia.org/wiki/Digital_audio_workstation).
 
+The SSRemote VST plugin was developed for Linux and tested with the [Ardour DAW](http://ardour.org/). Since the Plugin was developed in the light of cross-platform compatibility it might also run under other Operating Systems (OS) and DAWs.
+
+Since this is a <b>experimental project</b>, any contributions are very much welcome!
+
+## Running the VST Plugin
+
+To remotly control the SSR scene from the Plugin the user has to do the following:
+
+1. Start the JACK Audio Connection Kit
+2. Start the SSR and load a scene
+3. Start the DAW and load the SSRemote VST Plugin
+
 ## Description of the GUI
 
 The VST Plugins GUI is generally splitted in two sections. The <b>General Controls</b> section and the <b>Source Controls</b> section. 
