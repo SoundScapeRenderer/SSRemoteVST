@@ -1,5 +1,6 @@
 # SSRemote VST
-This application addresses the need for the automation of SoundScapeRenderer (SSR) scenes. 
+
+This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SSR)](http://spatialaudio.net/ssr/) scenes from a [Digital Audio Workstation (DAW)](https://en.wikipedia.org/wiki/Digital_audio_workstation).
 
 ## License
 
@@ -7,13 +8,16 @@ GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
 Copyright © 2015<br/>
-Quality and Usability Lab
-Berlin Institute of Technology
-http://www.qu.tu-berlin.de/
+Quality and Usability Lab<br7/>
+Berlin Institute of Technology<br/>
+http://www.qu.tu-berlin.de/<br/>
 
 For more detailed information, please read the license.txt in the root directory.
 
+# Installation
+
 ## Environment Variables
+
 Please set the following environment variables described as follows:
 
 The folder where your VST3 SDK (Steinberg) is located your mashine:
