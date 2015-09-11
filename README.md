@@ -1,9 +1,12 @@
 # SSRemote VST
-This application addresses the need for the automation of SoundScapeRenderer (SSR) scenes.
+This application addresses the need for the automation of SoundScapeRenderer (SSR) scenes. 
 
 ## License
 
-Copyright © 2015 
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright © 2015<br/>
 Quality and Usability Lab
 Berlin Institute of Technology
 http://www.qu.tu-berlin.de/
