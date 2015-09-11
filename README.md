@@ -98,3 +98,14 @@ The folder where the JUCE library code is located in the SSRemote VST folder (du
 ```bash
 export JUCE_LIB_CODE=/path/to/ssremote_vst/JUCE
 ```
+
+## Dependencies
+
+The Plugin uses the [C++11 Standard](https://en.wikipedia.org/wiki/C%2B%2B11) which has to be supported by your compiler (e.g. at least GCC 4.7).
+
+The following libraries are used:
+
++ Steinberg VST
++ JUCE (currently located in the repository)
++ Boost C++ Library
++ Jack-Audio-Connection-Kit
