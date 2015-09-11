@@ -44,13 +44,13 @@ The contents of the markups host, port and timeout are just examples which the u
 
 Please set the following environment variables described as follows:
 
-The folder where your VST3 SDK (Steinberg) is located your mashine:
+The folder where your VST3 SDK (Steinberg) is located in your file system:
 
 ```bash
 export VST3_SDK=/path/to/VST3SDK
 ```
 
-The folder where the SSRemote VST is localted on your mashine:
+The folder where the SSRemote VST is located in your file system:
 
 ```bash
 export SSREMOTE_VST=/path/to/ssremote_vst
