@@ -31,6 +31,14 @@ The VST Plugins GUI is generally splitted in two sections. The <b>General Contro
 |X Position |Slider     |controller for the X position of the source|
 |Y Position |Slider     |controller for the Y position of the source|
 
+## Logfiles
+
+All logs of the Plugin will be written in the ```log.txt``` in the root directory and will look as follows:
+
+```
+[YYYY-MM-DD HH:mm:SS] [<LOGTYPE>] <Log text>
+```
+
 ## License
 
 [GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/gpl-3.0.de.html)<br/>
