@@ -4,7 +4,7 @@ This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SS
 
 The SSRemote VST plugin was developed for Linux and tested with the [Ardour DAW](http://ardour.org/). Since the Plugin was developed in the light of cross-platform compatibility it might also run under other Operating Systems (OS) and DAWs.
 
-Since this is a <b>experimental project</b>, any contributions are very much welcome!
+This currently is a <b>experimental project</b>. Any contributions are very much welcome!
 
 ## Running the VST Plugin
 
