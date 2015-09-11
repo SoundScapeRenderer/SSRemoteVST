@@ -16,6 +16,30 @@ For more detailed information, please read the license.txt in the root directory
 
 # Installation
 
+## Config File
+
+The VST Plugin requires a config file to successfully establish a TCP/IP connection to the SSR. The user has to create a file called <b>ssremote_config.xml</b> with the following content: 
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <network>
+    <host>localhost</host>
+    <port>4711</port>
+    <timeout>1000</timeout>
+  </network>
+</config>
+```
+
+| Markup | Description |
+| ------:|:------------|
+|network|the network configuration|
+|host   |the host on which the SSR is running|
+|port   |the port on which the SSR is listening for incoming TCP/IP requests|
+|timeout|the time in milliseconds the VST Plugin waits for an answer by the SSR|
+
+The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
+
 ## Environment Variables
 
 Please set the following environment variables described as follows:
