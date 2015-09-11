@@ -31,6 +31,17 @@ The VST Plugins GUI is generally splitted in two sections. The <b>General Contro
 |X Position |Slider     |controller for the X position of the source|
 |Y Position |Slider     |controller for the Y position of the source|
 
+## Automatable Parameters
+
+The Host (DAW) is able to automate the following parameters:
+
++ X Position
++ Y Position
++ Gain
++ Mute
++ Model
++ Fixed
+
 ## Logfiles
 
 All logs of the Plugin will be written in the ```log.txt``` in the root directory and will look as follows:
