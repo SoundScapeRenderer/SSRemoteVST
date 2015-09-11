@@ -4,7 +4,7 @@ This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SS
 
 ## License
 
-GNU GENERAL PUBLIC LICENSE
+[GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/gpl-3.0.de.html)<br/>
 Version 3, 29 June 2007
 
 Copyright © 2015<br/>
