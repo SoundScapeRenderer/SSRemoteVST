@@ -21,81 +21,18 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   
   For installing the Steinberg VST SDK checkout the [Steinberg VST SDK Wiki Page](https://github.com/QULab/SSRemoteVST/wiki/Steinberg-VST).
 
-3. Install the Boost Libs
+3. Install several dependencies 
 
-  The SSRemote VST Plugin uses the Boost Libraries. In the most cases it might suffice to install the boost-devel package of your Linux distribution. For example:
-  
-  ```bash
-  # DNF Package Manager
-  sudo dnf install boost-devel
-  
-  # yum Package Manager
-  sudo yum install boost-devel
-  
-  # apt-get Package Manager
-  sudo apt-get install boost-devel
-  ```
-  
-4. Install OpenGL
-  
-  The JUCE Framework uses OpenGL for the GUI. Please install the latest OpenGL Development package of your distribution. FOr Example
+  The SSRemote VST Plugin uses several external libraries. The following is a list of possible dependencies you may have to solve befor compiling: the
 
-  ```bash
-  # DNF Package Manager
-  sudo dnf install freeglut-devel
-  
-  # yum Package Manager
-  sudo yum install freeglut-devel
-  
-  # apt-get Package Manager
-  sudo apt-get install freeglut-devel
-  ```
-5. Install the Jack Audio Connection Kit
-  
-  The SSRemote VST Plguin uses the Jack Audio Connection Kit. Please install the latest Jack Audio Connection Kit Development package of your distribution. For Example:
+  * Boost Libraries (boost-devel)
+  * OpenGL (install freeglut-devel)
+  * Jack Audio Connection Kit (jack-audio-connection-kit-devel)
+  * ALSA Libraries (alsa-lib-devel)
+  * freetype Libraries (freetype-devel)
+  * X11 Libraries (libX11-devel, libXinerama-devel)
 
-  ```bash
-  # DNF Package Manager
-  sudo dnf install jack-audio-connection-kit-devel
-  
-  # yum Package Manager
-  sudo yum install jack-audio-connection-kit-devel
-  
-  # apt-get Package Manager
-  sudo apt-get install jack-audio-connection-kit-devel
-  ```
-  
-6. Install the ALSA Lib 
-
-  The JUCE Framework uses the ALSA Libraries. Please install the latest ALSA Development package of your distribution. For Example: 
-
-  ```bash
-  # DNF Package Manager
-  sudo dnf install alsa-lib-devel
-  
-  # yum Package Manager
-  sudo yum install alsa-lib-devel
-  
-  # apt-get Package Manager
-  sudo apt-get install alsa-lib-devel
-  ```
-  
-6. Install the freetype Lib 
-
-  The JUCE Framework uses the freetype Libraries. Please install the latest freetype Development package of your distribution. For Example: 
-
-  ```bash
-  # DNF Package Manager
-  sudo dnf install freetype-devel
-  
-  # yum Package Manager
-  sudo yum install freetype-devel
-  
-  # apt-get Package Manager
-  sudo apt-get install freetype-devel
-  ```
-
-* Set the environment variables
+4. Set the environment variables
 
   Please set the following environment variables described as follows:
 
