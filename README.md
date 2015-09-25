@@ -23,25 +23,28 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
 
 3. Set the environment variables
 
-Please set the following environment variables described as follows:
+  Please set the following environment variables described as follows:
 
-The folder where your VST3 SDK (Steinberg) is located in your file system:
+  The directory/location of the Steinberg VST3 SDK:
+  
+  ```bash
+  # Steinberg VST3 Audio Plug-Ins SDK
+  export VST3_SDK=/path/to/VST3SDK
+  ```
 
-```bash
-export VST3_SDK=/path/to/VST3SDK
-```
+  The directory/location of the SSRemote VST:
 
-The folder where the SSRemote VST is located in your file system:
+  ```bash
+  # SSRemote VST
+  export SSREMOTE_VST=/path/to/ssremote_vst
+  ```
 
-```bash
-export SSREMOTE_VST=/path/to/ssremote_vst
-```
-
-The folder where the JUCE library code is located in the SSRemote VST folder (due to the fact, that the JUCE library includes ```"AppConfig.h"``` for example, this environment variable has to be set as described!):
-
-```bash
-export JUCE_LIB_CODE=/path/to/ssremote_vst/JUCE
-```
+  The directory/location of the JUCE Framework located in the SSRemote VST::
+  
+  ```bash
+  # SSRemote VST JUCE Framework
+  export JUCE_LIB_CODE=$SSREMOTE_VST/JUCE
+  ```
 
 ## Config File
 
