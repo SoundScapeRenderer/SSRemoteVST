@@ -21,7 +21,22 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   
   For installing the Steinberg VST SDK checkout the [Steinberg VST SDK Wiki Page](https://github.com/QULab/SSRemoteVST/wiki/Steinberg-VST).
 
-3. Set the environment variables
+3. Install the Boost Libs
+
+  The SSRemote VST Plugin uses the Boost Libraries. In the most cases it might suffice to install the boost-devel package of your Linux distribution. For example:
+  
+  ```bash
+  # DNF Package Manager
+  sudo dnf install boost-devel
+  
+  # yum Package Manager
+  sudo yum install boost-devel
+  
+  # apt-get Package Manager
+  sudo apt-get install boost-devel
+  ```
+  
+4. Set the environment variables
 
   Please set the following environment variables described as follows:
 
