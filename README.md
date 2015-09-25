@@ -58,8 +58,24 @@ The following is a installation guide written for Linux Distributions. The syste
   # SSRemote VST JUCE Framework
   export JUCE_LIB_CODE=$SSREMOTE_VST/JUCE
   ```
+5. Compile the SSRemote VST Plugin
 
-## Config File
+  Go to the folder of the SSRemote VST and compile as follows:
+
+  ```bash
+  # go to the SSREmote VST folder
+  cd $SSREMOTE_VST
+
+  # go to the linux build folder
+  cd builds/linux
+
+  # compile
+  make
+  ```
+  
+Congratulations! You successfully compiled the SSRemote VST Plugin!
+
+# Configuration File
 
 The VST Plugin requires a config file to successfully establish a TCP/IP connection to the SSR. The user has to create a file called <b>ssremote_config.xml</b> with the following content: 
 
