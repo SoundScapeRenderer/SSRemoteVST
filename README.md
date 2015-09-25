@@ -36,7 +36,22 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   sudo apt-get install boost-devel
   ```
   
-4. Set the environment variables
+4. Install OpenGL
+  
+  The JUCE Framework uses OpenGL for the GUI. Please install the latest OpenGL Development package of your distribution. FOr Example
+
+  ```bash
+  # DNF Package Manager
+  sudo dnf install freeglut-devel
+  
+  # yum Package Manager
+  sudo yum install freeglut-devel
+  
+  # apt-get Package Manager
+  sudo apt-get install freeglut-devel
+  ```
+  
+5. Set the environment variables
 
   Please set the following environment variables described as follows:
 
