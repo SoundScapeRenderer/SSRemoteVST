@@ -76,6 +76,38 @@ For more detailed information, please read the license.txt in the root directory
 
 # Installation
 
+1. Clone the VST Plugin repository from Github:
+
+```shell
+# HTTPS
+git clone https://github.com/QULab/SSRemoteVST.git
+
+# SSH
+git clone git@github.com:QULab/SSRemoteVST.git
+```
+
+2. Set the environment variables
+
+Please set the following environment variables described as follows:
+
+The folder where your VST3 SDK (Steinberg) is located in your file system:
+
+```bash
+export VST3_SDK=/path/to/VST3SDK
+```
+
+The folder where the SSRemote VST is located in your file system:
+
+```bash
+export SSREMOTE_VST=/path/to/ssremote_vst
+```
+
+The folder where the JUCE library code is located in the SSRemote VST folder (due to the fact, that the JUCE library includes ```"AppConfig.h"``` for example, this environment variable has to be set as described!):
+
+```bash
+export JUCE_LIB_CODE=/path/to/ssremote_vst/JUCE
+```
+
 ## Config File
 
 The VST Plugin requires a config file to successfully establish a TCP/IP connection to the SSR. The user has to create a file called <b>ssremote_config.xml</b> with the following content: 
@@ -100,27 +132,7 @@ The VST Plugin requires a config file to successfully establish a TCP/IP connect
 
 The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
 
-## Environment Variables
 
-Please set the following environment variables described as follows:
-
-The folder where your VST3 SDK (Steinberg) is located in your file system:
-
-```bash
-export VST3_SDK=/path/to/VST3SDK
-```
-
-The folder where the SSRemote VST is located in your file system:
-
-```bash
-export SSREMOTE_VST=/path/to/ssremote_vst
-```
-
-The folder where the JUCE library code is located in the SSRemote VST folder (due to the fact, that the JUCE library includes ```"AppConfig.h"``` for example, this environment variable has to be set as described!):
-
-```bash
-export JUCE_LIB_CODE=/path/to/ssremote_vst/JUCE
-```
 
 ## Dependencies
 
