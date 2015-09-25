@@ -8,7 +8,7 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
 
 # Installation
 
-Please read the installation guide.
+Please read the [installation guide](https://github.com/QULab/SSRemoteVST/blob/manual/INSTALLATION.md).
 
 # Configuration File
 
