@@ -79,6 +79,21 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   # apt-get Package Manager
   sudo apt-get install alsa-lib-devel
   ```
+  
+6. Install the freetype Lib 
+
+  The JUCE Framework uses the freetype Libraries. Please install the latest freetype Development package of your distribution. For Example: 
+
+  ```bash
+  # DNF Package Manager
+  sudo dnf install freetype-devel
+  
+  # yum Package Manager
+  sudo yum install freetype-devel
+  
+  # apt-get Package Manager
+  sudo apt-get install freetype-devel
+  ```
 
 * Set the environment variables
 
