@@ -64,8 +64,23 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   # apt-get Package Manager
   sudo apt-get install jack-audio-connection-kit-devel
   ```
+  
+6. Install the ALSA Lib 
 
-6. Set the environment variables
+  The JUCE Framework uses the ALSA Libraries. Please install the latest ALSA Development package of your distribution. For Example: 
+
+  ```bash
+  # DNF Package Manager
+  sudo dnf install alsa-lib-devel
+  
+  # yum Package Manager
+  sudo yum install alsa-lib-devel
+  
+  # apt-get Package Manager
+  sudo apt-get install alsa-lib-devel
+  ```
+
+* Set the environment variables
 
   Please set the following environment variables described as follows:
 
