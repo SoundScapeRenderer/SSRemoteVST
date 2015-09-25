@@ -78,13 +78,13 @@ For more detailed information, please read the license.txt in the root directory
 
 1. Clone the VST Plugin repository from Github:
 
-```shell
-# HTTPS
-git clone https://github.com/QULab/SSRemoteVST.git
+  ```shell
+  # HTTPS
+  git clone https://github.com/QULab/SSRemoteVST.git
 
-# SSH
-git clone git@github.com:QULab/SSRemoteVST.git
-```
+  # SSH
+  git clone git@github.com:QULab/SSRemoteVST.git
+  ```
 
 2. Set the environment variables
 
