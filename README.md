@@ -19,7 +19,7 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   ```
 2. Install the Steinberg VST SDK
   
-  For installing the Steinberg VST SDK checkout the (Wiki Page)[https://github.com/QULab/SSRemoteVST/wiki/Steinberg-VST].
+  For installing the Steinberg VST SDK checkout the [Steinberg VST SDK Wiki Page](https://github.com/QULab/SSRemoteVST/wiki/Steinberg-VST).
 
 3. Set the environment variables
 
