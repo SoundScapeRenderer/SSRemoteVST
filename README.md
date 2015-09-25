@@ -8,7 +8,9 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
 
 # Installation
 
-The following is a installation guide written for Linux Distributions. The system that was used for testing the guide is [Fedora 22](https://start.fedoraproject.org/). It may help you compiling the SSRemote VST but in no case asserts to claim completness. 
+The following is a installation guide written for Linux Distributions. The system that was used for testing the guide is [Fedora 22](https://start.fedoraproject.org/). It may help you compiling the SSRemote VST but in no case asserts to claim completness.
+
+The Plugin uses the [C++11 Standard](https://en.wikipedia.org/wiki/C%2B%2B11) which has to be supported by your compiler (e.g. at least GCC 4.7). 
 
 1. Clone the VST Plugin repository from Github:
 
@@ -25,10 +27,10 @@ The following is a installation guide written for Linux Distributions. The syste
 
 3. Install several dependencies 
 
-  The SSRemote VST Plugin uses several external libraries. The following is a list of possible dependencies you may have to solve befor compiling: the
+  The SSRemote VST Plugin uses several external libraries. The following is a list of possible dependencies you may have to solve befor compiling:
 
   * Boost Libraries (boost-devel)
-  * OpenGL (install freeglut-devel)
+  * OpenGL (freeglut-devel)
   * Jack Audio Connection Kit (jack-audio-connection-kit-devel)
   * ALSA Libraries (alsa-lib-devel)
   * freetype Libraries (freetype-devel)
@@ -71,6 +73,9 @@ The following is a installation guide written for Linux Distributions. The syste
 
   # compile
   make
+
+  # compile multicore
+  make -j8
   ```
   
 Congratulations! You successfully compiled the SSRemote VST Plugin!
@@ -98,19 +103,6 @@ The VST Plugin requires a config file to successfully establish a TCP/IP connect
 |timeout|the time in milliseconds the VST Plugin waits for an answer by the SSR|
 
 The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
-
-
-
-## Dependencies
-
-The Plugin uses the [C++11 Standard](https://en.wikipedia.org/wiki/C%2B%2B11) which has to be supported by your compiler (e.g. at least GCC 4.7).
-
-The following libraries are used:
-
-+ Steinberg VST
-+ JUCE (currently located in the repository)
-+ Boost C++ Library
-+ Jack-Audio-Connection-Kit
 
 ## Running the VST Plugin
 
