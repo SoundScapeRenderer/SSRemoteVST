@@ -8,7 +8,7 @@ Since this is a <b>experimental open source project</b>, any contributions are v
 
 ## Supported Operating Systems
 
-[Linux](https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg)
+![Linux](https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg)
 
 # Installation
 
