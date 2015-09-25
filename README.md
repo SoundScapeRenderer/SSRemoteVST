@@ -8,6 +8,8 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
 
 # Installation
 
+The following is a installation guide written for Linux Distributions. The system that was used for testing the guide is [Fedora 22](https://start.fedoraproject.org/). It may help you compiling the SSRemote VST but in no case asserts to claim completness. 
+
 1. Clone the VST Plugin repository from Github:
 
   ```shell
