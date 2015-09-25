@@ -4,7 +4,11 @@ This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SS
 
 The SSRemote VST plugin was developed for Linux and tested with the [Ardour DAW](http://ardour.org/). Since the Plugin was developed in the light of cross-platform compatibility it might also run under other Operating Systems (OS) and DAWs.
 
-Since this is a <b>experimental project</b>, any contributions are very much welcome!
+Since this is a <b>experimental open source project</b>, any contributions are very much welcome!
+
+## Supported Operating Systems
+
+[Linux](https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg)
 
 # Installation
 
@@ -61,7 +65,9 @@ The VST Plugin requires a config file to successfully establish a TCP/IP connect
 
 The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
 
-# Running the VST Plugin
+# General Information
+
+## Running the VST Plugin
 
 To remotly control the SSR scene from the Plugin the user has to do the following:
 
@@ -117,7 +123,7 @@ All logs of the Plugin will be written in the ```log.txt``` in the root director
 [YYYY-MM-DD HH:mm:SS] [<LOGTYPE>] <Log text>
 ```
 
-## License
+# License
 
 [GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/gpl-3.0.de.html)<br/>
 Version 3, 29 June 2007
@@ -128,5 +134,3 @@ Berlin Institute of Technology<br/>
 http://www.qu.tu-berlin.de/<br/>
 
 For more detailed information, please read the license.txt in the root directory.
-
-
