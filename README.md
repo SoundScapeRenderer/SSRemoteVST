@@ -1,4 +1,4 @@
-# SSRemote VST
+# Introduction
 
 This VST Plugin addresses the need for the automation of [SoundScapeRenderer (SSR)](http://spatialaudio.net/ssr/) scenes from a [Digital Audio Workstation (DAW)](https://en.wikipedia.org/wiki/Digital_audio_workstation).
 
@@ -10,7 +10,34 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
 
 Please read the [installation guide](https://github.com/QULab/SSRemoteVST/blob/manual/INSTALLATION.md).
 
-# Configuration File
+# Configuration
+
+## Environment Variables
+
+Please set the environment variables as follows, since the following environment variables are not only needed for compilation but also for runtime:
+
+  The directory/location of the Steinberg VST3 SDK:
+  
+  ```bash
+  # Steinberg VST3 Audio Plug-Ins SDK
+  export VST3_SDK=/path/to/VST3SDK
+  ```
+
+  The directory/location of the SSRemote VST:
+
+  ```bash
+  # SSRemote VST
+  export SSREMOTE_VST=/path/to/ssremote_vst
+  ```
+
+  The directory/location of the JUCE Framework located in the SSRemote VST:
+  
+  ```bash
+  # SSRemote VST JUCE Framework
+  export JUCE_LIB_CODE=$SSREMOTE_VST/JUCE
+  ```
+
+## XML Configuration File
 
 The VST Plugin requires a config file to successfully establish a TCP/IP connection to the SSR. The user has to create a file called <b>ssremote_config.xml</b> with the following content: 
 
@@ -34,7 +61,7 @@ The VST Plugin requires a config file to successfully establish a TCP/IP connect
 
 The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
 
-## Running the VST Plugin
+# Running the VST Plugin
 
 To remotly control the SSR scene from the Plugin the user has to do the following:
 
