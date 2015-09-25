@@ -54,12 +54,13 @@ The Plugin uses the [C++11 Standard](https://en.wikipedia.org/wiki/C%2B%2B11) wh
   export SSREMOTE_VST=/path/to/ssremote_vst
   ```
 
-  The directory/location of the JUCE Framework located in the SSRemote VST::
+  The directory/location of the JUCE Framework located in the SSRemote VST:
   
   ```bash
   # SSRemote VST JUCE Framework
   export JUCE_LIB_CODE=$SSREMOTE_VST/JUCE
   ```
+
 5. Compile the SSRemote VST Plugin
 
   Go to the folder of the SSRemote VST and compile as follows:
