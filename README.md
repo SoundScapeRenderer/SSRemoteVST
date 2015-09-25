@@ -50,8 +50,22 @@ Since this is a <b>experimental project</b>, any contributions are very much wel
   # apt-get Package Manager
   sudo apt-get install freeglut-devel
   ```
+5. Install the Jack Audio Connection Kit
   
-5. Set the environment variables
+  The SSRemote VST Plguin uses the Jack Audio Connection Kit. Please install the latest Jack Audio Connection Kit Development package of your distribution. For Example:
+
+  ```bash
+  # DNF Package Manager
+  sudo dnf install jack-audio-connection-kit-devel
+  
+  # yum Package Manager
+  sudo yum install jack-audio-connection-kit-devel
+  
+  # apt-get Package Manager
+  sudo apt-get install jack-audio-connection-kit-devel
+  ```
+
+6. Set the environment variables
 
   Please set the following environment variables described as follows:
 
