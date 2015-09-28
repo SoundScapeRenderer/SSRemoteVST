@@ -14,7 +14,7 @@ Please read the [installation guide](https://github.com/QULab/SSRemoteVST/blob/m
 
 ## Environment Variables
 
-Please set the environment variables as follows, since the following environment variables are not only needed for compilation but also for runtime:
+Please set the environment variables as follows, since the following environment variables are not only needed for compilation but also at runtime:
 
   The directory/location of the Steinberg VST3 SDK:
   
