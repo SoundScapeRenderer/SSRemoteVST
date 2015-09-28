@@ -6,10 +6,6 @@ The SSRemote VST plugin was developed for Linux and tested with the [Ardour DAW]
 
 Since this is a <b>experimental open source project</b>, any contributions are very much welcome!
 
-## Supported Operating Systems
-
-![Linux](https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg)
-
 # Installation
 
 Please read the [installation guide](https://github.com/QULab/SSRemoteVST/blob/manual/INSTALLATION.md).
