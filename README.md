@@ -62,7 +62,6 @@ The VST Plugin requires a config file to successfully establish a TCP/IP connect
 The contents of the markups host, port and timeout are just examples which the user may edit regarding his systems and SSR configuration.
 
 # General Information
->>>>>>> master
 
 ## Running the VST Plugin
 
