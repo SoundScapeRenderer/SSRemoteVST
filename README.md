@@ -113,7 +113,8 @@ The Host (DAW) is able to automate the following parameters:
 
 ## Logfiles
 
-All logs of the Plugin will be written in the ```log.txt``` in the root directory and will look as follows:
+The Plug-In logs will be written to the file ```log.txt```, located in the root directory.<br/>
+The logs will look as follows:
 
 ```
 [YYYY-MM-DD HH:mm:SS] [<LOGTYPE>] <Log text>
