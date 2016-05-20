@@ -44,14 +44,14 @@ namespace SSR {
 
       /**
        * Returns a random value between get_minimum() and get_maximum() which
-       * is in general the minimum value of unsigned int (0) and the maximum
+       * in general is the minimum value of unsigned int (0) and the maximum
        * value of unsigned int (4294967295).
        */
       unsigned int operator()() const;
 
       /**
        * Returns a random value between get_minimum() and get_maximum() which
-       * is in general the minimum value of unsigned int (0) and the maximum
+       * in general is the minimum value of unsigned int (0) and the maximum
        * value of unsigned int (4294967295).
        */
       unsigned int generate() const;
